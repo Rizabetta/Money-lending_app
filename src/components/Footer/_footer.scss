@@ -1,0 +1,46 @@
+footer {
+    background-color: #e7e7e7;
+    padding-top: 96px;
+
+    .footer__container {
+        max-width: 1320px; //+2*10
+        padding: 0 10px;
+        margin: 0 auto;
+
+        p,
+        .email {
+            font-family: Ubuntu-500;
+        }
+
+        .footer__info {
+            display: flex;
+            justify-content: space-between;
+
+            .footer_adress {
+                display: flex;
+                flex-direction: column;
+
+                .phone {
+                    font-size: 30px;
+                    font-family: Ubuntu-700;
+                }
+            }
+        }
+
+        .footer__list {
+            display: flex;
+            gap: 32px;
+            font-family: Ubuntu-500;
+            flex-wrap: wrap;
+        }
+    }
+
+}
+
+.hr-line {
+    margin: 20px 0;
+    padding: 0;
+    height: 0;
+    border: none;
+    border-top: 1px solid #FFFFFFCF;
+}

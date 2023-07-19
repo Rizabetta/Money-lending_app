@@ -1,0 +1,37 @@
+.header__inner {
+    display: flex;
+    max-width: 1320px; //+2*10
+    padding: 0 10px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+
+    .header_logo {
+        font-family: Ubuntu-700;
+        font-size: 24px;
+        color: #B4387A
+    }
+
+    .menu__list {
+        display: flex;
+        font-family: Ubuntu-700;
+        gap: 40px;
+
+        .menu__list-link {
+            color: #1D1929
+        }
+    }
+
+}
+
+@media (max-width: 768px) {
+    .header__container {
+        max-width: 640px;
+    }
+}
+
+@media (max-width: 640px) {
+    .menu__list {
+        display: none;
+    }
+}
