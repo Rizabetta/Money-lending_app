@@ -35,18 +35,24 @@
     margin-right: 32px;
 }
 
-.exchangeRate__courses-p {
+.exchangeRate__courses-a {
     font-family: Ubuntu-700;
     font-size: 20px;
     color: #FFFFFF;
-    margin-top: 51px;
 }
 
 .exchangeRate__currency-table {
     margin-top: 32px;
+    margin-bottom: 51px;
+    display: flex;
 }
 
 .exchangeRate__time {
     font-family: Ubuntu-500;
     font-size: 16px;
+}
+
+.exchangeRate__container {
+    display: flex;
+    flex-direction: column;
 }

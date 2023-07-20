@@ -5,14 +5,21 @@
 }
 
 .footer__container {
-    max-width: 1300px; 
+    max-width: 1300px;
     padding: 0 10px;
     margin: 0 auto;
 
     p,
     .email {
         font-family: Ubuntu-500;
+    }
+
+    p {
         padding-bottom: 92px;
+    }
+
+    .email {
+        padding-bottom: 32px;
     }
 }
 
@@ -30,17 +37,21 @@
 .phone {
     font-size: 30px;
     font-family: Ubuntu-700;
+    margin-bottom: 6px;
 }
 
 .footer__list {
     display: flex;
-    gap: 32px;
     font-family: Ubuntu-500;
     flex-wrap: wrap;
 }
 
+.footer__list-item {
+    padding: 0 32px 8px 0;
+}
+
 .hr-line {
-    margin: 20px 0;
+    margin: 20px 0 32px 0;
     padding: 0;
     height: 0;
     border: none;

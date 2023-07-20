@@ -9,12 +9,12 @@
 </head>
 
 <body>
-    <header id="header">
+    <header class="header">
         <div class="header__container">
             <a href="" class="header_logo">NeoBank</a>
             <input type="checkbox" id="burger">
             <label for="burger"></label>
-            <nav class="navigation">
+            <nav class="menu">
                 <ul class="menu__list">
                     <li class="menu__list-item">
                         <a href="" class="menu__list-link">Credit card</a>
@@ -28,22 +28,16 @@
                     <li class="menu__list-item">
                         <a href="" class="menu__list-link">Resources</a>
                     </li>
-                    <li class="menu__list-item">
-                        <a href="" class="menu__list-link">Online Bank</a>
-                    </li>
-                    
                 </ul>
-                
             </nav>
-            
-            <button class="ui__button">Online Bank</button>
+            <button class="defaultButton">Online Bank</button>
         </div>
     </header>
     <main class="main">
         <section class="cardDesign">
             <div>
                 <h1>Choose the design you like and apply for card right now</h1>
-                <button class="ui__button">Choose the card</button>
+                <button class="defaultButton">Choose the card</button>
             </div>
             <div class="cardDesign__container">
                 <img src="../public/assets/svg/card_1.svg" alt="card 1" />
@@ -71,35 +65,40 @@
             <div>
                 <h3>Exchange rate in internet bank</h3>
                 <p class="exchangeRate__currency-p">Currency</p>
-                <div>
-                    <span class="exchangeRate__currency">USD:</span>
-                    <span class="exchangeRate__value">60.78</span>
-                    <span class="exchangeRate__currency">CNY:</span>
-                    <span class="exchangeRate__value">9.08</span>
-                    <span class="exchangeRate__currency">CHF:</span>
-                    <span class="exchangeRate__value">64.78</span>
-                </div>
-                <div class="exchangeRate__currency-table">
-                    <span class="exchangeRate__currency">USD:</span>
-                    <span class="exchangeRate__value">60.78</span>
-                    <span class="exchangeRate__currency">JPY:</span>
-                    <span class="exchangeRate__value">0.46</span>
-                    <span class="exchangeRate__currency">TRY:</span>
-                    <span class="exchangeRate__value">3.39</span>
-                </div>
-                <p class="exchangeRate__courses-p">All courses</p>
+                <ul>
+                    <li></li>
+                </ul>
+                <ul class="exchangeRate__currency-table">
+                    <li class="exchangeRate__currency">USD:</li>
+                    <li class="exchangeRate__value">60.78</li>
+                    <li class="exchangeRate__currency">CNY:</li>
+                    <li class="exchangeRate__value">9.08</li>
+                    <li class="exchangeRate__currency">CHF:</li>
+                    <li class="exchangeRate__value">64.78</li>
+                </ul>
+                <ul class="exchangeRate__currency-table">
+                    <li class="exchangeRate__currency">USD:</li>
+                    <li class="exchangeRate__value">60.78</li>
+                    <li class="exchangeRate__currency">JPY:</li>
+                    <li class="exchangeRate__value">0.46</li>
+                    <li class="exchangeRate__currency">TRY:</li>
+                    <li class="exchangeRate__value">3.39</li>
+                </ul>
+                <a href="" class="exchangeRate__courses-a">All courses</a>
             </div>
-            <div>
-                <p class="exchangeRate__time">Update every 15 minutes, MSC 09.08.2022</p>
+            <div class="exchangeRate__container">
+                <time class="exchangeRate__time">Update every 15 minutes, MSC 09.08.2022</time>
                 <img class="a" src="../public/assets/svg/Pantheon.svg" alt="Pantheon" />
             </div>
         </section>
         <section class="global">
             <h3 class="heading">You can use our services anywhere in the world</h3>
             <p class="paragraph">Withdraw and transfer money online through our application</p>
-            <img src="../public/assets/svg/Huge_Global.svg" alt="Huge Global" />
+            <figure>
+                <img src="../public/assets/svg/Huge_Global.svg" alt="Huge Global" />
+            </figure>
         </section>
-        <section class="news">
+        <!-- <section class="news">
             <h3 class="heading">Current news from the world of finance</h3>
             <p class="paragraph">We update the news feed every 15 minutes. You can learn more by clicking on the news
                 you are
@@ -137,11 +136,11 @@
                 <input type="image" src="../public/assets/svg/ButtonL.svg" />
                 <input type="image" src="../public/assets/svg/ButtonR.svg">
             </div>
-        </section>
+        </section> -->
         <section class="support">
             <p class="support__appeal-1">Support</p>
-            <p class="support__appeal-2">Subscribe Newsletter & get</p>
-            <p class="support__appeal-3">Bank News</p>
+            <a class="support__appeal-2">Subscribe Newsletter & get</a>
+            <a class="support__appeal-3">Bank News</a>
             <form class="support__search-form">
                 <div class="support__email">
                     <img src="../public/assets/svg/Email.svg" alt="Email" />
@@ -155,9 +154,9 @@
     <footer class="footer">
         <div class="footer__container">
             <div class="footer__info">
-                <img src="../public/assets/svg/logo.svg" class="footer_logo" alt="" />
+                <a href=""><img src="../public/assets/svg/logo.svg" class="footer_logo" alt="" /></a>
                 <div class="footer_adress">
-                    <a class="phone" href="tel.:+74959842513">+7 (495) 984 25 13</a>
+                    <a class="phone" href="tel:+74959842513">+7 (495) 984 25 13</a>
                     <a class="email" href="mailto:info@neoflex.ru">info@neoflex.ru</a>
                 </div>
             </div>
@@ -199,7 +198,6 @@
                 cookies, please change your browser settings</p>
         </div>
     </footer>
-    <script type="module" src="/src/index.js"></script>
 </body>
 
 </html>

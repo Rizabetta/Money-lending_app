@@ -14,7 +14,14 @@
 .footer__container p,
 .footer__container .email {
   font-family: Ubuntu-500;
+}
+
+.footer__container p {
   padding-bottom: 92px;
+}
+
+.footer__container .email {
+  padding-bottom: 32px;
 }
 
 .footer__info {
@@ -42,20 +49,24 @@
 .phone {
   font-size: 30px;
   font-family: Ubuntu-700;
+  margin-bottom: 6px;
 }
 
 .footer__list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 32px;
   font-family: Ubuntu-500;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
 
+.footer__list-item {
+  padding: 0 32px 8px 0;
+}
+
 .hr-line {
-  margin: 20px 0;
+  margin: 20px 0 32px 0;
   padding: 0;
   height: 0;
   border: none;
@@ -161,7 +172,7 @@
   }
 }
 
-.ui__button {
+.defaultButton {
   background-color: #003CFF;
   border-radius: 16px;
   border: none;
@@ -242,6 +253,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-size: 14px;
 }
 
 .global,
@@ -349,12 +361,14 @@
   font-size: 30px;
   font-family: Ubuntu-700;
   margin-top: 30px;
+  display: block;
 }
 
 .support__appeal-3 {
   font-family: Ubuntu-500;
   font-size: 30px;
   margin-top: 27px;
+  display: block;
 }
 
 .support__search-form {
@@ -456,20 +470,33 @@
   margin-right: 32px;
 }
 
-.exchangeRate__courses-p {
+.exchangeRate__courses-a {
   font-family: Ubuntu-700;
   font-size: 20px;
   color: #FFFFFF;
-  margin-top: 51px;
 }
 
 .exchangeRate__currency-table {
   margin-top: 32px;
+  margin-bottom: 51px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .exchangeRate__time {
   font-family: Ubuntu-500;
   font-size: 16px;
+}
+
+.exchangeRate__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 @font-face {
