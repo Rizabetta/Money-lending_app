@@ -1,0 +1,52 @@
+.exchangeRate {
+    border-radius: 28px;
+    background: linear-gradient(#F4F4F4E5, #B2B2B2CC);
+    padding: 32px;
+    margin-top: 48px;
+    display: flex;
+    justify-content: space-between;
+
+    h3 {
+        font-family: Ubuntu-500;
+        font-size: 30px;
+    }
+
+    img {
+        margin: 79px 0 0 160px;
+    }
+}
+
+.exchangeRate__currency-p {
+    font-family: Ubuntu-500;
+    font-size: 20px;
+    margin: 24px 0 32px 0;
+}
+
+.exchangeRate__currency {
+    font-family: Ubuntu-700;
+    font-size: 20px;
+    color: #808080;
+    margin-right: 20px;
+}
+
+.exchangeRate__value {
+    font-family: Ubuntu-700;
+    font-size: 20px;
+    margin-right: 32px;
+}
+
+.exchangeRate__courses-p {
+    font-family: Ubuntu-700;
+    font-size: 20px;
+    color: #FFFFFF;
+    margin-top: 51px;
+}
+
+.exchangeRate__currency-table {
+    margin-top: 32px;
+}
+
+.exchangeRate__time {
+    font-family: Ubuntu-500;
+    font-size: 16px;
+}
