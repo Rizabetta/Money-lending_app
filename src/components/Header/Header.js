@@ -1,12 +1,6 @@
- const Header = () => {
-    
-    let header = document.getElementById('header');
-    // <span>NeoBank</span>
-    // <nav>
-    //     <ul>
+const Header = () => {
 
-    //     </ul>
-    // </nav>
+    let header = document.getElementById('header');
 }
 
 export default Header;

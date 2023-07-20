@@ -22,19 +22,32 @@
     font-family: Rubik-500;
     src: url(../../public/assets/fonts/Rubik/Rubik-Medium.ttf);
 }
+
+@font-face {
+    font-family: NunitoSans-400;
+    src: url(../../public/assets/fonts/NunitoSans/NunitoSans_10pt-Regular.ttf);
+}
+
 html {
     box-sizing: border-box;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    border: none;
 }
 
 *,
 *::after,
 *::before {
-    box-sizing: inherit;
+    box-sizing: border-box;
 }
 
 body {
     background-color: #F5F4FF;
 }
+
 a {
     text-decoration: none;
     color: inherit;

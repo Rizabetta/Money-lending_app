@@ -10,9 +10,11 @@
 
 <body>
     <header id="header">
-        <div class="header__container header__inner">
+        <div class="header__container">
             <a href="" class="header_logo">NeoBank</a>
-            <nav>
+            <input type="checkbox" id="burger">
+            <label for="burger"></label>
+            <nav class="navigation">
                 <ul class="menu__list">
                     <li class="menu__list-item">
                         <a href="" class="menu__list-link">Credit card</a>
@@ -29,79 +31,135 @@
                     <li class="menu__list-item">
                         <a href="" class="menu__list-link">Online Bank</a>
                     </li>
+                    
                 </ul>
+                
             </nav>
+            
             <button class="ui__button">Online Bank</button>
         </div>
     </header>
-    <main>
+    <main class="main">
         <section class="cardDesign">
             <div>
                 <h1>Choose the design you like and apply for card right now</h1>
                 <button class="ui__button">Choose the card</button>
             </div>
-            <div>
-                <img src="../public/assets/svg/card_1.svg" class="" />
-                <img src="../public/assets/svg/card_2.svg" class="" />
-                <img src="../public/assets/svg/card_3.svg" class="" />
-                <img src="../public/assets/svg/card_4.svg" class="" />
+            <div class="cardDesign__container">
+                <img src="../public/assets/svg/card_1.svg" alt="card 1" />
+                <img src="../public/assets/svg/card_2.svg" alt="card 2" />
+                <img src="../public/assets/svg/card_3.svg" alt="card 3" />
+                <img src="../public/assets/svg/card_4.svg" alt="card 4" />
             </div>
         </section>
         <section class="features">
-            <img src="../public/assets/svg/Illustration_2.svg" class="" />
+            <img src="../public/assets/svg/Illustration_2.svg" class="" alt="Illustration" />
             <div class="features__item">
-                <h3>We Provide Many Features You Can Use</h3>
+                <h2>We Provide Many Features You Can Use</h2>
                 <p>You can explore the features that we provide with fun and have their own functions each feature</p>
                 <ul>
-                    <li><img src="../public/assets/svg/Check_mark.svg" />Powerfull online protection.</li>
-                    <li><img src="../public/assets/svg/Check_mark.svg" />Cashback without borders.</li>
-                    <li><img src="../public/assets/svg/Check_mark.svg" />Personal design</li>
-                    <li><img src="../public/assets/svg/Check_mark.svg" />Work anywhere in the world</li>
+                    <li><img src="../public/assets/svg/Check_mark.svg" alt="Check mark" />Powerfull online protection.
+                    </li>
+                    <li><img src="../public/assets/svg/Check_mark.svg" alt="Check mark" />Cashback without borders.</li>
+                    <li><img src="../public/assets/svg/Check_mark.svg" alt="Check mark" />Personal design</li>
+                    <li><img src="../public/assets/svg/Check_mark.svg" alt="Check mark" />Work anywhere in the world
+                    </li>
                 </ul>
             </div>
         </section>
         <section class="exchangeRate">
-            <h3>Exchange rate in internet bank</h3>
-            <p>Currency</p>
-            <span>USD:</span>
-            <span>60.78</span>
-            <span>CNY:</span>
-            <span>9.08</span>
-            <span>CHF:</span>
-            <span>64.78</span>
-            <span>USD:</span>
-            <span>60.78</span>
-            <span>JPY:</span>
-            <span>0.46</span>
-            <span>TRY:</span>
-            <span>3.39</span>
-            <p>All courses</p>
-            <time>Update every 15 minutes, MSC 09.08.2022</time>
-            <img src="../public/assets/svg/Pantheon.svg" />
+            <div>
+                <h3>Exchange rate in internet bank</h3>
+                <p class="exchangeRate__currency-p">Currency</p>
+                <div>
+                    <span class="exchangeRate__currency">USD:</span>
+                    <span class="exchangeRate__value">60.78</span>
+                    <span class="exchangeRate__currency">CNY:</span>
+                    <span class="exchangeRate__value">9.08</span>
+                    <span class="exchangeRate__currency">CHF:</span>
+                    <span class="exchangeRate__value">64.78</span>
+                </div>
+                <div class="exchangeRate__currency-table">
+                    <span class="exchangeRate__currency">USD:</span>
+                    <span class="exchangeRate__value">60.78</span>
+                    <span class="exchangeRate__currency">JPY:</span>
+                    <span class="exchangeRate__value">0.46</span>
+                    <span class="exchangeRate__currency">TRY:</span>
+                    <span class="exchangeRate__value">3.39</span>
+                </div>
+                <p class="exchangeRate__courses-p">All courses</p>
+            </div>
+            <div>
+                <p>Update every 15 minutes, MSC 09.08.2022</p>
+                <img class="a" src="../public/assets/svg/Pantheon.svg" alt="Pantheon" />
+            </div>
+        </section>
+        <section class="global">
+            <h3 class="heading">You can use our services anywhere in the world</h3>
+            <p class="paragraph">Withdraw and transfer money online through our application</p>
+            <img src="../public/assets/svg/Huge_Global.svg" alt="Huge Global" />
         </section>
         <section class="news">
-            <p>We update the news feed every 15 minutes. You can learn more by clicking on the news you are interested
-                in.</p>
+            <h3 class="heading">Current news from the world of finance</h3>
+            <p class="paragraph">We update the news feed every 15 minutes. You can learn more by clicking on the news
+                you are
+                interestedin.</p>
+            <div class="news_container">
+                <div class="news__card">
+                    <img src="../public/assets/png/news_1.png" alt="" class="card__image" />
+                    <h4 class="card__h4">Ethereum just pulled off its
+                        final test run ahead of one
+                        of the most important
+                        events in crypto - CN</h4>
+                    <p class="card__description">Ethereum is moving closer to
+                        adopting a proof-of-stake model
+                        for its network, which is less
+                        energy i</p>
+                </div>
+                <div class="news__card">
+                    <img src="../public/assets/png/news_2.png" alt="" class="card__image" />
+                    <h4 class="card__h4">Jim Cramer explains what Wednesday's market action reveals about the
+                        state of
+                        inflation - CNBC Telev</h4>
+                    <p class="card__description">The "Mad Money" host gave his take on what the market action on
+                        Wednesday
+                        suggests about inflation's</p>
+                </div>
+                <div class="news__card">
+                    <img src="../public/assets/png/news_3.png" alt="" class="card__image" />
+                    <h4 class="card__h4">Dow futures tick higher after Wednesday's market rally - CNBC</h4>
+                    <p class="card__description">Dow futures inched higher in overnight trading after all the major
+                        averages
+                        posted sharp gains on th</p>
+                </div>
+            </div>
+            <div class="news__buttons">
+                <input type="image" src="../public/assets/svg/ButtonL.svg" />
+                <input type="image" src="../public/assets/svg/ButtonR.svg">
+            </div>
         </section>
         <section class="support">
             <p class="support__appeal-1">Support</p>
             <p class="support__appeal-2">Subscribe Newsletter & get</p>
             <p class="support__appeal-3">Bank News</p>
             <form class="support__search-form">
-                <img src="../public/assets/svg/Email.svg" />
-                <input class="support__search-form__input" type="input" >
-                <button class="support__search-form__button" ><img src="../public/assets/svg/Subscribe.svg" /> Subscribe</button>
+                <div class="support__email">
+                    <img src="../public/assets/svg/Email.svg" alt="Email" />
+                    <input placeholder="Your email" class="support__search-form__input">
+                </div>
+                <button class="support__search-form__button"><img src="../public/assets/svg/Subscribe.svg" />
+                    Subscribe</button>
             </form>
         </section>
     </main>
     <footer class="footer">
         <div class="footer__container">
             <div class="footer__info">
-                <img src="../public/assets/svg/logo.svg" class="footer_logo" />
+                <img src="../public/assets/svg/logo.svg" class="footer_logo" alt="" />
                 <div class="footer_adress">
-                    <a class="phone" href="tel.: +74959842513">+7 (495) 984 25 13</a>
+                    <a class="phone" href="tel.:+74959842513">+7 (495) 984 25 13</a>
                     <a class="email" href="mailto:info@neoflex.ru">info@neoflex.ru</a>
-                </div>   
+                </div>
             </div>
             <ul class="footer__list">
                 <li class="footer__list-item">

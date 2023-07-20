@@ -1,29 +1,35 @@
-footer {
+@charset "UTF-8";
+.footer {
   background-color: #e7e7e7;
   padding-top: 96px;
+  margin-top: 98px;
 }
 
-footer .footer__container {
-  max-width: 1320px;
+.footer__container {
+  max-width: 1300px;
   padding: 0 10px;
   margin: 0 auto;
 }
 
-footer .footer__container p,
-footer .footer__container .email {
+.footer__container p,
+.footer__container .email {
   font-family: Ubuntu-500;
+  padding-bottom: 92px;
 }
 
-footer .footer__container .footer__info {
+.footer__info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
 }
 
-footer .footer__container .footer__info .footer_adress {
+.footer_adress {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -33,12 +39,12 @@ footer .footer__container .footer__info .footer_adress {
           flex-direction: column;
 }
 
-footer .footer__container .footer__info .footer_adress .phone {
+.phone {
   font-size: 30px;
   font-family: Ubuntu-700;
 }
 
-footer .footer__container .footer__list {
+.footer__list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -56,13 +62,13 @@ footer .footer__container .footer__list {
   border-top: 1px solid #FFFFFFCF;
 }
 
-.header__inner {
+.header__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-width: 1320px;
+  max-width: 1300px;
   padding: 0 10px;
-  margin: 0 auto;
+  margin: 7px auto;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -71,13 +77,13 @@ footer .footer__container .footer__list {
           justify-content: space-between;
 }
 
-.header__inner .header_logo {
+.header_logo {
   font-family: Ubuntu-700;
   font-size: 24px;
   color: #B4387A;
 }
 
-.header__inner .menu__list {
+.menu__list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -85,19 +91,73 @@ footer .footer__container .footer__list {
   gap: 40px;
 }
 
-.header__inner .menu__list .menu__list-link {
+.menu__list-link {
   color: #1D1929;
 }
 
-@media (max-width: 768px) {
-  .header__container {
-    max-width: 640px;
+#burger,
+[for=burger] {
+  display: none;
+}
+
+@media screen and (max-width: 720px) {
+  .container {
+    width: 80%;
+  }
+  [for=burger] {
+    display: block;
+    width: 30px;
+    text-align: center;
+    top: 10px;
+  }
+  [for=burger]::before {
+    content: '☰';
+  }
+  nav {
+    display: none;
+    position: fixed;
+    margin-top: 300px;
+    background: #F5F4FF;
+    width: 80%;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  }
+  nav ul {
+    padding: 0;
+    list-style-type: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    row-gap: 30px;
+  }
+  #burger:checked + label + nav {
+    display: block;
+    -webkit-animation: show .5s ease;
+            animation: show .5s ease;
+  }
+  #burger:checked + [for=burger]::before {
+    content: '☓';
   }
 }
 
-@media (max-width: 640px) {
-  .menu__list {
-    display: none;
+@-webkit-keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -116,15 +176,25 @@ footer .footer__container .footer__list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-top: 131px;
 }
 
 .cardDesign h1 {
   font-family: Ubuntu-700;
   font-size: 48px;
+  margin-right: 160px;
 }
 
-main {
-  max-width: 1320px;
+.cardDesign button {
+  margin-top: 36px;
+}
+
+.cardDesign__container img {
+  margin: 8px;
+}
+
+.main {
+  max-width: 1300px;
   padding: 0 10px;
   margin: 0 auto;
 }
@@ -139,24 +209,36 @@ main {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-top: 112px;
 }
 
-.features .features__item h3 {
+.features__item h2 {
   font-family: Rubik-500;
   font-size: 35px;
 }
 
-.features .features__item img {
+.features__item img {
   margin-right: 18px;
 }
 
-.features .features__item p,
-.features .features__item li {
+.features__item ul {
+  margin-top: 25px;
+}
+
+.features__item p {
+  margin-top: 20px;
+}
+
+.features__item p,
+.features__item li {
   font-family: Rubik-400;
 }
 
-.features .features__item li {
+.features__item li {
   padding-bottom: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -167,39 +249,222 @@ main {
   background: -webkit-gradient(linear, left top, left bottom, from(#F4F4F4E5), to(#B2B2B2CC));
   background: linear-gradient(#F4F4F4E5, #B2B2B2CC);
   padding: 32px;
+  margin-top: 48px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.exchangeRate h3 {
+  font-family: Ubuntu-500;
+  font-size: 30px;
+}
+
+.exchangeRate img {
+  margin: 79px 0 0 160px;
+}
+
+.exchangeRate__currency-p {
+  font-family: Ubuntu-500;
+  font-size: 20px;
+  margin: 24px 0 32px 0;
+}
+
+.exchangeRate__currency {
+  font-family: Ubuntu-700;
+  font-size: 20px;
+  color: #808080;
+  margin-right: 20px;
+}
+
+.exchangeRate__value {
+  font-family: Ubuntu-700;
+  font-size: 20px;
+  margin-right: 32px;
+}
+
+.exchangeRate__courses-p {
+  font-family: Ubuntu-700;
+  font-size: 20px;
+  color: #FFFFFF;
+  margin-top: 51px;
+}
+
+.exchangeRate__currency-table {
+  margin-top: 32px;
+}
+
+.global,
+.news {
+  text-align: center;
+  font-family: Ubuntu-500;
+  margin-top: 48px;
+}
+
+.global img {
+  margin-top: 48px;
+}
+
+.news_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 80px;
+  margin-top: 46px;
+}
+
+.news__card {
+  background-color: #FFFFFF;
+  border-radius: 28px;
+  -webkit-box-shadow: 0px 2px 4px 0 #c5c4cd;
+          box-shadow: 0px 2px 4px 0 #c5c4cd;
+  border: 1px solid #ededed;
+  padding: 32px;
+  font-family: Ubuntu-500;
+  width: 320px;
+}
+
+.news__card h4 {
+  font-size: 20px;
+  margin-top: 32px;
+}
+
+.news__card p {
+  font-size: 16px;
+  margin-top: 32px;
+}
+
+.news__buttons {
+  text-align: right;
+  margin-top: 48px;
+}
+
+.heading {
+  font-size: 30px;
+  margin-top: 21px;
+}
+
+.paragraph {
+  font-size: 16px;
+  margin-top: 21px;
 }
 
 .support {
   text-align: center;
 }
 
-.support .support__appeal-1 {
+.support__appeal-1 {
   color: #EB801D;
   font-family: Ubuntu-700;
   font-size: 24px;
+  margin-top: 64px;
 }
 
-.support .support__appeal-2 {
+.support__appeal-2 {
   font-size: 30px;
   font-family: Ubuntu-700;
+  margin-top: 30px;
 }
 
-.support .support__appeal-3 {
+.support__appeal-3 {
   font-family: Ubuntu-500;
   font-size: 30px;
+  margin-top: 27px;
 }
 
 .support__search-form {
+  margin: 62px auto;
   background-color: #FFFFFF;
+  width: 525px;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 10px 20px 0 #e5e4f3;
+          box-shadow: 0px 10px 20px 0 #e5e4f3;
+  padding: 22px 32px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: NunitoSans-400;
 }
 
-.support__search-form .support__search-form__button {
+.support__search-form button {
+  font-family: Ubuntu-700;
+  font-size: 16px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+}
+
+.support__search-form button img {
+  margin-right: 10px;
+}
+
+.support__email {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.support__email input {
+  font-size: 20px;
+  margin-left: 10px;
+  outline: none;
+}
+
+.support__search-form__button {
   background-color: #686DF1;
   border-radius: 20px;
   font-family: Ubuntu-700;
   color: #FFFFFF;
   padding: 13px;
   border: none;
+}
+
+@media (max-width: 1290px) {
+  .cardDesign {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 790px) {
+  .features {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 764px) {
+  .news_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media (max-width: 1100px) {
+  .news_container {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .global img {
+    width: 500px;
+  }
 }
 
 @font-face {
@@ -222,16 +487,27 @@ main {
   src: url(../../public/assets/fonts/Rubik/Rubik-Medium.ttf);
 }
 
+@font-face {
+  font-family: NunitoSans-400;
+  src: url(../../public/assets/fonts/NunitoSans/NunitoSans_10pt-Regular.ttf);
+}
+
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
 *,
 *::after,
 *::before {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
