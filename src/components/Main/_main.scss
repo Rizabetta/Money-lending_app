@@ -30,6 +30,10 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 112px;
+
+    img {
+        margin-right: 74px;
+    }
 }
 
 .features__item {
@@ -122,15 +126,24 @@
 
     .cardDesign {
         flex-wrap: wrap;
+
+        &__container {
+            margin-top: 36px;
+        }
     }
 }
 
-@media (max-width: 790px) {
+@media (max-width: 920px) {
 
     .features {
         flex-wrap: wrap;
+
+        h2 {
+            margin-top: 48px;
+        }
     }
 }
+
 
 @media (max-width: 764px) {
 

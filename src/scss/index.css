@@ -235,6 +235,10 @@
   margin-top: 112px;
 }
 
+.features img {
+  margin-right: 74px;
+}
+
 .features__item h2 {
   font-family: Rubik-500;
   font-size: 35px;
@@ -328,12 +332,18 @@
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
+  .cardDesign__container {
+    margin-top: 36px;
+  }
 }
 
-@media (max-width: 790px) {
+@media (max-width: 920px) {
   .features {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+  }
+  .features h2 {
+    margin-top: 48px;
   }
 }
 
@@ -509,6 +519,26 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+@media (max-width: 900px) {
+  .exchangeRate {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .exchangeRate .exchangeRate__container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: end;
+  }
+  .exchangeRate img {
+    margin: 32px 20px 0 20px;
+    width: 50px;
+  }
 }
 
 @font-face {

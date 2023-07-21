@@ -56,3 +56,19 @@
     display: flex;
     flex-direction: column;
 }
+
+@media (max-width: 900px) {
+    .exchangeRate {
+        flex-wrap: wrap;
+        
+        .exchangeRate__container {
+            flex-direction: row;
+            align-items: end;
+        }
+
+        img {
+            margin: 32px 20px 0 20px;
+            width: 50px;
+        }
+    }
+}
