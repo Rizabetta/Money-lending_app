@@ -104,6 +104,12 @@
 
 .menu__list-link {
   color: #1D1929;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.menu__list-link:hover {
+  color: #B2A35F;
 }
 
 #burger,
@@ -181,6 +187,12 @@
   color: #FFFFFF;
   padding: 16px;
   cursor: pointer;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.defaultButton:hover {
+  background-color: #7796C0;
 }
 
 .main {
@@ -524,11 +536,6 @@
   src: url(../../public/assets/fonts/NunitoSans/NunitoSans_10pt-Regular.ttf);
 }
 
-html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
 * {
   padding: 0px;
   margin: 0px;
@@ -544,14 +551,5 @@ html {
 
 body {
   background-color: #F5F4FF;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul {
-  list-style-type: none;
 }
 /*# sourceMappingURL=index.css.map */
