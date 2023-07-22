@@ -73,6 +73,13 @@
   border-top: 1px solid #FFFFFFCF;
 }
 
+@media (max-width: 470px) {
+  .footer__info {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
 .header__container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -135,11 +142,16 @@
     position: fixed;
     margin-top: 300px;
     background: #F5F4FF;
-    width: 80%;
+    width: 55%;
     -webkit-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
+    padding: 12px;
+    -webkit-box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.2);
+    opacity: 99%;
+    border-radius: 20px;
   }
   nav ul {
     padding: 0;
@@ -156,7 +168,13 @@
             animation: show .5s ease;
   }
   #burger:checked + [for=burger]::before {
-    content: '☓';
+    content: ' ☓ ';
+    position: fixed;
+    background: #F5F4FF;
+    -webkit-box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.2);
+    padding: 5px 8px;
+    border-radius: 20px;
   }
 }
 
@@ -332,8 +350,21 @@
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
+  .cardDesign h1 {
+    margin-right: 0;
+  }
   .cardDesign__container {
     margin-top: 36px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .news_container {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .global img {
+    width: 500px;
   }
 }
 
@@ -341,6 +372,15 @@
   .features {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .features .features__illustration {
+    margin-right: 0;
   }
   .features h2 {
     margin-top: 48px;
@@ -358,13 +398,18 @@
   }
 }
 
-@media (max-width: 1100px) {
-  .news_container {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+@media (max-width: 588px) {
+  .features__illustration {
+    width: 350px;
+  }
+}
+
+@media (max-width: 515px) {
+  .cardDesign h1 {
+    font-size: 35px;
   }
   .global img {
-    width: 500px;
+    width: 350px;
   }
 }
 
@@ -450,6 +495,21 @@
   border: none;
 }
 
+@media (max-width: 560px) {
+  .support__search-form {
+    width: 380px;
+    padding: 12px;
+    -webkit-transition: ease all .6s;
+    transition: ease all .6s;
+  }
+  .support__search-form img {
+    display: none;
+  }
+  .support__search-form button {
+    border-radius: 15px;
+  }
+}
+
 .exchangeRate {
   border-radius: 28px;
   background: -webkit-gradient(linear, left top, left bottom, from(#F4F4F4E5), to(#B2B2B2CC));
@@ -523,6 +583,10 @@
 
 @media (max-width: 900px) {
   .exchangeRate {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .exchangeRate ul {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }

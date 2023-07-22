@@ -66,3 +66,21 @@
     padding: 13px;
     border: none;
 }
+
+@media (max-width: 560px) {
+
+    .support__search-form {
+        width: 380px;
+        padding: 12px;
+        transition: ease all .6s;
+
+        img {
+            display: none;
+        }
+
+        button {
+            border-radius: 15px;
+        }
+    }
+
+}

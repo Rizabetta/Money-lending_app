@@ -61,6 +61,10 @@
     .exchangeRate {
         flex-wrap: wrap;
         
+        ul {
+            flex-wrap: wrap;
+        }
+
         .exchangeRate__container {
             flex-direction: row;
             align-items: end;
