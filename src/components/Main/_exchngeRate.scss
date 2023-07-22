@@ -14,12 +14,28 @@
     img {
         margin: 79px 0 0 160px;
     }
-}
 
-.exchangeRate__currency-p {
-    font-family: Ubuntu-500;
-    font-size: 20px;
-    margin: 24px 0 32px 0;
+    &__container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__value {
+        font-family: Ubuntu-700;
+        font-size: 20px;
+        margin-right: 32px;
+    }
+
+    &__courses-a {
+        font-family: Ubuntu-700;
+        font-size: 20px;
+        color: #FFFFFF;
+    }
+
+    &__time {
+        font-family: Ubuntu-500;
+        font-size: 16px;
+    }
 }
 
 .exchangeRate__currency {
@@ -27,45 +43,29 @@
     font-size: 20px;
     color: #808080;
     margin-right: 20px;
-}
 
-.exchangeRate__value {
-    font-family: Ubuntu-700;
-    font-size: 20px;
-    margin-right: 32px;
-}
+    &-p {
+        font-family: Ubuntu-500;
+        font-size: 20px;
+        margin: 24px 0 32px 0;
+    }
 
-.exchangeRate__courses-a {
-    font-family: Ubuntu-700;
-    font-size: 20px;
-    color: #FFFFFF;
-}
-
-.exchangeRate__currency-table {
-    margin-top: 32px;
-    margin-bottom: 51px;
-    display: flex;
-}
-
-.exchangeRate__time {
-    font-family: Ubuntu-500;
-    font-size: 16px;
-}
-
-.exchangeRate__container {
-    display: flex;
-    flex-direction: column;
+    &-table {
+        margin-top: 32px;
+        margin-bottom: 51px;
+        display: flex;
+    }
 }
 
 @media (max-width: 900px) {
     .exchangeRate {
         flex-wrap: wrap;
-        
+
         ul {
             flex-wrap: wrap;
         }
 
-        .exchangeRate__container {
+        &__container {
             flex-direction: row;
             align-items: end;
         }

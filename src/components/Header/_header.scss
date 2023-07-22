@@ -17,15 +17,15 @@
     display: flex;
     font-family: Ubuntu-700;
     gap: 40px;
-}
 
-.menu__list-link {
-    color: #1D1929;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    &-link {
+        color: #1D1929;
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.2s ease;
 
-    &:hover {
-        color: #B2A35F;
+        &:hover {
+            color: #B2A35F;
+        }
     }
 }
 
@@ -62,13 +62,13 @@
         box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.2);
         opacity: 99%;
         border-radius: 20px;
-    }
 
-    nav ul {
-        padding: 0;
-        list-style-type: none;
-        flex-direction: column;
-        row-gap: 30px;
+        ul {
+            padding: 0;
+            list-style-type: none;
+            flex-direction: column;
+            row-gap: 30px;
+        }
     }
 
     #burger:checked+label+nav {

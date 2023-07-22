@@ -46,12 +46,6 @@
           flex-direction: column;
 }
 
-.phone {
-  font-size: 30px;
-  font-family: Ubuntu-700;
-  margin-bottom: 6px;
-}
-
 .footer__list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -63,6 +57,12 @@
 
 .footer__list-item {
   padding: 0 32px 8px 0;
+}
+
+.phone {
+  font-size: 30px;
+  font-family: Ubuntu-700;
+  margin-bottom: 6px;
 }
 
 .hr-line {
@@ -112,7 +112,8 @@
 .menu__list-link {
   color: #1D1929;
   -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .menu__list-link:hover {
@@ -206,7 +207,8 @@
   padding: 16px;
   cursor: pointer;
   -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .defaultButton:hover {
@@ -379,7 +381,7 @@
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .features .features__illustration {
+  .features__illustration {
     margin-right: 0;
   }
   .features h2 {
@@ -417,6 +419,19 @@
   text-align: center;
 }
 
+.support a {
+  cursor: pointer;
+}
+
+.support label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .support__appeal-1 {
   color: #EB801D;
   font-family: Ubuntu-700;
@@ -436,6 +451,25 @@
   font-size: 30px;
   margin-top: 27px;
   display: block;
+}
+
+.support__email {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.support__email img {
+  cursor: pointer;
+}
+
+.support__email input {
+  font-size: 20px;
+  margin-left: 10px;
+  outline: none;
 }
 
 .support__search-form {
@@ -469,21 +503,6 @@
 
 .support__search-form button img {
   margin-right: 10px;
-}
-
-.support__email {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.support__email input {
-  font-size: 20px;
-  margin-left: 10px;
-  outline: none;
 }
 
 .support__search-form__button {
@@ -533,17 +552,14 @@
   margin: 79px 0 0 160px;
 }
 
-.exchangeRate__currency-p {
-  font-family: Ubuntu-500;
-  font-size: 20px;
-  margin: 24px 0 32px 0;
-}
-
-.exchangeRate__currency {
-  font-family: Ubuntu-700;
-  font-size: 20px;
-  color: #808080;
-  margin-right: 20px;
+.exchangeRate__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .exchangeRate__value {
@@ -558,27 +574,30 @@
   color: #FFFFFF;
 }
 
+.exchangeRate__time {
+  font-family: Ubuntu-500;
+  font-size: 16px;
+}
+
+.exchangeRate__currency {
+  font-family: Ubuntu-700;
+  font-size: 20px;
+  color: #808080;
+  margin-right: 20px;
+}
+
+.exchangeRate__currency-p {
+  font-family: Ubuntu-500;
+  font-size: 20px;
+  margin: 24px 0 32px 0;
+}
+
 .exchangeRate__currency-table {
   margin-top: 32px;
   margin-bottom: 51px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.exchangeRate__time {
-  font-family: Ubuntu-500;
-  font-size: 16px;
-}
-
-.exchangeRate__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
 }
 
 @media (max-width: 900px) {
@@ -590,7 +609,7 @@
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-  .exchangeRate .exchangeRate__container {
+  .exchangeRate__container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
