@@ -1,3 +1,8 @@
+@mixin family-size ($family, $size) {
+    font-family: $family;
+    font-size: $size;
+}
+
 .exchangeRate {
     border-radius: 28px;
     background: linear-gradient(#F4F4F4E5, #B2B2B2CC);
@@ -7,8 +12,7 @@
     justify-content: space-between;
 
     h3 {
-        font-family: Ubuntu-500;
-        font-size: 30px;
+        @include family-size(Ubuntu-500, 30px)
     }
 
     img {
@@ -21,14 +25,12 @@
     }
 
     &__value {
-        font-family: Ubuntu-700;
-        font-size: 20px;
+        @include family-size(Ubuntu-700, 20px);
         margin-right: 32px;
     }
 
     &__courses-a {
-        font-family: Ubuntu-700;
-        font-size: 20px;
+        @include family-size(Ubuntu-700, 20px);
         color: #FFFFFF;
 
         &:hover {
@@ -38,26 +40,22 @@
     }
 
     &__time {
-        font-family: Ubuntu-500;
-        font-size: 16px;
+        @include family-size(Ubuntu-500, 16px);
     }
 }
 
 .exchangeRate__currency {
-    font-family: Ubuntu-700;
-    font-size: 20px;
+    @include family-size(Ubuntu-700, 20px);
     color: #808080;
     margin-right: 20px;
 
     &-p {
-        font-family: Ubuntu-500;
-        font-size: 20px;
+        @include family-size(Ubuntu-500, 20px);
         margin: 24px 0 32px 0;
     }
 
     &-table {
-        margin-top: 32px;
-        margin-bottom: 51px;
+        margin: 32px 0 51px 0;
         display: flex;
     }
 }

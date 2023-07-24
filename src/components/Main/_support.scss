@@ -1,3 +1,14 @@
+@mixin family-margin ($family, $size, $marginTop) {
+    font-family: $family;
+    font-size: $size;
+    margin-top: $marginTop;
+}
+
+@mixin display-property ($property: align-items, $ltr-value: center) {
+    display: flex;
+    #{$property}: $ltr-value;
+}
+
 .support {
     text-align: center;
 
@@ -6,26 +17,21 @@
     }
 
     label {
-        display: flex;
-        align-items: center;
+        @include display-property();
     }
 
     &__appeal-1 {
         color: #EB801D;
-        font-family: Ubuntu-700;
-        font-size: 24px;
-        margin-top: 64px;
+        @include family-margin(Ubuntu-700, 24px, 64px);
     }
 
     &__appeal-2 {
-        font-family: Ubuntu-700;
-        margin-top: 30px;
+        @include family-margin(Ubuntu-700, 30px, 30px);
     }
 
     &__appeal-2,
     &__appeal-3 {
         display: block;
-        font-size: 30px;
 
         &:hover {
             transition: all 0.2s ease;
@@ -34,8 +40,7 @@
     }
 
     &__appeal-3 {
-        font-family: Ubuntu-500;
-        margin-top: 27px;
+        @include family-margin(Ubuntu-500, 30px, 27px);
     }
 }
 
@@ -44,8 +49,7 @@
         cursor: pointer;
     }
 
-    display: flex;
-    align-items: center;
+    @include display-property();
 
     input {
         font-size: 20px;
@@ -61,15 +65,13 @@
     border-radius: 20px;
     box-shadow: 0px 10px 20px 0 rgb(229, 228, 243);
     padding: 22px 32px;
-    display: flex;
-    justify-content: space-between;
     font-family: NunitoSans-400;
+    @include display-property(justify-content, space-between);
 
     button {
         font-family: Ubuntu-700;
         font-size: 16px;
-        align-items: center;
-        display: flex;
+        @include display-property();
         cursor: pointer;
 
         &:focus {
@@ -92,7 +94,6 @@
 
 }
 
-
 @media (max-width: 560px) {
     .support__search-form {
         width: 380px;
@@ -107,5 +108,4 @@
             border-radius: 15px;
         }
     }
-
 }
