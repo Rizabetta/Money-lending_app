@@ -30,6 +30,11 @@
         font-family: Ubuntu-700;
         font-size: 20px;
         color: #FFFFFF;
+
+        &:hover {
+            color: #1D1929;
+            transition: all 0.2s ease;
+        }
     }
 
     &__time {
@@ -60,6 +65,7 @@
 @media (max-width: 900px) {
     .exchangeRate {
         flex-wrap: wrap;
+        flex-direction: column-reverse;
 
         ul {
             flex-wrap: wrap;
@@ -68,10 +74,11 @@
         &__container {
             flex-direction: row;
             align-items: end;
+            margin-bottom: 24px;
         }
 
         img {
-            margin: 32px 20px 0 20px;
+            margin: 0 20px 0 20px;
             width: 50px;
         }
     }

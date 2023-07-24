@@ -16,19 +16,26 @@
         font-size: 24px;
         margin-top: 64px;
     }
-    
+
     &__appeal-2 {
-        font-size: 30px;
         font-family: Ubuntu-700;
         margin-top: 30px;
-        display: block;
     }
-    
+
+    &__appeal-2,
+    &__appeal-3 {
+        display: block;
+        font-size: 30px;
+
+        &:hover {
+            transition: all 0.2s ease;
+            color: #EB801D;
+        }
+    }
+
     &__appeal-3 {
         font-family: Ubuntu-500;
-        font-size: 30px;
         margin-top: 27px;
-        display: block;
     }
 }
 
@@ -64,6 +71,10 @@
         align-items: center;
         display: flex;
         cursor: pointer;
+
+        &:focus {
+            background-color: #575bcc;
+        }
 
         img {
             margin-right: 10px;

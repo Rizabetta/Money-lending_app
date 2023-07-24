@@ -59,6 +59,12 @@
   padding: 0 32px 8px 0;
 }
 
+.footer a:hover {
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  color: #B2A35F;
+}
+
 .phone {
   font-size: 30px;
   font-family: Ubuntu-700;
@@ -440,17 +446,24 @@
 }
 
 .support__appeal-2 {
-  font-size: 30px;
   font-family: Ubuntu-700;
   margin-top: 30px;
+}
+
+.support__appeal-2, .support__appeal-3 {
   display: block;
+  font-size: 30px;
+}
+
+.support__appeal-2:hover, .support__appeal-3:hover {
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  color: #EB801D;
 }
 
 .support__appeal-3 {
   font-family: Ubuntu-500;
-  font-size: 30px;
   margin-top: 27px;
-  display: block;
 }
 
 .support__email {
@@ -499,6 +512,10 @@
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+}
+
+.support__search-form button:focus {
+  background-color: #575bcc;
 }
 
 .support__search-form button img {
@@ -574,6 +591,12 @@
   color: #FFFFFF;
 }
 
+.exchangeRate__courses-a:hover {
+  color: #1D1929;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
 .exchangeRate__time {
   font-family: Ubuntu-500;
   font-size: 16px;
@@ -604,6 +627,10 @@
   .exchangeRate {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
   }
   .exchangeRate ul {
     -ms-flex-wrap: wrap;
@@ -617,9 +644,10 @@
     -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: end;
+    margin-bottom: 24px;
   }
   .exchangeRate img {
-    margin: 32px 20px 0 20px;
+    margin: 0 20px 0 20px;
     width: 50px;
   }
 }
