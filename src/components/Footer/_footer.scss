@@ -1,3 +1,8 @@
+@mixin family-paddingB ($paddingB) {
+    font-family: Ubuntu-500;
+    padding-bottom: $paddingB;
+}
+
 .footer {
     background-color: #e7e7e7;
     padding-top: 96px;
@@ -8,17 +13,12 @@
         padding: 0 10px;
         margin: 0 auto;
 
-        p,
-        .email {
-            font-family: Ubuntu-500;
-        }
-
         p {
-            padding-bottom: 92px;
+            @include family-paddingB(92px);
         }
 
         .email {
-            padding-bottom: 32px;
+            @include family-paddingB(32px);
         }
     }
 

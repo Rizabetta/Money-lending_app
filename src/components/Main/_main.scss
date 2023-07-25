@@ -1,3 +1,13 @@
+@mixin size-marginT ($size, $marginT) {
+    font-size: $size;
+    margin-top: $marginT;
+}
+
+@mixin display-center ($property) {
+    display: flex;
+    #{$property}: center;
+}
+
 .main {
     max-width: 1300px;
     padding: 0 10px;
@@ -26,8 +36,7 @@
 }
 
 .features {
-    display: flex;
-    align-items: center;
+    @include display-center(align-items);
     justify-content: space-between;
     margin-top: 112px;
 
@@ -61,8 +70,7 @@
 
     li {
         padding-bottom: 12px;
-        display: flex;
-        align-items: center;
+        @include display-center(align-items);
         font-size: 14px;
     }
 }
@@ -96,13 +104,11 @@
     width: 320px;
 
     h4 {
-        font-size: 20px;
-        margin-top: 32px;
+        @include size-marginT(20px, 32px);
     }
 
     p {
-        font-size: 16px;
-        margin-top: 32px;
+        @include size-marginT(16px, 32px);
     }
 }
 
@@ -112,13 +118,11 @@
 }
 
 .heading {
-    font-size: 30px;
-    margin-top: 21px;
+    @include size-marginT(30px, 21px);
 }
 
 .paragraph {
-    font-size: 16px;
-    margin-top: 21px;
+    @include size-marginT(16px, 21px);
 }
 
 @media (max-width: 1290px) {
@@ -151,8 +155,7 @@
 @media (max-width: 920px) {
     .features {
         flex-wrap: wrap;
-        display: flex;
-        justify-content: center;
+        @include display-center(justify-content);
 
         &__illustration {
             margin-right: 0;
@@ -166,8 +169,7 @@
 
 @media (max-width: 764px) {
     .news_container {
-        display: flex;
-        justify-content: center;
+        @include display-center(justify-content);
     }
 }
 
