@@ -53,7 +53,7 @@
 
     nav {
         display: none;
-        position: fixed;
+        position: absolute;
         margin-top: 300px;
         background: #F5F4FF;
         width: 55%;
@@ -74,15 +74,15 @@
     #burger:checked+label+nav {
         display: block;
         animation: show .5s ease;
+        font-size: 20px;
     }
 
     #burger:checked+[for=burger]::before {
         content: ' ☓ ';
-        position: fixed;
+        position: absolute;
         background: #F5F4FF;
         box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.2);
-        padding: 5px 8px;
-        border-radius: 20px;
+        border-radius: 20px;  
     }
 }
 

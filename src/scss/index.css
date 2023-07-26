@@ -11,16 +11,13 @@
   margin: 0 auto;
 }
 
-.footer__container p,
-.footer__container .email {
-  font-family: Ubuntu-500;
-}
-
 .footer__container p {
+  font-family: Ubuntu-500;
   padding-bottom: 92px;
 }
 
 .footer__container .email {
+  font-family: Ubuntu-500;
   padding-bottom: 32px;
 }
 
@@ -146,7 +143,7 @@
   }
   nav {
     display: none;
-    position: fixed;
+    position: absolute;
     margin-top: 300px;
     background: #F5F4FF;
     width: 55%;
@@ -173,14 +170,14 @@
     display: block;
     -webkit-animation: show .5s ease;
             animation: show .5s ease;
+    font-size: 20px;
   }
   #burger:checked + [for=burger]::before {
     content: ' ☓ ';
-    position: fixed;
+    position: absolute;
     background: #F5F4FF;
     -webkit-box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.2);
             box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.2);
-    padding: 5px 8px;
     border-radius: 20px;
   }
 }
@@ -212,7 +209,6 @@
   color: #FFFFFF;
   padding: 16px;
   cursor: pointer;
-  -webkit-transition: all 0.5s ease;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
@@ -447,12 +443,12 @@
 
 .support__appeal-2 {
   font-family: Ubuntu-700;
+  font-size: 30px;
   margin-top: 30px;
 }
 
 .support__appeal-2, .support__appeal-3 {
   display: block;
-  font-size: 30px;
 }
 
 .support__appeal-2:hover, .support__appeal-3:hover {
@@ -463,6 +459,7 @@
 
 .support__appeal-3 {
   font-family: Ubuntu-500;
+  font-size: 30px;
   margin-top: 27px;
 }
 
@@ -493,24 +490,24 @@
   -webkit-box-shadow: 0px 10px 20px 0 #e5e4f3;
           box-shadow: 0px 10px 20px 0 #e5e4f3;
   padding: 22px 32px;
+  font-family: NunitoSans-400;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  font-family: NunitoSans-400;
 }
 
 .support__search-form button {
   font-family: Ubuntu-700;
   font-size: 16px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   cursor: pointer;
 }
 
@@ -616,8 +613,7 @@
 }
 
 .exchangeRate__currency-table {
-  margin-top: 32px;
-  margin-bottom: 51px;
+  margin: 32px 0 51px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
