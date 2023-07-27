@@ -97,13 +97,14 @@
                 <img src="../public/assets/svg/Huge_Global.svg" alt="Huge Global" />
             </figure>
         </section>
-        <!-- <section class="news">
+        <section class="news">
             <h3 class="heading">Current news from the world of finance</h3>
             <p class="paragraph">We update the news feed every 15 minutes. You can learn more by clicking on the news
                 you are
                 interestedin.</p>
-            <div class="news_container">
-                <div class="news__card">
+            <div class="news__container">
+                <div class="news__track">
+                    <!-- <div class="news__card">
                     <img src="../public/assets/png/news_1.png" alt="" class="card__image" />
                     <h4 class="card__h4">Ethereum just pulled off its
                         final test run ahead of one
@@ -113,29 +114,14 @@
                         adopting a proof-of-stake model
                         for its network, which is less
                         energy i</p>
-                </div>
-                <div class="news__card">
-                    <img src="../public/assets/png/news_2.png" alt="" class="card__image" />
-                    <h4 class="card__h4">Jim Cramer explains what Wednesday's market action reveals about the
-                        state of
-                        inflation - CNBC Telev</h4>
-                    <p class="card__description">The "Mad Money" host gave his take on what the market action on
-                        Wednesday
-                        suggests about inflation's</p>
-                </div>
-                <div class="news__card">
-                    <img src="../public/assets/png/news_3.png" alt="" class="card__image" />
-                    <h4 class="card__h4">Dow futures tick higher after Wednesday's market rally - CNBC</h4>
-                    <p class="card__description">Dow futures inched higher in overnight trading after all the major
-                        averages
-                        posted sharp gains on th</p>
+                </div> -->
                 </div>
             </div>
             <div class="news__buttons">
-                <input type="image" src="../public/assets/svg/ButtonL.svg" />
-                <input type="image" src="../public/assets/svg/ButtonR.svg">
+                <input onclick=leftButton() type="image" src="../public/assets/svg/ButtonL.svg" />
+                <input onclick=rightButton() type="image" src="../public/assets/svg/ButtonR.svg">
             </div>
-        </section> -->
+        </section>
         <section class="support">
             <p class="support__appeal-1">Support</p>
             <a class="support__appeal-2">Subscribe Newsletter & get</a>
@@ -145,7 +131,7 @@
                     <label>
                         <img src="../public/assets/svg/Email.svg" alt="Email" />
                         <input placeholder="Your email" class="support__search-form__input">
-                    </label>              
+                    </label>
                 </div>
                 <button class="support__search-form__button"><img src="../public/assets/svg/Subscribe.svg" />
                     Subscribe</button>
@@ -200,6 +186,7 @@
         </div>
     </footer>
     <script src="../src/components/Main/exchangeRate.js" async></script>
+    <script src="../src/components/Main/news.js"></script>
 </body>
 
 </html>
