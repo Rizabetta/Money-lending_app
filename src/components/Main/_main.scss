@@ -88,8 +88,17 @@
     }
 }
 
-.news_container {
+.news__wrapper {
+    width: 1300px;
+}
+
+.news__container {
+    overflow: hidden;
+}
+
+.news__track {
     display: flex;
+    transition: .2s;
     gap: 80px;
     margin-top: 46px;
 }
@@ -101,7 +110,7 @@
     border: 1px solid rgb(237, 237, 237);
     padding: 32px;
     font-family: Ubuntu-500;
-    width: 320px;
+    min-width: 320px;
 
     h4 {
         @include size-marginT(20px, 32px);
@@ -109,6 +118,11 @@
 
     p {
         @include size-marginT(16px, 32px);
+    }
+
+    img {
+        width: 256px;
+        height: 120px;
     }
 }
 
@@ -141,7 +155,7 @@
 }
 
 @media (max-width: 1100px) {
-    .news_container {
+    .news__container {
         flex-wrap: wrap;
     }
 

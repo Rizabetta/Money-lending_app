@@ -305,10 +305,20 @@
   margin-top: 48px;
 }
 
-.news_container {
+.news__wrapper {
+  width: 1300px;
+}
+
+.news__container {
+  overflow: hidden;
+}
+
+.news__track {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-transition: .2s;
+  transition: .2s;
   gap: 80px;
   margin-top: 46px;
 }
@@ -321,7 +331,7 @@
   border: 1px solid #ededed;
   padding: 32px;
   font-family: Ubuntu-500;
-  width: 320px;
+  min-width: 320px;
 }
 
 .news__card h4 {
@@ -332,6 +342,11 @@
 .news__card p {
   font-size: 16px;
   margin-top: 32px;
+}
+
+.news__card img {
+  width: 256px;
+  height: 120px;
 }
 
 .news__buttons {
@@ -363,7 +378,7 @@
 }
 
 @media (max-width: 1100px) {
-  .news_container {
+  .news__container {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }

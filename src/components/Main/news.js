@@ -38,10 +38,21 @@ fetch(req)
         }
     });
 
-function leftButton () {
-console.log('left');
+let position = 0;
+let trackWidth = document.getElementsByClassName('news__track')[0].clientWidth;
+let track = document.querySelector('.news__track');
+
+// 320px + 80px = 400px
+// 6400  = 320*20
+function leftButton() {
+    console.log('Ширина:', trackWidth);
+    if (position !== 0) position += 400 ;
+    track.style.transform = `translateX(${position}px)`;
 }
 
 function rightButton() {
-console.log('right');
+    if (position !== -6400)
+    position -= 400;
+    track.style.transform = `translateX(${position}px)`;
+    console.log(position);
 }
