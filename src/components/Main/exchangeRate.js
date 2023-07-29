@@ -19,6 +19,5 @@ function gerExchange() {
         xhr.setRequestHeader('X-RapidAPI-Host', 'currency-exchange.p.rapidapi.com');
         xhr.send();
         document.getElementById(item).innerHTML = Number(xhr.responseText).toFixed(2);
-        console.log(Number(xhr.responseText).toFixed(2));
     })
 }
