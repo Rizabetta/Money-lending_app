@@ -1,9 +1,3 @@
-let newsKey = new XMLHttpRequest();
-newsKey.open("GET", "../src/keys/newsAPI.txt", false);
-newsKey.send();
-let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${newsKey.responseText}`;
-let req = new Request(url);
-
 let renderArrNews = [];
 let limit;
 let news = 0;
@@ -15,6 +9,24 @@ let gap = 80;
 let cardkWidth = 320;
 let move = gap + cardkWidth;
 let track = document.querySelector(".news__track");
+
+function fetchNewsKey(url) {
+    let response = fetch(url).then((response) => response.text())
+        .then(data =>
+            fetch(`https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${data}`));;
+    return response;
+}
+
+fetchNewsKey("../src/keys/newsAPI.txt").then((response) => response.json()
+    .then((data) => {
+        const { articles } = data;
+        for (const article of articles) {
+            if (article.urlToImage) {
+                renderArrNews.push(article);
+            }
+        }
+        render();
+    }));
 
 window.addEventListener(
     "resize",
@@ -86,24 +98,12 @@ function render(arrNews = renderArrNews) {
     getTrackWidth();
 }
 
-function fetchNews() { }
-fetch(req)
-    .then((response) => response.json())
-    .then((data) => {
-        const { articles } = data;
-        for (const article of articles) {
-            if (article.urlToImage) {
-                renderArrNews.push(article);
-            }
-        }
-        render();
-    });
-
 function carouselLeftBtn() {
     if (position !== 0) {
         position += move;
         track.style.transform = `translateX(${position}px)`;
     }
+    checkBtn();
 }
 
 function carouselRightBtn() {
@@ -111,6 +111,7 @@ function carouselRightBtn() {
         position -= move;
         track.style.transform = `translateX(${position}px)`;
     }
+    checkBtn();
 }
 
 let hover = document.querySelectorAll(".carouselBtn");
@@ -125,5 +126,22 @@ for (let i = 0; i < hover.length; i++) {
         this.src = currentImage;
     });
 }
+let btnLeft = document.getElementsByClassName("news__input-left")[0];
+let btnRight = document.getElementsByClassName("news__input-right")[0];
 
+function checkBtn() {
+    if (position === 0) {
+        btnLeft.style.cursor = "not-allowed";
+    } else {     
+        btnLeft.style.cursor = "pointer";
+    }
+    if (position === -limit) {
+
+        btnRight.style.cursor = "not-allowed";
+    } else {
+        btnRight.style.cursor = "pointer";
+    }
+}
+
+checkBtn();
 limit = Number(news - visibleElements) * 400;
