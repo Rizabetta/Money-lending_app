@@ -1,12 +1,4 @@
-@mixin size-marginT ($size, $marginT) {
-    font-size: $size;
-    margin-top: $marginT;
-}
-
-@mixin display-center ($property) {
-    display: flex;
-    #{$property}: center;
-}
+@import "../../scss/mixins";
 
 .main {
     max-width: 1300px;

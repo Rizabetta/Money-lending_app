@@ -1,7 +1,4 @@
-@mixin family-size ($family, $size) {
-    font-family: $family;
-    font-size: $size;
-}
+@import "../../scss/mixins";
 
 .exchangeRate {
     border-radius: 28px;

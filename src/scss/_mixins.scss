@@ -1,0 +1,30 @@
+@mixin family-size ($family, $size) {
+    font-family: $family;
+    font-size: $size;
+}
+
+@mixin size-marginT ($size, $marginT) {
+    font-size: $size;
+    margin-top: $marginT;
+}
+
+@mixin display-center ($property) {
+    display: flex;
+    #{$property}: center;
+}
+
+@mixin family-margin ($family, $size, $marginTop) {
+    font-family: $family;
+    font-size: $size;
+    margin-top: $marginTop;
+}
+
+@mixin display-property ($property: align-items, $ltr-value: center) {
+    display: flex;
+    #{$property}: $ltr-value;
+}
+
+@mixin family-paddingB ($paddingB) {
+    font-family: Ubuntu-500;
+    padding-bottom: $paddingB;
+}

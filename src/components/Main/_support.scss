@@ -1,13 +1,4 @@
-@mixin family-margin ($family, $size, $marginTop) {
-    font-family: $family;
-    font-size: $size;
-    margin-top: $marginTop;
-}
-
-@mixin display-property ($property: align-items, $ltr-value: center) {
-    display: flex;
-    #{$property}: $ltr-value;
-}
+@import "../../scss/mixins";
 
 .support {
     text-align: center;

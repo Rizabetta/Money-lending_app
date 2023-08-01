@@ -1,7 +1,4 @@
-@mixin family-paddingB ($paddingB) {
-    font-family: Ubuntu-500;
-    padding-bottom: $paddingB;
-}
+@import "../../scss/mixins";
 
 .footer {
     background-color: #e7e7e7;
