@@ -1,10 +1,5 @@
 import { fetchCurrency } from "../../API/api.js"
 
-const mseconds = 1000;
-const seconds = 60;
-const minutes = 15;
-const updateRequest = mseconds * seconds * minutes;
-
 const exchange = [
   { from: 'USD', to: 'RUB' },
   { from: 'EUR', to: 'RUB' },
@@ -14,11 +9,15 @@ const exchange = [
   { from: 'JPY', to: 'RUB' },
 ]
 
-function update() {
+function getExchange() {
   exchange.forEach(element => {
     fetchCurrency(element.from, element.to).then(data => document.getElementById(element.from).innerHTML = Number(data).toFixed(2));
   });
-  setInterval(() => update(), updateRequest)
 }
 
-update();
+function updateRequest (mseconds, seconds, minutes) {
+    getExchange(); 
+    setInterval(() => updateRequest(), mseconds * seconds * minutes);
+}
+
+updateRequest(1000, 60, 15);

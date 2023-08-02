@@ -10,4 +10,11 @@ function fetchCurrency(from, to) {
     return fetch(url, options).then((response) => response.text());
 }
 
-export { fetchCurrency }
+function fetchNewsKey(url) {
+    let response = fetch(url).then((response) => response.text())
+        .then(data =>
+            fetch(`https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${data}`));;
+    return response;
+}
+
+export { fetchCurrency, fetchNewsKey }
