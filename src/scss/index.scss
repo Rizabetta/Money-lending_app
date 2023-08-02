@@ -4,30 +4,33 @@
 @import "../components/Main/main";
 @import "../components/Main/support";
 @import "../components/Main/exchangeRate";
+@import "../scss/variables";
+
+$path: "../../public/assets/fonts";
 
 @font-face {
     font-family: Ubuntu-700;
-    src: url(../../public/assets/fonts/Ubuntu/Ubuntu-Bold.ttf);
+    src: url(#{$path}/Ubuntu/Ubuntu-Bold.ttf);
 }
 
 @font-face {
     font-family: Ubuntu-500;
-    src: url(../../public/assets/fonts/Ubuntu/Ubuntu-Medium.ttf);
+    src: url(#{$path}/Ubuntu/Ubuntu-Medium.ttf);
 }
 
 @font-face {
     font-family: Rubik-400;
-    src: url(../../public/assets/fonts/Rubik/Rubik-Regular.ttf);
+    src: url(#{$path}/Rubik/Rubik-Regular.ttf);
 }
 
 @font-face {
     font-family: Rubik-500;
-    src: url(../../public/assets/fonts/Rubik/Rubik-Medium.ttf);
+    src: url(#{$path}/Rubik/Rubik-Medium.ttf);
 }
 
 @font-face {
     font-family: NunitoSans-400;
-    src: url(../../public/assets/fonts/NunitoSans/NunitoSans_10pt-Regular.ttf);
+    src: url(#{$path}/NunitoSans/NunitoSans_10pt-Regular.ttf);
 }
 
 * {

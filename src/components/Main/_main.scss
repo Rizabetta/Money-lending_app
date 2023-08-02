@@ -1,7 +1,7 @@
 @import "../../scss/mixins";
 
 .main {
-    max-width: 1300px;
+    max-width: $max-width;
     padding: 0 10px;
     margin: 0 auto;
 }
@@ -94,7 +94,7 @@
 }
 
 .news__wrapper {
-    width: 1300px;
+    width: $max-width;
     display: block;
     margin-left: auto;
     margin-right: auto

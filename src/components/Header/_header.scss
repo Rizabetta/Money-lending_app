@@ -1,6 +1,8 @@
+@import "../../scss/variables";
+
 .header__container {
     display: flex;
-    max-width: 1300px;
+    max-width: $max-width;
     padding: 0 10px;
     margin: 7px auto;
     align-items: center;
@@ -10,7 +12,7 @@
 .header_logo {
     font-family: Ubuntu-700;
     font-size: 24px;
-    color: #B4387A
+    color: #B4387A;
 }
 
 .menu__list {
@@ -24,7 +26,7 @@
         transition: all 0.2s ease;
 
         &:hover {
-            color: #B2A35F;
+            color: $nav-link;
         }
     }
 }

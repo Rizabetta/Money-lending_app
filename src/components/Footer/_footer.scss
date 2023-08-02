@@ -1,12 +1,13 @@
 @import "../../scss/mixins";
+@import "../../scss/variables";
 
 .footer {
-    background-color: #e7e7e7;
+    background-color: $footer-background;
     padding-top: 96px;
     margin-top: 98px;
 
     &__container {
-        max-width: 1300px;
+        max-width: $max-width;
         padding: 0 10px;
         margin: 0 auto;
 
@@ -42,7 +43,7 @@
 
     a:hover {
         transition: all 0.2s ease;
-        color: #B2A35F;
+        color: $nav-link;
     }
 }
 
