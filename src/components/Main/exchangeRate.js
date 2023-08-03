@@ -15,9 +15,13 @@ function getExchange() {
   });
 }
 
-function updateRequest (mseconds, seconds, minutes) {
-    getExchange(); 
-    setInterval(() => updateRequest(), mseconds * seconds * minutes);
+function updateRequest(mseconds, seconds, minutes) {
+  getExchange();
+  setInterval(() => updateRequest(), mseconds * seconds * minutes);
 }
 
-updateRequest(1000, 60, 15);
+try {
+  updateRequest(1000, 60, 15);
+} catch (error) {
+  console.log(error);
+}

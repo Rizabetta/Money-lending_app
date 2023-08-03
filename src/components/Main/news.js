@@ -8,8 +8,8 @@ let newsContainerWidth =
   document.getElementsByClassName("news__track")[0].clientWidth;
 let position = 0;
 const gap = 80;
-const cardkWidth = 320;
-const move = gap + cardkWidth;
+const cardWidth = 320;
+const move = gap + cardWidth;
 const track = document.querySelector(".news__track");
 const defaultImage = "../../public/assets/png/news_3.png";
 
@@ -23,7 +23,11 @@ function updateRequest(mseconds, seconds, minutes) {
   setInterval(() => updateRequest(), mseconds * seconds * minutes);
 }
 
-updateRequest(1000, 60, 15);
+try {
+  updateRequest(1000, 60, 15);
+} catch (error) {
+  console.log();
+}
 
 window.addEventListener(
   "resize",
@@ -72,10 +76,10 @@ function render(arrNews = renderArrNews) {
     let img = document.createElement("img");
     console.log(!img);
     const totalSrc = news.urlToImage ?? defaultImage;
-    img.src = totalSrc; 
+    img.src = totalSrc;
     img.className = "card__image";
     img.onerror = () => {
-      img.src = defaultImage;  
+      img.src = defaultImage;
     };
     a.append(img);
 
@@ -86,7 +90,7 @@ function render(arrNews = renderArrNews) {
 
     let description = document.createElement("p");
     const totalText = news.description ?? news.title;
-    description.innerHTML = totalText; 
+    description.innerHTML = totalText;
     description.className = "card__description";
     a.append(description);
   }
@@ -140,6 +144,21 @@ function checkBtn() {
     btnLeft.style.cursor = "pointer";
     btnLeft.classList.add("news__input-left");
     btnLeft.style.pointerEvents = "auto";
+  }
+  if (position === -limit) {
+     btnRight.style.cursor = "not-allowed";
+     btnRight.disabled = true;
+     btnRight.src = "../public/assets/svg/ButtonL.svg";
+     btnRight.style.transform = "rotate(180deg)";
+  } else {
+    btnRight.style.cursor = "pointer";
+    btnRight.disabled = false;
+    hover[1].addEventListener("mouseover", function () {
+      if (btnRight.style.transform === "rotate(180deg)") {btnRight.style.transform = "rotate(0deg)"}
+    });
+    hover[1].addEventListener("mouseout", function () {
+      if (btnRight.style.transform === "rotate(0deg)") {btnRight.style.transform = "rotate(180deg)"}
+    });
   }
 }
 
