@@ -1,4 +1,5 @@
 import { fetchNewsKey } from "../../API/api.js";
+import { getUpdateTime } from "../../utils/getUpdateTime.js"
 
 let renderArrNews = [];
 let limit;
@@ -13,31 +14,34 @@ const move = gap + cardWidth;
 const track = document.querySelector(".news__track");
 const defaultImage = "../../public/assets/png/news_3.png";
 
-function updateRequest(mseconds, seconds, minutes) {
+function updateRequest() {
   fetchNewsKey("../src/keys/newsAPI.txt").then((response) =>
     response.json().then((data) => {
       renderArrNews = data.articles;
-      render();
+      renderNewsItem();
     }), error => console.log("Rejected: " + error.message)
   );
-  setInterval(() => updateRequest(), mseconds * seconds * minutes);
+  setInterval(() => updateRequest(), getUpdateTime (1000, 60, 15));
 }
 
 try {
-  updateRequest(1000, 60, 15);
+  updateRequest();
 } catch (error) {
   console.log(error);
 }
 
-window.addEventListener(
-  "resize",
-  function () {
-    newsContainerWidth =
-      document.getElementsByClassName("news__track")[0].clientWidth;
-    getTrackWidth();
-  },
-  true
-);
+function calcTrackWidth() {
+  window.addEventListener(
+    "resize",
+    function () {
+      newsContainerWidth = document.getElementsByClassName("news__track")[0].clientWidth;
+      getTrackWidth();
+    },
+    true
+  );
+}
+
+calcTrackWidth();
 
 function getTrackWidth(trackWidth = newsContainerWidth) {
   limit = Number(news - visibleElements) * 400;
@@ -60,7 +64,7 @@ function getTrackWidth(trackWidth = newsContainerWidth) {
   }
 }
 
-function render(arrNews = renderArrNews) {
+function renderNewsItem(arrNews = renderArrNews) {
   document.getElementsByClassName("news__track")[0].innerHTML = "";
 
   for (let news of arrNews) {
@@ -97,8 +101,6 @@ function render(arrNews = renderArrNews) {
   getTrackWidth();
 }
 
-const hover = document.querySelectorAll(".carouselBtn");
-let currentImage;
 const btnLeft = document.getElementsByClassName("news__input-left")[0];
 const btnRight = document.getElementsByClassName("news__input-right")[0];
 
@@ -121,42 +123,16 @@ function carouselRightBtn() {
   checkBtn();
 }
 
-for (let i = 0; i < hover.length; i++) {
-  hover[i].addEventListener("mouseover", function () {
-    currentImage = this.src;
-    this.src = "../public/assets/svg/ButtonR.svg";
-  });
-  hover[i].addEventListener("mouseout", function () {
-    this.src = currentImage;
-  });
-}
-
 function checkBtn() {
   if (position === 0) {
-    btnLeft.style.cursor = "not-allowed";
-    btnLeft.disabled = true;
-    btnLeft.classList.remove("news__input-left");
-    btnLeft.src = "../public/assets/svg/ButtonL.svg";
+    btnLeft.classList.add("disabled");
   } else {
-    btnLeft.disabled = false;
-    btnLeft.style.cursor = "pointer";
-    btnLeft.classList.add("news__input-left");
-    btnLeft.style.pointerEvents = "auto";
+    btnLeft.classList.remove("disabled");
   }
   if (position === -limit) {
-    btnRight.style.cursor = "not-allowed";
-    btnRight.disabled = true;
-    btnRight.src = "../public/assets/svg/ButtonL.svg";
-    btnRight.style.transform = "rotate(180deg)";
+    btnRight.classList.add("disabled");
   } else {
-    btnRight.style.cursor = "pointer";
-    btnRight.disabled = false;
-    hover[1].addEventListener("mouseover", function () {
-      btnRight.style.transform = "rotate(0deg)";
-    });
-    hover[1].addEventListener("mouseout", function () {
-      btnRight.style.transform = "rotate(180deg)";
-    });
+    btnRight.classList.remove("disabled");
   }
 }
 

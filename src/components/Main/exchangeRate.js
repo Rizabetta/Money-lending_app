@@ -1,4 +1,5 @@
 import { fetchCurrency } from "../../API/api.js"
+import { getUpdateTime } from "../../utils/getUpdateTime.js"
 
 const exchange = [
   { from: 'USD', to: 'RUB' },
@@ -16,13 +17,9 @@ function getExchange() {
   });
 }
 
-function updateRequest(mseconds, seconds, minutes) {
-  getExchange();
-  setInterval(() => updateRequest(), mseconds * seconds * minutes);
-}
-
 try {
-  updateRequest(1000, 60, 15);
+  getExchange();
+  setInterval(() => getExchange(), getUpdateTime(1000, 60, 15));
 } catch (error) {
   console.log(error);
 }
