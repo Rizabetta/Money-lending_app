@@ -18,7 +18,7 @@ function updateRequest(mseconds, seconds, minutes) {
     response.json().then((data) => {
       renderArrNews = data.articles;
       render();
-    })
+    }), error => console.log("Rejected: " + error.message)
   );
   setInterval(() => updateRequest(), mseconds * seconds * minutes);
 }
@@ -26,7 +26,7 @@ function updateRequest(mseconds, seconds, minutes) {
 try {
   updateRequest(1000, 60, 15);
 } catch (error) {
-  console.log();
+  console.log(error);
 }
 
 window.addEventListener(
@@ -74,7 +74,6 @@ function render(arrNews = renderArrNews) {
     div.append(a);
 
     let img = document.createElement("img");
-    console.log(!img);
     const totalSrc = news.urlToImage ?? defaultImage;
     img.src = totalSrc;
     img.className = "card__image";
@@ -95,7 +94,6 @@ function render(arrNews = renderArrNews) {
     a.append(description);
   }
   news = arrNews.length;
-  console.log(news);
   getTrackWidth();
 }
 
@@ -146,18 +144,18 @@ function checkBtn() {
     btnLeft.style.pointerEvents = "auto";
   }
   if (position === -limit) {
-     btnRight.style.cursor = "not-allowed";
-     btnRight.disabled = true;
-     btnRight.src = "../public/assets/svg/ButtonL.svg";
-     btnRight.style.transform = "rotate(180deg)";
+    btnRight.style.cursor = "not-allowed";
+    btnRight.disabled = true;
+    btnRight.src = "../public/assets/svg/ButtonL.svg";
+    btnRight.style.transform = "rotate(180deg)";
   } else {
     btnRight.style.cursor = "pointer";
     btnRight.disabled = false;
     hover[1].addEventListener("mouseover", function () {
-      if (btnRight.style.transform === "rotate(180deg)") {btnRight.style.transform = "rotate(0deg)"}
+      btnRight.style.transform = "rotate(0deg)";
     });
     hover[1].addEventListener("mouseout", function () {
-      if (btnRight.style.transform === "rotate(0deg)") {btnRight.style.transform = "rotate(180deg)"}
+      btnRight.style.transform = "rotate(180deg)";
     });
   }
 }

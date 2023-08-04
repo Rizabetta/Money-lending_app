@@ -11,7 +11,8 @@ const exchange = [
 
 function getExchange() {
   exchange.forEach(element => {
-    fetchCurrency(element.from, element.to).then(data => document.getElementById(element.from).innerHTML = Number(data).toFixed(2));
+    fetchCurrency(element.from, element.to).then(data => document.getElementById(element.from).innerHTML = Number(data).toFixed(2),
+      error => console.log("Rejected: " + error.message));
   });
 }
 
