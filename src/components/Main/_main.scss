@@ -128,19 +128,39 @@
     margin-top: 48px;
 }
 
-.news__input-left {
+.carouselBtn {
+    cursor: pointer;
+    width: 64px;
+    height: 64px;
+    border-radius: 50px;
+    margin-top: 48px;
+    margin-left: 20px;
+    background-color: #FFF;
+    border: 1px solid #003CFF;
+
+    svg path {
+        stroke: #121111;
+    }
 
     &:hover {
-        transform: rotate(180deg);
+        background-color: #003CFF;
+
+        svg path {
+            stroke: white;
+        }
     }
 }
 
-.news__input-right {
-    transform: rotate(180deg);
-    margin-left: 20px;
+.disabled {
+    cursor: not-allowed;
 
     &:hover {
-        transform: rotate(0deg);
+        background-color: #FFF;
+        border: 1px solid #003CFF;
+
+        svg path {
+            stroke: #121111;
+        }
     }
 }
 
