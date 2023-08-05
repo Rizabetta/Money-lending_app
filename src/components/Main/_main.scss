@@ -135,12 +135,7 @@
     border-radius: 50px;
     margin-top: 48px;
     margin-left: 20px;
-    background-color: #FFF;
-    border: 1px solid #003CFF;
-
-    svg path {
-        stroke: #121111;
-    }
+    @include notActiveBtn();
 
     &:hover {
         background-color: #003CFF;
@@ -155,12 +150,7 @@
     cursor: not-allowed;
 
     &:hover {
-        background-color: #FFF;
-        border: 1px solid #003CFF;
-
-        svg path {
-            stroke: #121111;
-        }
+        @include notActiveBtn();
     }
 }
 

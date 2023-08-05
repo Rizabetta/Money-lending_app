@@ -28,3 +28,12 @@
     font-family: Ubuntu-500;
     padding-bottom: $paddingB;
 }
+
+@mixin notActiveBtn () {
+    background-color: #FFF;
+    border: 1px solid #003CFF;
+
+    svg path {
+        stroke: #121111;
+    }
+}
