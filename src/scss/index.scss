@@ -1,12 +1,4 @@
-@import "../components/Footer/footer";
-@import "../components/Header/header";
-@import "../components/UI/Button/button";
-@import "../components/Main/main";
-@import "../components/Main/support";
-@import "../components/Main/exchangeRate";
-@import "../scss/variables";
-
-$path: "../../public/assets/fonts";
+$path: "../assets/fonts";
 
 @font-face {
     font-family: Ubuntu-700;
