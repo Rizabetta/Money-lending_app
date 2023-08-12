@@ -1,0 +1,31 @@
+.cashback__card {
+    width: 400px;
+    padding: 32px;
+    border-radius: 28px;
+
+    &:nth-child(2n) {
+        background-color: #EAECEE;
+    }
+    
+    &:nth-child(2n + 1) {
+        background-color: #88B3B899;
+    }
+}
+
+.cashback {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+
+    &__description {
+        font-size: 16px;
+        font-family: Ubuntu-500;
+        margin-bottom: 22px;
+    }
+    
+    &__percent {
+        font-size: 36px;
+        font-family: Ubuntu-700;
+    }
+}
