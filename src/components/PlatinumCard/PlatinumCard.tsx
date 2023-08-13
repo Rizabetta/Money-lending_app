@@ -9,17 +9,20 @@ export default function PlatinumCard() {
                 <p>Our best credit card. Suitable for everyday spending and shopping.
                     Cash withdrawals and transfers without commission and interest.</p>
                 <div className='platinumCard__columns'>
-                    <ul>
+                    <ul className='tooltip'>
                         <li>Up to 160 days</li>
                         <li>No percent</li>
+                        <span className="tooltiptext">When repaying the full debt up to 160 days.</span>
                     </ul>
-                    <ul>
+                    <ul className='tooltip'>
                         <li> Up to 600 000 &#8381;</li>
                         <li>Credit limit</li>
+                        <span className="tooltiptext">Over the limit willaccrue percent</span>
                     </ul>
-                    <ul>
+                    <ul className='tooltip'>
                         <li>0 &#8381;</li>
                         <li>Card service is free</li>
+                        <span className="tooltiptext">Promotion valid until December 31, 2022.</span>
                     </ul>
                 </div>
                 <button className="defaultButton">Apply for card</button>

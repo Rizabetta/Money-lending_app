@@ -17,6 +17,7 @@
         font-size: 16px; 
         font-family: Ubuntu-500;           
     }
+
     h1 {
         color: #FFFFFF;
         font-size: 48px;
@@ -42,6 +43,27 @@
     }
 }
 
+.tooltip {
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 170px;
+    background-color: #3D3D3D;
+    color: #fff;
+    text-align: center;
+    padding: 8px 30px 8px 7px;
+    position: absolute; 
+    margin-top: 6px;
+    font-size: 12px;
+    font-family: Ubuntu-500;
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
 @media (max-width: 1180px) {
     .platinumCard {
         img {
@@ -53,6 +75,7 @@
 
     .platinumCard__columns {
         display: block;
+
         ul {
             margin-bottom: 32px;
         }
@@ -61,6 +84,10 @@
 }
 
 @media (max-width: 960px) {
+    .tooltiptext {
+        margin-left: -70px;
+    }
+
     .platinumCard {
         align-items: center;
         text-align: center;
@@ -83,6 +110,7 @@
         h1 {
             font-size: 35px;
         }
+        
         img {
             width: 300px;
         }
