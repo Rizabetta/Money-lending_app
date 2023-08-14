@@ -1,28 +1,29 @@
 .RatesConditions {
-    table {
-        margin-top: 16px;
-        width: 1016px;
-        border-collapse: collapse;
-    }
+  table {
+    margin-top: 16px;
+    width: 1016px;
+    border-collapse: collapse;
+  }
 
-    td, th {
-        padding: 24px 69px 24px 0;
-    }
+  td,
+  th {
+    padding: 24px 69px 24px 0;
+  }
 
+  td {
+    border-bottom: 1px solid #7f92ac;
+    font-family: Ubuntu-500;
+    font-size: 16px;
+    white-space: pre-wrap;
+  }
+
+  .la {
+    text-align: left;
+  }
+
+  tr:last-child {
     td {
-        border-bottom: 1px solid #7F92AC;
-        font-family: Ubuntu-500;
-        font-size: 16px;
-        white-space: pre-wrap;
+      border-bottom: none;
     }
-
-    .la {
-        text-align: left;
-    }
-    
-    tr:last-child {
-        td {
-            border-bottom: none; 
-        }
-    }     
+  }
 }
