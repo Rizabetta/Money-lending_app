@@ -1,119 +1,111 @@
 .platinumCard {
+  margin-top: 20px;
+  display: flex;
+  background: linear-gradient(#cbd5e0, #feebc8);
+  padding: 48px 100px 48px 32px;
+  border-radius: 29px;
+  box-shadow: 0px 2px 4px rgb(198, 197, 206);
+  .platinumCard__img {
     display: flex;
-    background: linear-gradient(#CBD5E0, #FEEBC8);
-    padding: 48px 100px 48px 32px;
-    border-radius: 29px;
-    box-shadow: 0px 2px 4px rgb(198,197,206);
-    .platinumCard__img {
-        display: flex;
-    }
+  }
 
-    li:first-child {
-        font-size: 20px; 
-        font-family: Ubuntu-700;           
-    }
-    
-    li:last-child {
-        font-size: 16px; 
-        font-family: Ubuntu-500;           
-    }
+  li:first-child {
+    font-size: 20px;
+    font-family: Ubuntu-700;
+  }
 
-    h1 {
-        color: #FFFFFF;
-        font-size: 48px;
-        margin-bottom: 48px;
-        font-family: Ubuntu-700;
-    }
+  li:nth-last-child(2) {
+    font-size: 16px;
+    font-family: Ubuntu-500;
+    margin-top: 8px;
+  }
 
-    p {
-        font-size: 16px;
-        margin-bottom: 32px;
-        font-family: Ubuntu-500;
-    }
+  h1 {
+    color: #ffffff;
+    font-size: 48px;
+    margin-bottom: 48px;
+    font-family: Ubuntu-700;
+  }
 
-    &__columns {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 32px;
-        gap: 80px;
-    }
-
-    &__description {
-        margin-right: 100px;
-    }
-}
-
-.tooltip {
-    cursor: pointer;
-}
-
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 170px;
-    background-color: #3D3D3D;
-    color: #fff;
-    text-align: center;
-    padding: 8px 30px 8px 7px;
-    position: absolute; 
-    margin-top: 6px;
-    font-size: 12px;
+  p {
+    font-size: 16px;
+    margin-bottom: 32px;
     font-family: Ubuntu-500;
   }
 
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
+  &__columns {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    gap: 80px;
   }
 
+  &__description {
+    margin-right: 100px;
+  }
+}
+
+.tooltip {
+  cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 170px;
+  background-color: #3d3d3d;
+  color: #fff;
+  text-align: center;
+  padding: 8px 30px 8px 7px;
+  position: absolute;
+  margin-top: 6px;
+  font-size: 12px;
+  font-family: Ubuntu-500;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
 @media (max-width: 1180px) {
-    .platinumCard {
-        img {
-            width: 300px;
-        }
+  .platinumCard__columns {
+    display: block;
 
-        transition: all 1s ease-out;
+    ul {
+      margin-bottom: 32px;
     }
-
-    .platinumCard__columns {
-        display: block;
-
-        ul {
-            margin-bottom: 32px;
-        }
-    }
-    
+  }
 }
 
 @media (max-width: 960px) {
-    .tooltiptext {
-        margin-left: -70px;
+  .tooltiptext {
+    margin-left: -70px;
+  }
+
+  .platinumCard {
+    align-items: center;
+    text-align: center;
+    flex-direction: column-reverse;
+    padding: 48px 32px;
+
+    .platinumCard__description {
+      margin: 0;
     }
 
-    .platinumCard {
-        align-items: center;
-        text-align: center;
-        flex-direction: column-reverse;
-        padding: 48px 32px;
-
-        .platinumCard__description{
-            margin: 0;
-        }
-
-        img {
-            margin-bottom: 20px;
-        }
-    } 
+    img {
+      margin-bottom: 20px;
+      width: 300px;
+    }
+  }
 }
 
 @media (max-width: 550px) {
-    
-    .platinumCard {
-        h1 {
-            font-size: 35px;
-        }
-        
-        img {
-            width: 300px;
-        }
+  .platinumCard {
+    h1 {
+      font-size: 35px;
     }
-    
+
+    img {
+      width: 300px;
+    }
+  }
 }
