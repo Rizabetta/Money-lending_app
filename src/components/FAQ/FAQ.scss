@@ -1,5 +1,5 @@
 .faq {
-  .title {
+  &__title {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,21 +14,20 @@
     margin: 32px 0;
   }
 
-  .item {
+  &__item {
     padding: 32px;
     border: 1px solid #e2e8f0;
   }
 
-  .content {
+  &__content {
     overflow: hidden;
     max-height: 0;
     color: #7b7454;
-
-    .show {
-      height: auto;
-      max-height: 9999px;
-      color: #7b7454;
-      margin-top: 58px;
-    }
+  }
+  &__show {
+    height: auto;
+    max-height: 9999px;
+    color: #7b7454;
+    margin-top: 58px;
   }
 }

@@ -1,19 +1,6 @@
 import "./FAQ.scss";
-import { useState } from "react";
-import expandUp from "../../assets/svg/Expand_up.svg";
-import expandDown from "../../assets/svg/Expand_down.svg";
-
+import { Accordion } from "../../components";
 export default function FAQ() {
-  const [selected, setSelected] = useState(null);
-
-  const toggle = (i: any) => {
-    if (selected === i) {
-      return setSelected(null);
-    }
-
-    setSelected(i);
-  };
-
   const issueReceive = [
     {
       question: "How to get a card?",
@@ -68,28 +55,22 @@ export default function FAQ() {
   return (
     <section className="faq">
       <h3>Issuing and receiving a card</h3>
-      {issueReceive.map((item, key) => (
-        <div key={key} className="item">
-          <div className="title" onClick={() => toggle(key)}>
-            <p>{item.question}</p>
-            <img src={selected === key ? expandUp : expandDown} alt="alt"></img>
-          </div>
-          <p className={selected === key ? "content show" : "content"}>
-            {item.answer}
-          </p>
-        </div>
+      {issueReceive.map((element, key) => (
+        <Accordion
+          index={key}
+          question={element.question}
+          answer={element.answer}
+          key={key}
+        />
       ))}
       <h3>Using a credit card</h3>
-      {using.map((item, key) => (
-        <div key={key} className="item">
-          <div className="title" onClick={() => toggle(key)}>
-            <p>{item.question}</p>
-            <img src={selected === key ? expandUp : expandDown} alt="alt"></img>
-          </div>
-          <p className={selected === key ? "content show" : "content"}>
-            {item.answer}
-          </p>
-        </div>
+      {using.map((element, key) => (
+        <Accordion
+          key={key}
+          question={element.question}
+          answer={element.answer}
+          index={key}
+        />
       ))}
     </section>
   );
