@@ -1,18 +1,18 @@
 import "./FAQ.scss";
 import { useState } from "react";
-import expandUp from "../../assets/svg/Expand_up.svg"
-import expandDown from "../../assets/svg/Expand_down.svg"
+import expandUp from "../../assets/svg/Expand_up.svg";
+import expandDown from "../../assets/svg/Expand_down.svg";
 
 export default function FAQ() {
-const [selected, setSelected] = useState(null)
+  const [selected, setSelected] = useState(null);
 
-const toggle = (i: any) => {
+  const toggle = (i: any) => {
     if (selected === i) {
-        return setSelected(null)
+      return setSelected(null);
     }
 
-    setSelected(i)
-}
+    setSelected(i);
+  };
 
   const issueReceive = [
     {
@@ -70,21 +70,25 @@ const toggle = (i: any) => {
       <h3>Issuing and receiving a card</h3>
       {issueReceive.map((item, key) => (
         <div key={key} className="item">
-            <div className="title" onClick={() => toggle(key)}>
-                <p>{item.question}</p>
-                <img src={selected === key ? expandUp:expandDown} alt="alt"></img>
-            </div>
-            <p className={selected === key ? 'content show' : 'content'}> {item.answer}</p>
+          <div className="title" onClick={() => toggle(key)}>
+            <p>{item.question}</p>
+            <img src={selected === key ? expandUp : expandDown} alt="alt"></img>
+          </div>
+          <p className={selected === key ? "content show" : "content"}>
+            {item.answer}
+          </p>
         </div>
       ))}
       <h3>Using a credit card</h3>
       {using.map((item, key) => (
         <div key={key} className="item">
-            <div className="title" onClick={() => toggle(key)}>
-                <p>{item.question}</p>
-                <img src={selected === key ? expandUp:expandDown} alt="alt"></img>
-            </div>
-            <p className={selected === key ? 'content show' : 'content'}> {item.answer}</p>
+          <div className="title" onClick={() => toggle(key)}>
+            <p>{item.question}</p>
+            <img src={selected === key ? expandUp : expandDown} alt="alt"></img>
+          </div>
+          <p className={selected === key ? "content show" : "content"}>
+            {item.answer}
+          </p>
         </div>
       ))}
     </section>

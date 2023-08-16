@@ -1,9 +1,10 @@
 import { fetchNewsKey } from "../../API/api.js";
 import { getUpdateTime } from "../../utils/getUpdateTime.js"
 
-let renderArrNews = [];
-let limit;
+let renderArrNews: number[] = [];
+let limit: number;
 let news = 0;
+
 let visibleElements = 1;
 let newsContainerWidth =
   document.getElementsByClassName("news__track")[0].clientWidth;
@@ -11,8 +12,8 @@ let position = 0;
 const gap = 80;
 const cardWidth = 320;
 const move = gap + cardWidth;
-const track = document.querySelector(".news__track");
-const defaultImage = "../../public/assets/png/news_3.png";
+const track = document.querySelector(".news__track") as HTMLInputElement;
+// const defaultImage = "../../public/assets/png/news_3.png";
 
 function updateRequest() {
   fetchNewsKey("../src/keys/newsAPI.txt").then((response) =>
@@ -67,36 +68,37 @@ function getTrackWidth(trackWidth = newsContainerWidth) {
 function renderNewsItem(arrNews = renderArrNews) {
   document.getElementsByClassName("news__track")[0].innerHTML = "";
 
-  for (let news of arrNews) {
-    let div = document.createElement("div");
-    div.className = "news__card";
-    let newsContainer = document.querySelector(".news__track");
-    newsContainer.append(div);
 
-    let a = document.createElement("a");
-    a.href = news.url;
-    div.append(a);
+  // for (let item of arrNews) {
+  //   let div = document.createElement("div");
+  //   div.className = "news__card";
+  //   let newsContainer = document.querySelector(".news__track") as HTMLInputElement;
+  //   newsContainer.append(div);
 
-    let img = document.createElement("img");
-    const totalSrc = news.urlToImage ?? defaultImage;
-    img.src = totalSrc;
-    img.className = "card__image";
-    img.onerror = () => {
-      img.src = defaultImage;
-    };
-    a.append(img);
+  //   let a = document.createElement("a");
+  //   a.href = item.url;
+  //   div.append(a);
 
-    let title = document.createElement("h4");
-    title.innerHTML = news.title;
-    title.className = "card__h4";
-    a.append(title);
+  //   let img = document.createElement("img");
+  //   const totalSrc = item.urlToImage ?? defaultImage;
+  //   img.src = totalSrc;
+  //   img.className = "card__image";
+  //   img.onerror = () => {
+  //     img.src = defaultImage;
+  //   };
+  //   a.append(img);
 
-    let description = document.createElement("p");
-    const totalText = news.description ?? news.title;
-    description.innerHTML = totalText;
-    description.className = "card__description";
-    a.append(description);
-  }
+  //   let title = document.createElement("h4");
+  //   title.innerHTML = item.title;
+  //   title.className = "card__h4";
+  //   a.append(title);
+
+  //   let description = document.createElement("p");
+  //   const totalText = item.description ?? item.title;
+  //   description.innerHTML = totalText;
+  //   description.className = "card__description";
+  //   a.append(description);
+  // }
   news = arrNews.length;
   getTrackWidth();
 }

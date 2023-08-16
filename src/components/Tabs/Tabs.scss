@@ -1,0 +1,27 @@
+.content {
+  display: none;
+  
+}
+
+.tabs__block {
+  display: flex;
+  color: #7B7454;
+  font-size: 16px;
+  font-family: Ubuntu-500;
+  gap: 32px;
+  border-bottom: 2px solid rgb(222,221,230);
+}
+
+.tabs__content {
+  flex-grow: 1;
+}
+
+.active-content {
+  display: block;
+}
+
+.active-tabs {
+  padding-bottom: 11px;
+  border-bottom: 2px solid #7B7454;
+}
+

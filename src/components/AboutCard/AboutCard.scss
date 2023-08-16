@@ -1,4 +1,8 @@
 .aboutCard__card {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+    flex: 2 1 auto;
   width: 400px;
   padding: 32px;
   border-radius: 28px;
@@ -21,6 +25,7 @@
   margin-top: 49px;
 
   img {
+    width: 30px;
     margin-bottom: 24px;
   }
 
