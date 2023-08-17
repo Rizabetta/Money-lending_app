@@ -1,7 +1,34 @@
 import imgCard from "../../assets/svg/PlatinumCard.svg";
 import "./PlatinumCard.scss";
+import { Tooltip } from "../../components";
 
 export default function PlatinumCard() {
+  const platinumCardList = [
+    {
+      title: "Up to 160 days",
+      description: "No percent",
+      tooltiptext: "When repaying the full debt up to 160 days.",
+    },
+    {
+      title: (
+        <>
+          Up to 600 000 <b>&#8381;</b>
+        </>
+      ),
+      description: "Credit limit",
+      tooltiptext: "Over the limit willaccrue percent",
+    },
+    {
+      title: (
+        <>
+          0 <b>&#8381;</b>
+        </>
+      ),
+      description: "Card service is free",
+      tooltiptext: "Promotion valid until December 31, 2022.",
+    },
+  ];
+
   return (
     <section className="platinumCard">
       <div className="platinumCard__description">
@@ -11,27 +38,14 @@ export default function PlatinumCard() {
           Cash withdrawals and transfers without commission and interest.
         </p>
         <div className="platinumCard__columns">
-          <ul className="tooltip">
-            <li>Up to 160 days</li>
-            <li>No percent</li>
-            <span className="tooltiptext">
-              When repaying the full debt up to 160 days.
-            </span>
-          </ul>
-          <ul className="tooltip">
-            <li> Up to 600 000 &#8381;</li>
-            <li>Credit limit</li>
-            <span className="tooltiptext">
-              Over the limit willaccrue percent
-            </span>
-          </ul>
-          <ul className="tooltip">
-            <li>0 &#8381;</li>
-            <li>Card service is free</li>
-            <span className="tooltiptext">
-              Promotion valid until December 31, 2022.
-            </span>
-          </ul>
+          {platinumCardList.map((item, key) => (
+            <Tooltip
+              key={key}
+              tooltiptext={item.tooltiptext}
+              title={item.title}
+              description={item.description}
+            />
+          ))}
         </div>
         <button className="defaultButton">Apply for card</button>
       </div>

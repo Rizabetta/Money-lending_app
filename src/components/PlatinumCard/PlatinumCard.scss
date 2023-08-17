@@ -45,27 +45,6 @@
   }
 }
 
-.tooltip {
-  cursor: pointer;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 170px;
-  background-color: #3d3d3d;
-  color: #fff;
-  text-align: center;
-  padding: 8px 30px 8px 7px;
-  position: absolute;
-  margin-top: 6px;
-  font-size: 12px;
-  font-family: Ubuntu-500;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
-
 @media (max-width: 1180px) {
   .platinumCard__columns {
     display: block;
@@ -77,10 +56,6 @@
 }
 
 @media (max-width: 960px) {
-  .tooltiptext {
-    margin-left: -70px;
-  }
-
   .platinumCard {
     align-items: center;
     text-align: center;

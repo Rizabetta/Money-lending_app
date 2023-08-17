@@ -13,5 +13,7 @@ export {InstructionGetCart} from './InstructionGetCart';
 export {News} from './News';
 export {PlatinumCard} from './PlatinumCard';
 export {RatesConditions} from './RatesConditions';
+export {Routers} from './Routers';
 export {Support} from './Support';
 export {Tabs} from './Tabs';
+export {Tooltip} from './Tooltip';
