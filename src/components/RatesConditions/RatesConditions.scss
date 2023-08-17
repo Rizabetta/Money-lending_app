@@ -31,7 +31,19 @@
 @media (max-width: 1050px) {
   .RatesConditions {
     table {
-      display: flex;
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .RatesConditions {
+    tr {
+      border-bottom: 1px solid #7f92ac;
+      display: grid;
+    }
+    td {
+      border-bottom: none;
     }
   }
 }

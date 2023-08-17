@@ -46,4 +46,21 @@
     display: grid;
     justify-content: center;
   }
+
+  .instruction {
+    hr {
+      margin-right: 0;
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  .instruction {
+    hr {
+      width: 150px;
+    }
+    p {
+      inline-size: 300px;
+    }
+  }
 }
