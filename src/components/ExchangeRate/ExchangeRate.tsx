@@ -1,51 +1,48 @@
 import "./ExchangeRate.scss";
 import pantheon from "../../assets/svg/Pantheon.svg";
 import { getUpdateTime } from "../../utils/getUpdateTime.js";
-import { useEffect, useState, useRef } from "react";
-import { fetchCurrency } from "../../API/api.jsx";
+import { useEffect, useState } from "react";
+import { fetchCurrency } from "../../API/api.js";
+import { exchange, rateTable1, rateTable2 } from "./rateFromTo";
 
-// try {
-//   getExchange();
-//   setInterval(() => getExchange(), getUpdateTime(1000, 60, 15));
-// } catch (error) {
-//   console.log(error);
-// }
-
-const exchange = [
-  { from: "USD", to: "RUB" },
-  { from: "EUR", to: "RUB" },
-  { from: "CNY", to: "RUB" },
-  { from: "TRY", to: "RUB" },
-  { from: "CHF", to: "RUB" },
-  { from: "JPY", to: "RUB" },
-];
-
-const rateTable1 = [
-  { index: 1, rate: "USD:", id: "USD" },
-  { index: 2, rate: "CNY:", id: "CNY" },
-  { index: 3, rate: "CHF:", id: "CHF" },
-];
-
-const rateTable2 = [
-  { index: 1, rate: "EUR:", id: "EUR" },
-  { index: 2, rate: "JPY:", id: "JPY" },
-  { index: 3, rate: "TRY:", id: "TRY" },
-];
+type TValue = {
+  value: number | string;
+  id: string;
+};
 
 export default function ExchangeRate() {
+  const [value, setValue] = useState<TValue[] | null>(null);
   useEffect(() => {
-    const interval = setInterval(() => console.log("aaaaaa"), getUpdateTime(1000, 60, 15));
-    exchange.forEach((element) => {
-      // fetchCurrency(element.from, element.to).then((data) => 
-      //   (document.getElementById(element.from).innerHTML =
-      //     Number(data).toFixed(2)),
-      //   (error) => console.log("Rejected: " + error.message)
-      // );
-    });
+    updateRate();
+    const interval = setInterval(
+      () => updateRate(),
+      getUpdateTime(1000, 60, 15)
+    );
+
     return () => {
-      clearInterval(interval)
+      clearInterval(interval);
     };
   }, []);
+
+  function updateRate() {
+    const newValue: TValue[] = [];
+    exchange.forEach((element) => {
+      fetchCurrency(element.from, element.to)
+        .then((data) => {
+          const currentDate = Number(data);
+          if (!Number.isNaN(currentDate)) {
+            newValue.push({
+              id: element.from,
+              value: Number(data),
+            });
+          }
+          setValue([...newValue]);
+        })
+        .catch((error) => {
+          console.error("Rejected: " + error.message);
+        });
+    });
+  }
 
   return (
     <section className="exchangeRate">
@@ -53,20 +50,30 @@ export default function ExchangeRate() {
         <h3>Exchange rate in internet bank</h3>
         <p className="exchangeRate__currency-p">Currency</p>
         <ul className="exchangeRate__currency-table">
-          {rateTable1.map((item) => (
-            <div key={item.index}>
-              <li className="exchangeRate__currency">{item.rate}</li>
-              <li className="exchangeRate__value"  id={item.id}></li>
-            </div>
-          ))}
+          {value &&
+            rateTable1.map((item, key) => (
+              <div key={key}>
+                <li className="exchangeRate__currency">{item.rate}</li>
+                <li className="exchangeRate__value" id={item.id}>
+                  {Number(value.find((i) => i.id === item.id)?.value)?.toFixed(
+                    2
+                  )}
+                </li>
+              </div>
+            ))}
         </ul>
         <ul className="exchangeRate__currency-table">
-          {rateTable2.map((item) => (
-            <div key={item.index}>
-              <li className="exchangeRate__currency">{item.rate}</li>
-              <li className="exchangeRate__value" id={item.id}></li>
-            </div>
-          ))}
+          {value &&
+            rateTable2.map((item, key) => (
+              <div key={key}>
+                <li className="exchangeRate__currency">{item.rate}</li>
+                <li className="exchangeRate__value" id={item.id}>
+                  {Number(value.find((i) => i.id === item.id)?.value)?.toFixed(
+                    2
+                  )}
+                </li>
+              </div>
+            ))}
         </ul>
         <a href="# " className="exchangeRate__courses-a">
           All courses
