@@ -1,0 +1,27 @@
+.loader {
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__loading {
+    width: 70px;
+    height: 70px;
+    border: 2px solid #808080;
+    border-top: 2px solid #b4387a;
+    border-left: 2px solid #b4387a;
+    border-radius: 100%;
+    animation: loading 1s linear infinite;
+  }
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
