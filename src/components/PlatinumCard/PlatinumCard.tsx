@@ -2,7 +2,7 @@ import imgCard from "../../assets/svg/PlatinumCard.svg";
 import "./PlatinumCard.scss";
 import { Tooltip } from "../../components";
 
-export default function PlatinumCard() {
+export default function PlatinumCard({ buttonRef }: any) {
   const platinumCardList = [
     {
       title: "Up to 160 days",
@@ -29,6 +29,10 @@ export default function PlatinumCard() {
     },
   ];
 
+  const handleClick = () => {
+    buttonRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="platinumCard">
       <div className="platinumCard__description">
@@ -47,7 +51,9 @@ export default function PlatinumCard() {
             />
           ))}
         </div>
-        <button className="defaultButton">Apply for card</button>
+        <button className="defaultButton" onClick={handleClick}>
+          Apply for card
+        </button>
       </div>
       <div className="platinumCard__img">
         <img src={imgCard} alt="Platinum Card"></img>
