@@ -1,0 +1,91 @@
+.prescoring {
+  background-color: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 2px 4px rgb(196, 195, 204);
+  padding: 32px;
+  margin-top: 14px;
+
+  button {
+    width: 148px;
+  }
+
+  form {
+    input {
+      background-color: #f9f5e3;
+      border-radius: 6px;
+      border: 1px solid rgb(225, 222, 208);
+      padding: 13px 16px;
+      width: 287px;
+      margin: 8px 16px 16px 0;
+    }
+    select {
+      background-color: #f9f5e3;
+      border-radius: 6px;
+      border: 1px solid rgb(225, 222, 208);
+      padding: 0 16px;
+      width: 287px;
+      margin: 8px 16px 16px 0;
+      height: 46px;
+    }
+  }
+
+  &__topcontainer {
+    display: flex;
+  }
+  &__leftsection {
+    padding-right: 40px;
+    border-right: 1px dashed #80808066;
+    width: 50%;
+  }
+
+  &__step {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  input:invalid {
+    border: 2px solid #ff5631;
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    outline: none;
+    background-color: #e2e8f0;
+    height: 2px;
+    width: 100%;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: #5b35d5;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    border-radius: 50px;
+  }
+
+  .prescoring__selectamount {
+    border: 1px solid #5b35d5;
+    border-radius: 10px;
+    padding: 24px;
+    margin: 32px 0;
+
+    &__maxmin {
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      color: #786d6d;
+      font-family: Ubuntu-500;
+      padding-top: 8px;
+    }
+  }
+
+  .prescoring__rightsection {
+    padding-left: 42px;
+  }
+
+  .prescoring__information {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
