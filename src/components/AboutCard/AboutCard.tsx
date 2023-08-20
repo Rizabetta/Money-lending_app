@@ -9,7 +9,7 @@ export default function AboutCard() {
   const cardList = [
     {
       src: money,
-      title: "Up to 50 000 ₽",
+      title: <>Up to 50 000 <b>&#8381;</b></>,
       information: "Cash and transfers without commission and percent",
     },
     {

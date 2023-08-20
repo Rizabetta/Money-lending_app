@@ -2,7 +2,7 @@ import expandUp from "../../assets/svg/Expand_up.svg";
 import expandDown from "../../assets/svg/Expand_down.svg";
 import { useState } from "react";
 
-export default function FAQ(props : any) {
+export default function Accordion(props : any) {
   const [selected, setSelected] = useState(null);
 
   const toggle = (i: any) => {
