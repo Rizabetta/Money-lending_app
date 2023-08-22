@@ -13,7 +13,7 @@ function fetchCurrency(from, to) {
 function fetchNewsKey(url) {
     let response = fetch(url).then((response) => response.text())
         .then(data =>
-            fetch(`https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${data}`));;
+            fetch(`https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=2f70bdb910e145a69b9f60589239e996`));
     return response;
 }
 

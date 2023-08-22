@@ -9,6 +9,9 @@
 
     label {
         @include display-property();
+        p {
+            padding-left: 20px;
+        }
     }
 
     &__appeal-1 {

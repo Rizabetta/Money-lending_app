@@ -1,3 +1,4 @@
+import "./CardDesign.scss";
 import card1 from "../../assets/svg/card_1.svg";
 import card2 from "../../assets/svg/card_2.svg";
 import card3 from "../../assets/svg/card_3.svg";

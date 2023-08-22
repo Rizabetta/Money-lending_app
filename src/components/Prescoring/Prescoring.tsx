@@ -1,7 +1,17 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import "./Prescoring.scss";
 import { useState } from "react";
-
+// {
+//   "amount": 1000000,
+//   "term": 24,
+//   "firstName": "Ivan",
+//   "lastName": "Ivanov",
+//   "middleName": "Ivanonovich",
+//   "email": "iivanov@email.ru",
+//   "birthdate": "2023-08-20",
+//   "passportSeries": "1234",
+//   "passportNumber": "123456"
+// }
 type Inputs = {
   amount: number;
   term: number;
@@ -13,6 +23,13 @@ type Inputs = {
   passportSeries: string;
   passportNumber: string;
 };
+
+const temp = ["firstName", "lastName"];
+
+const current = new Date();
+const minDate = `${current.getFullYear() - 18}-${
+  current.getMonth() + 1
+}-${current.getDate()}`;
 
 const term = [
   { titel: "6 month", value: 6 },
@@ -27,7 +44,7 @@ function Prescoring({ buttonRef }: any) {
 
   let step = 1;
   let [amount, setAmount] = useState(150000);
-  // let amount = 150000;
+
   return (
     <section className="prescoring" ref={buttonRef}>
       <div className="prescoring__topcontainer">
@@ -38,7 +55,9 @@ function Prescoring({ buttonRef }: any) {
           </div>
           <div className="prescoring__selectamount">
             <p>Select amount</p>
-            <p>{amount.toLocaleString('ru-RU')}</p>
+            <p className="prescoring__selectamount-p">
+              {amount.toLocaleString("ru-RU")}
+            </p>
             <input
               type="range"
               min="15000"
@@ -59,7 +78,7 @@ function Prescoring({ buttonRef }: any) {
             type="number"
             max="600000"
             min="15000"
-            onChange={(i) => setAmount(Number(i.target.value))}
+            {...register("amount", { required: true })}
           />
           <hr></hr>
         </div>
@@ -82,6 +101,15 @@ function Prescoring({ buttonRef }: any) {
               {...register("firstName", { required: true })}
             />
           </div>
+          {/* {temp.map((item, key) => (
+            <div key={key}>
+              <p>Your patronymic</p>
+              <input
+                placeholder="For Example Victorovich"
+                {...register("patronymic")}
+              />
+            </div>
+          ))} */}
           <div>
             <p>Your patronymic</p>
             <input
@@ -102,6 +130,7 @@ function Prescoring({ buttonRef }: any) {
           <div>
             <p>Your email</p>
             <input
+              type="email"
               placeholder="test@gmail.com"
               {...register("email", { required: true })}
             />
@@ -109,6 +138,8 @@ function Prescoring({ buttonRef }: any) {
           <div>
             <p>Your date of birth</p>
             <input
+              type="date"
+              min={minDate}
               placeholder="Select Date and Time"
               {...register("birthdate", { required: true })}
             />
@@ -116,22 +147,33 @@ function Prescoring({ buttonRef }: any) {
           <div>
             <p>Your passport series</p>
             <input
+              type="number"
+              min="0000"
+              max="9999"
               placeholder="0000"
+              // minLength={4}
+              // maxLength={4}
               {...register("passportSeries", { required: true })}
             />
           </div>
           <div>
             <p>Your passport number</p>
             <input
+              type="number"
+              min="000000"
+              max="999999"
               placeholder="000000"
+              // minLength={6}
+              // maxLength={6}
               {...register("passportNumber", { required: true })}
             />
           </div>
         </div>
-
-        <button className="defaultButton" type="submit">
-          Contiue
-        </button>
+        <div className="prescoring__information-btn">
+          <button className="defaultButton" type="submit">
+            Contiue
+          </button>
+        </div>
       </form>
     </section>
   );

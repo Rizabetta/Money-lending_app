@@ -2,253 +2,260 @@
 @import "../../scss/variables.scss";
 
 .main {
-    max-width: $max-width;
-    padding: 0 10px;
-    margin: 0 auto;
+  max-width: $max-width;
+  padding: 0 10px;
+  margin: 0 auto;
 }
 
 .cardDesign {
-    display: flex;
-    margin-top: 131px;
+  display: flex;
+  margin-top: 131px;
 
-    h1 {
-        font-family: Ubuntu-700;
-        font-size: 48px;
-        margin-right: 160px;
-    }
+  h1 {
+    font-family: Ubuntu-700;
+    font-size: 48px;
+    margin-right: 160px;
+  }
 
-    button {
-        margin-top: 36px;
-    }
+  button {
+    margin-top: 36px;
+  }
 
-    &__container {
-        img {
-            margin: 8px;
-        }
+  &__container {
+    img {
+      margin: 8px;
     }
+  }
 }
 
 .features {
-    @include display-center(align-items);
-    justify-content: space-between;
-    margin-top: 112px;
+  @include display-center(align-items);
+  justify-content: space-between;
+  margin-top: 112px;
 
-    img {
-        margin-right: 74px;
-    }
+  img {
+    margin-right: 74px;
+  }
 }
 
 .features__item {
-    h2 {
-        font-family: Rubik-500;
-        font-size: 35px;
-    }
+  h2 {
+    font-family: Rubik-500;
+    font-size: 35px;
+  }
 
-    img {
-        margin-right: 18px;
-    }
+  img {
+    margin-right: 18px;
+  }
 
-    ul {
-        margin-top: 25px;
-    }
+  ul {
+    margin-top: 25px;
+  }
 
-    p {
-        margin-top: 20px;
-    }
+  p {
+    margin-top: 20px;
+  }
 
-    p,
-    li {
-        font-family: Rubik-400;
-    }
+  p,
+  li {
+    font-family: Rubik-400;
+  }
 
-    li {
-        padding-bottom: 12px;
-        @include display-center(align-items);
-        font-size: 14px;
-    }
+  li {
+    padding-bottom: 12px;
+    @include display-center(align-items);
+    font-size: 14px;
+  }
 }
 
 .global,
 .news {
-    text-align: center;
-    font-family: Ubuntu-500;
-    margin-top: 48px;
+  text-align: center;
+  font-family: Ubuntu-500;
+  margin-top: 48px;
 }
 
 .global {
-    img {
-        margin-top: 48px;
-    }
+  img {
+    margin-top: 48px;
+  }
 }
 
 .news {
-    &__container {
-        overflow: hidden;
-    }
+  &__container {
+    overflow: hidden;
+  }
 
-    &__track {
-        display: flex;
-        transition: .2s;
-        gap: 80px;
-        margin-top: 46px;
-    }
+  &__track {
+    display: flex;
+    transition: 0.2s;
+    gap: 80px;
+    margin-top: 46px;
+  }
 }
 
 .news__wrapper {
-    width: $max-width;
-    display: block;
-    margin-left: auto;
-    margin-right: auto
+  width: $max-width;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .news__card {
-    background-color: #FFFFFF;
-    border-radius: 28px;
-    box-shadow: 0px 2px 4px 0 rgb(197, 196, 205);
-    border: 1px solid rgb(237, 237, 237);
-    padding: 32px;
-    font-family: Ubuntu-500;
-    min-width: 320px;
+  background-color: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0px 2px 4px 0 rgb(197, 196, 205);
+  border: 1px solid rgb(237, 237, 237);
+  padding: 32px;
+  font-family: Ubuntu-500;
+  min-width: 320px;
 
-    h4 {
-        @include size-marginT(20px, 32px);
-    }
+  h4 {
+    @include size-marginT(20px, 32px);
+  }
 
-    p {
-        @include size-marginT(16px, 32px);
-    }
+  p {
+    @include size-marginT(16px, 32px);
+  }
 
-    img {
-        width: 256px;
-        height: 120px;
-    }
+  img {
+    width: 256px;
+    height: 120px;
+  }
 }
 
 .news__buttons {
-    text-align: right;
-    margin-top: 48px;
+  text-align: right;
+  margin-top: 48px;
 }
 
 .carouselBtn {
-    cursor: pointer;
-    width: 64px;
-    height: 64px;
-    border-radius: 50px;
-    margin-top: 48px;
-    margin-left: 20px;
-    @include notActiveBtn();
+  cursor: pointer;
+  width: 64px;
+  height: 64px;
+  border-radius: 50px;
+  margin-top: 48px;
+  margin-left: 20px;
+  @include notActiveBtn();
 
-    &:hover {
-        background-color: #003CFF;
+  &:hover {
+    background-color: #003cff;
 
-        svg path {
-            stroke: white;
-        }
+    svg path {
+      stroke: white;
     }
+  }
 }
 
 .disabled {
-    cursor: not-allowed;
+  cursor: not-allowed;
 
-    &:hover {
-        @include notActiveBtn();
-    }
+  &:hover {
+    @include notActiveBtn();
+  }
 }
 
 .heading {
-    @include size-marginT(30px, 21px);
+  @include size-marginT(30px, 21px);
 }
 
 .paragraph {
-    @include size-marginT(16px, 21px);
+  @include size-marginT(16px, 21px);
 }
 
 @media (max-width: 1350px) {
-    // .cardDesign__container {
-    //     width: 600px;
-    // }
+  // .cardDesign__container {
+  //     width: 600px;
+  // }
 
-    .news__wrapper {
-        width: 1160px;
-    }
+  .news__wrapper {
+    width: 1160px;
+  }
 }
 
 @media (max-width: 1160px) {
-    .news__wrapper {
-        width: 770px;
-    }
+  .news__wrapper {
+    width: 770px;
+  }
 }
 
 @media (max-width: 770px) {
-    .news__wrapper {
-        width: 350px;
-    }
+  .news__wrapper {
+    width: 350px;
+  }
 }
 
 @media (max-width: 1290px) {
-    .cardDesign {
-        flex-wrap: wrap;
+  .cardDesign {
+    flex-wrap: wrap;
 
-        h1 {
-            margin-right: 0;
-        }
-
-        &__container {
-            margin-top: 36px;
-        }
+    h1 {
+      margin-right: 0;
     }
 
+    &__container {
+      margin-top: 36px;
+    }
+  }
 }
 
 @media (max-width: 1100px) {
-    .news__container {
-        flex-wrap: wrap;
-    }
+  .news__container {
+    flex-wrap: wrap;
+  }
 
-    .global {
-        img {
-            width: 500px;
-        }
+  .global {
+    img {
+      width: 500px;
     }
+  }
 }
 
 @media (max-width: 920px) {
-    .features {
-        flex-wrap: wrap;
-        @include display-center(justify-content);
+  .features {
+    flex-wrap: wrap;
+    @include display-center(justify-content);
 
-        &__illustration {
-            margin-right: 0;
-        }
-
-        h2 {
-            margin-top: 48px;
-        }
+    &__illustration {
+      margin-right: 0;
     }
+
+    h2 {
+      margin-top: 48px;
+    }
+  }
 }
 
 @media (max-width: 764px) {
-    .news_container {
-        @include display-center(justify-content);
-    }
+  .news_container {
+    @include display-center(justify-content);
+  }
 }
 
 @media (max-width: 588px) {
-    .features__illustration {
-        width: 350px;
-    }
+  .features__illustration {
+    width: 350px;
+  }
 }
 
 @media (max-width: 515px) {
-    .cardDesign {
-        h1 {
-            font-size: 35px;
-        }
+  .cardDesign {
+    h1 {
+      font-size: 35px;
     }
+  }
 
-    .global {
-        img {
-            width: 350px;
-        }
+  .global {
+    img {
+      width: 350px;
     }
+  }
+}
+
+@media (max-width: 1240px) {
+  .cardDesign__container {
+    width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
 }

@@ -5,11 +5,13 @@
   padding: 32px;
   margin-top: 14px;
 
-  button {
-    width: 148px;
-  }
-
   form {
+    h3 {
+      margin-bottom: 24px;
+      font-size: 20px;
+      font-family: Ubuntu-700;
+    }
+
     input {
       background-color: #f9f5e3;
       border-radius: 6px;
@@ -18,6 +20,7 @@
       width: 287px;
       margin: 8px 16px 16px 0;
     }
+
     select {
       background-color: #f9f5e3;
       border-radius: 6px;
@@ -41,11 +44,25 @@
   &__step {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    h3 {
+      font-size: 30px;
+      font-family: Ubuntu-700;
+    }
+    p {
+      font-size: 16px;
+      font-family: Ubuntu-500;
+    }
   }
 
-  input:invalid {
-    border: 2px solid #ff5631;
-  }
+  // input:enabled {
+  //   border-color: #5B35D5;
+  //   box-shadow: 1px 1px 2px 0 #5B35D5;
+  // }
+
+  // input:valid {
+  //   border: 2px solid #ff5631;
+  // }
 
   input[type="range"] {
     -webkit-appearance: none;
@@ -53,6 +70,7 @@
     background-color: #e2e8f0;
     height: 2px;
     width: 100%;
+    // overflow: hidden;
   }
 
   input[type="range"]::-webkit-slider-thumb {
@@ -63,12 +81,40 @@
     height: 24px;
     border-radius: 50px;
   }
+  
+  // input[type=range]::-webkit-progress-value {
+  //   background: #4CAF50;
+  // }
+  input[type="range"]::-moz-range-track {
+    height: 15px;
+    background: #ccc;
+    border-radius: 16px;
+  }
+  
+  /* Thumb: webkit */
+  input[type="range"]::-webkit-slider-thumb {
+    border-radius: 50%;
+    // border: 2px solid #f50;
+    // box-shadow: -41px 0 0 40px #f50;
+  }
+  
+  
+
 
   .prescoring__selectamount {
     border: 1px solid #5b35d5;
     border-radius: 10px;
     padding: 24px;
     margin: 32px 0;
+
+    &-p {
+      margin: 20px 0 10px 0;
+    }
+
+    p {
+      font-size: 16px;
+      font-family: Ubuntu-500;
+    }
 
     &__maxmin {
       display: flex;
@@ -82,10 +128,46 @@
 
   .prescoring__rightsection {
     padding-left: 42px;
+
+    h4 {
+      font-size: 20px;
+      font-family: Ubuntu-700;
+      margin-bottom: 16px;
+    }
+
+    input {
+      font-size: 16px;
+      font-family: Ubuntu-500;
+      outline: none;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 10px;
+      width: 220px;
+    }
   }
 
   .prescoring__information {
     display: flex;
     flex-wrap: wrap;
+
+    p {
+      font-family: Ubuntu-500;
+      font-size: 16px;
+    }
+
+    &-btn {
+      display: flex;
+      justify-content: flex-end;
+      button {
+        width: 148px;
+      }
+    }
+    input:focus {
+      border-color: #5b35d5;
+      box-shadow: 1px 1px 2px 0 #5b35d5;
+    }
+
+    input:invalid {
+      border: 2px solid #ff5631;
+    }
   }
 }
