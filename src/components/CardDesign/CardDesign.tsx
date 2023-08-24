@@ -4,18 +4,28 @@ import card2 from "../../assets/svg/card_2.svg";
 import card3 from "../../assets/svg/card_3.svg";
 import card4 from "../../assets/svg/card_4.svg";
 
+const cardList = [
+  { id: 1, src: card1 },
+  { id: 2, src: card2 },
+  { id: 3, src: card3 },
+  { id: 4, src: card4 },
+];
+
 export default function CardDesign() {
   return (
     <section className="cardDesign">
       <div>
         <h1>Choose the design you like and apply for card right now</h1>
-        <button className="defaultButton">Choose the card</button>
+        <form action="/loan">
+          <button className="defaultButton" type="submit">
+            Choose the card
+          </button>
+        </form>
       </div>
       <div className="cardDesign__container">
-        <img src={card1} alt="card 1" />
-        <img src={card2} alt="card 2" />
-        <img src={card3} alt="card 3" />
-        <img src={card4} alt="card 4" />
+        {cardList.map((element) => (
+          <img key={element.id} src={element.src} alt="card" />
+        ))}
       </div>
     </section>
   );
