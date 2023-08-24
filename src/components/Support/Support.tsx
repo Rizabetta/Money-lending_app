@@ -2,29 +2,13 @@ import "./Support.scss";
 import emailimg from "../../assets/svg/Email.svg";
 import subscribe from "../../assets/svg/Subscribe.svg";
 import { useState } from "react";
-
-// {
-//     "email": "ivanov@mail.com"
-//   }
+import { postEmail } from "../../API/api";
 
 export default function Support() {
   let [email, setEmail] = useState("");
 
-  function postEmail(event: any) {
-    event.preventDefault();
-
-    let response = fetch("http://localhost:8080/email", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify({ email: email }),
-    });
-
-    response.then((data) => {
-      console.log(data.status === 200);
-      sessionStorage.setItem("status", `${data.status}`);
-    });
+  function handleSubmit() {
+    postEmail(email);
   }
 
   return (
@@ -36,18 +20,18 @@ export default function Support() {
       <a href="# " className="support__appeal-3">
         Bank News
       </a>
-      <form className="support__search-form" onSubmit={postEmail}>
+      <form className="support__search-form" onSubmit={handleSubmit}>
         <div className="support__email">
           <label>
             <img src={emailimg} alt="Email" />
             {sessionStorage.getItem("status") === "200" ? (
               <p>You are already subscribed to the bank's newsletter</p>
             ) : (
-              <input type="email"
+              <input
+                type="email"
                 value={email}
                 onChange={(i) => {
                   setEmail(i.target.value);
-                  console.log(email);
                 }}
                 placeholder="Your email"
                 className="support__search-form__input"
