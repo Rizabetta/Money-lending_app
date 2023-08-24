@@ -22,7 +22,7 @@ export default function CardNews({
           alt="CardNews"
         ></img>
         <h4 className="card__h4">{title}</h4>
-        <p className="card__description">{description}</p>
+        <p className="card__description">{description ?? title}</p>
       </a>
     </div>
   );
