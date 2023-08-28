@@ -1,4 +1,4 @@
-import { fetchNewsKey } from "../../API/api.js";
+// import { fetchNewsKey } from "../../API/api.js";
 import { getUpdateTime } from "../../utils/getUpdateTime.js"
 
 let renderArrNews: number[] = [];
@@ -15,21 +15,21 @@ const move = gap + cardWidth;
 const track = document.querySelector(".news__track") as HTMLInputElement;
 // const defaultImage = "../../public/assets/png/news_3.png";
 
-function updateRequest() {
-  fetchNewsKey("../src/keys/newsAPI.txt").then((response) =>
-    response.json().then((data) => {
-      renderArrNews = data.articles;
-      renderNewsItem();
-    }), error => console.log("Rejected: " + error.message)
-  );
-  setInterval(() => updateRequest(), getUpdateTime (1000, 60, 15));
-}
+// function updateRequest() {
+//   fetchNewsKey("../src/keys/newsAPI.txt").then((response) =>
+//     response.json().then((data) => {
+//       renderArrNews = data.articles;
+//       renderNewsItem();
+//     }), error => console.log("Rejected: " + error.message)
+//   );
+//   setInterval(() => updateRequest(), getUpdateTime (1000, 60, 15));
+// }
 
-try {
-  updateRequest();
-} catch (error) {
-  console.log(error);
-}
+// try {
+//   updateRequest();
+// } catch (error) {
+//   console.log(error);
+// }
 
 function calcTrackWidth() {
   window.addEventListener(

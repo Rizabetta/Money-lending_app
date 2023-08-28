@@ -1,5 +1,4 @@
-import { fetchNewsKey } from "../../API/api.jsx";
-import { getUpdateTime } from "../../utils/getUpdateTime.js"
+import { getUpdateTime } from "../../utils/getUpdateTime"
 
 let renderArrNews: number[] = [];
 let limit: number;
@@ -15,21 +14,21 @@ const move = gap + cardWidth;
 const track = document.querySelector(".news__track") as HTMLInputElement;
 // const defaultImage = "../../public/assets/png/news_3.png";
 
-function updateRequest() {
-  fetchNewsKey("../src/keys/newsAPI.txt").then((response) =>
-    response.json().then((data) => {
-      renderArrNews = data.articles;
-      renderNewsItem();
-    }), error => console.log("Rejected: " + error.message)
-  );
-  setInterval(() => updateRequest(), getUpdateTime (1000, 60, 15));
-}
+// function updateRequest() {
+//   fetchNewsKey("../src/keys/newsAPI.txt").then((response) =>
+//     response.json().then((data) => {
+//       renderArrNews = data.articles;
+//       renderNewsItem();
+//     }), error => console.log("Rejected: " + error.message)
+//   );
+//   setInterval(() => updateRequest(), getUpdateTime (1000, 60, 15));
+// }
 
-try {
-  updateRequest();
-} catch (error) {
-  console.log(error);
-}
+// try {
+//   updateRequest();
+// } catch (error) {
+//   console.log(error);
+// }
 
 function calcTrackWidth() {
   window.addEventListener(
@@ -65,8 +64,8 @@ function getTrackWidth(trackWidth = newsContainerWidth) {
   }
 }
 
-function renderNewsItem(arrNews = renderArrNews) {
-  document.getElementsByClassName("news__track")[0].innerHTML = "";
+// function renderNewsItem(arrNews = renderArrNews) {
+//   document.getElementsByClassName("news__track")[0].innerHTML = "";
 
 
   // for (let item of arrNews) {
@@ -99,9 +98,9 @@ function renderNewsItem(arrNews = renderArrNews) {
   //   description.className = "card__description";
   //   a.append(description);
   // }
-  news = arrNews.length;
-  getTrackWidth();
-}
+//   news = arrNews.length;
+//   getTrackWidth();
+// }
 
 const btnLeft = document.getElementsByClassName("news__input-left")[0];
 const btnRight = document.getElementsByClassName("news__input-right")[0];
@@ -140,3 +139,5 @@ function checkBtn() {
 
 checkBtn();
 limit = Number(news - visibleElements) * 400;
+
+export {carouselLeftBtn, carouselRightBtn};

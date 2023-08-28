@@ -1,5 +1,5 @@
-import { useEffect, useState, useRef } from "react";
-import { fetchNewsKey } from "../../API/api";
+import { useEffect, useState,useRef } from "react";
+import { fetchNews } from "../../API/api";
 import { getUpdateTime } from "../../utils/getUpdateTime";
 import CardNews from "../CardNews/CardNews";
 
@@ -42,8 +42,18 @@ interface CardProps {
 }
 
 export default function News() {
-  const newValue: CardProps[] = [];
   let [arrnews, setArrNews] = useState<CardProps[] | null>(null);
+
+
+
+
+  // const listRef = useRef<HTMLDivElement>();
+const cnElems = document.getElementsByClassName("news__track");
+console.log(cnElems);
+
+
+
+
 
   useEffect(() => {
     const interval = setInterval(
@@ -58,21 +68,10 @@ export default function News() {
   }, []);
 
   async function renderCart() {
-    let response = await fetch(
-      "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=2f70bdb910e145a69b9f60589239e996"
-    );
-    let news = await response.json();
-    for (let element of news.articles) {
-      newValue.push({
-        url: element.url,
-        urlToImage: element,
-        title: element.title,
-        description: element.description,
-      });
-      setArrNews([...newValue]);
-    }
+    let news = await fetchNews();
+    setArrNews(news);
   }
-  
+
   return (
     <section className="news">
       <h3 className="heading">Current news from the world of finance</h3>
@@ -82,14 +81,15 @@ export default function News() {
       </p>
       <div className="news__wrapper">
         <div className="news__container">
-          <div className="news__track">
+          <div className="news__track" >
             {arrnews &&
-              arrnews.map((item, key) => (
-                <CardNews key={key}
-                  url={item.url}
-                  urlToImage={item.urlToImage}
-                  title={item.title}
-                  description={item.description}
+              arrnews.map(({ url, urlToImage, title, description }, key) => (
+                <CardNews
+                  key={key}
+                  url={url}
+                  urlToImage={urlToImage}
+                  title={title}
+                  description={description}
                 />
               ))}
           </div>
