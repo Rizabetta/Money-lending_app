@@ -5,7 +5,18 @@
   padding: 32px;
   margin-top: 14px;
 
-  form {
+  img {
+    // margin-left: -50px;
+  }
+
+  .prescoring__information {
+    span {
+      display: block;
+      color: #FF5631;
+      font-size: 16px;
+      font-family: Ubuntu-500;
+    }
+
     h3 {
       margin-bottom: 24px;
       font-size: 20px;
@@ -18,7 +29,7 @@
       border: 1px solid rgb(225, 222, 208);
       padding: 13px 16px;
       width: 287px;
-      margin: 8px 16px 16px 0;
+      margin-top: 8px;
     }
 
     select {
@@ -27,8 +38,23 @@
       border: 1px solid rgb(225, 222, 208);
       padding: 0 16px;
       width: 287px;
-      margin: 8px 16px 16px 0;
+      margin-top: 8px;
       height: 46px;
+      -webkit-appearance: none;
+      appearance: none;
+      
+    }
+
+    select:not([multiple]) {
+      padding-right: 1.2em;
+      background-repeat: no-repeat;
+      background-position: calc(100% - 1.25em) 1em;
+      background-size: 0.85em auto;
+      background-image: url("../../assets/svg/Select.svg");
+    }
+
+    &-input {
+      margin-bottom: 16px;
     }
   }
 
@@ -55,22 +81,12 @@
     }
   }
 
-  // input:enabled {
-  //   border-color: #5B35D5;
-  //   box-shadow: 1px 1px 2px 0 #5B35D5;
-  // }
-
-  // input:valid {
-  //   border: 2px solid #ff5631;
-  // }
-
   input[type="range"] {
-    -webkit-appearance: none;
     outline: none;
     background-color: #e2e8f0;
     height: 2px;
     width: 100%;
-    // overflow: hidden;
+    accent-color: #5b35d5;
   }
 
   input[type="range"]::-webkit-slider-thumb {
@@ -81,25 +97,6 @@
     height: 24px;
     border-radius: 50px;
   }
-  
-  // input[type=range]::-webkit-progress-value {
-  //   background: #4CAF50;
-  // }
-  input[type="range"]::-moz-range-track {
-    height: 15px;
-    background: #ccc;
-    border-radius: 16px;
-  }
-  
-  /* Thumb: webkit */
-  input[type="range"]::-webkit-slider-thumb {
-    border-radius: 50%;
-    // border: 2px solid #f50;
-    // box-shadow: -41px 0 0 40px #f50;
-  }
-  
-  
-
 
   .prescoring__selectamount {
     border: 1px solid #5b35d5;
@@ -110,8 +107,11 @@
     &-p {
       margin: 20px 0 10px 0;
     }
-
-    p {
+    input[type="number"] {
+      margin: 20px 0 10px 0;
+    }
+    p,
+    input[type="number"] {
       font-size: 16px;
       font-family: Ubuntu-500;
     }
@@ -129,13 +129,18 @@
   .prescoring__rightsection {
     padding-left: 42px;
 
+    b {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    }
     h4 {
       font-size: 20px;
       font-family: Ubuntu-700;
       margin-bottom: 16px;
     }
 
-    input {
+    p {
       font-size: 16px;
       font-family: Ubuntu-500;
       outline: none;
@@ -144,11 +149,22 @@
       width: 220px;
     }
   }
-
+  .prescoring__bottomcontainer {
+    h3 {
+      margin-bottom: 24px;
+    }
+  }
   .prescoring__information {
+    gap: 16px;
     display: flex;
     flex-wrap: wrap;
+    &-title {
+      display: flex;
 
+      img {
+        margin-left: 5px;
+      }
+    }
     p {
       font-family: Ubuntu-500;
       font-size: 16px;
@@ -159,15 +175,85 @@
       justify-content: flex-end;
       button {
         width: 148px;
+        border-radius: 8px;
       }
     }
-    input:focus {
-      border-color: #5b35d5;
-      box-shadow: 1px 1px 2px 0 #5b35d5;
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+      display: none;
     }
-
+    input[type=date]::-webkit-calendar-picker-indicator {
+      display: none;
+    }
+    
     input:invalid {
       border: 2px solid #ff5631;
+    }
+  }
+
+  input:focus {
+    outline: 2px solid #5b35d5;
+  }
+
+  input[type="range"]:focus {
+    outline: none;
+  }
+
+  label {
+    position: relative;
+
+    img {
+      position: absolute;
+      right: 16px;
+      top: 10%;
+    }
+  }
+}
+
+@media (max-width: 970px) {
+  .prescoring__bottomcontainer {
+    h3 {
+      text-align: center;
+    }
+  }
+  .prescoring {
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .prescoring__information {
+    justify-content: center;
+  }
+
+  .prescoring__step {
+    p {
+      margin-left: 198px;
+    }
+  }
+  .prescoring__topcontainer {
+    display: block;
+  }
+  .prescoring__leftsection {
+    width: 100%;
+    padding: 0;
+    border: none;
+  }
+  .prescoring__rightsection {
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: 707px) {
+  .prescoring__topcontainer {
+    h3 {
+      font-size: 20px;
+    }
+  }
+  .prescoring__step {
+    p {
+      margin-left: 20px;
     }
   }
 }

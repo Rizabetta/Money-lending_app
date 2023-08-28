@@ -1,6 +1,10 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import "./Prescoring.scss";
 import { useState } from "react";
+import required from "../../assets/svg/Required.svg";
+import { contactInformation } from "./Prescoring.constant";
+import invalid from "../../assets/svg/Invalid.svg";
+import valid from "../../assets/svg/Valid.svg";
 // {
 //   "amount": 1000000,
 //   "term": 24,
@@ -24,155 +28,142 @@ type Inputs = {
   passportNumber: string;
 };
 
-const temp = ["firstName", "lastName"];
-
-const current = new Date();
-const minDate = `${current.getFullYear() - 18}-${
-  current.getMonth() + 1
-}-${current.getDate()}`;
-
-const term = [
-  { titel: "6 month", value: 6 },
-  { titel: "12 month", value: 12 },
-  { titel: "18 month", value: 18 },
-  { titel: "24 month", value: 24 },
-];
-
 function Prescoring({ buttonRef }: any) {
-  const { register, handleSubmit } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit: SubmitHandler<any> = (data) => {
+    
+    // setisSubmited(true);
+    console.log(data);
+    console.log("sub ",isSubmited);
+  };
+
+  const submitHandler : SubmitHandler<any>  = (data: SubmitHandler<any>, event) => {
+    event?.preventDefault();
+    setisSubmited(true);
+    onSubmit(data);
+  }
 
   let step = 1;
-  let [amount, setAmount] = useState(150000);
+  let [amount, setAmount] = useState(15000);
+  const minAmoint = 15000;
+  const maxAmoint = 600000;
 
+  let [isSubmited, setisSubmited] = useState(false);
+  console.log("no  ",isSubmited);
   return (
     <section className="prescoring" ref={buttonRef}>
-      <div className="prescoring__topcontainer">
-        <div className="prescoring__leftsection">
-          <div className="prescoring__step">
-            <h3>Customize your card</h3>
-            <p>Step {step} of 5</p>
-          </div>
-          <div className="prescoring__selectamount">
-            <p>Select amount</p>
-            <p className="prescoring__selectamount-p">
-              {amount.toLocaleString("ru-RU")}
-            </p>
-            <input
-              type="range"
-              min="15000"
-              max="600000"
-              step="1000"
-              data-orientation="vertical"
-              onChange={(i) => setAmount(Number(i.target.value))}
-            ></input>
-            <div className="prescoring__selectamount__maxmin">
-              <p>15 000</p>
-              <p>600 000</p>
+      <form onSubmit={submitHandler}>
+        <div className="prescoring__topcontainer">
+          <div className="prescoring__leftsection">
+            <div className="prescoring__step">
+              <h3>Customize your card</h3>
+              <p>Step {step} of 5</p>
             </div>
-          </div>
-        </div>
-        <div className="prescoring__rightsection">
-          <h4>You have chosen the amount</h4>
-          <input
-            type="number"
-            max="600000"
-            min="15000"
-            {...register("amount", { required: true })}
-          />
-          <hr></hr>
-        </div>
-      </div>
-
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <h3>Contact Information</h3>
-        <div className="prescoring__information">
-          <div>
-            <p>Your last name</p>
-            <input
-              placeholder="For Example Doe"
-              {...register("lastName", { required: true })}
-            />
-          </div>
-          <div>
-            <p>Your first name</p>
-            <input
-              placeholder="For Example Jhon"
-              {...register("firstName", { required: true })}
-            />
-          </div>
-          {/* {temp.map((item, key) => (
-            <div key={key}>
-              <p>Your patronymic</p>
+            <div className="prescoring__selectamount">
+              <p>Select amount</p>
               <input
-                placeholder="For Example Victorovich"
-                {...register("patronymic")}
+                type="number"
+                max={maxAmoint}
+                min={minAmoint}
+                placeholder="enter amount"
+                {...register("amount", { required: true })}
+                step={1000}
+                value={amount}
+                onChange={(i) => {
+                  setAmount(Number(i.target.value));
+                  if (Number(i.target.value) < minAmoint) setAmount(minAmoint);
+                  if (Number(i.target.value) > maxAmoint) setAmount(maxAmoint);
+                }}
               />
+              <input
+                type="range"
+                min={minAmoint}
+                max={maxAmoint}
+                value={amount}
+                step="1000"
+                data-orientation="vertical"
+                onChange={(i) => setAmount(Number(i.target.value))}
+              ></input>
+              <div className="prescoring__selectamount__maxmin">
+                <p>{minAmoint.toLocaleString("ru-RU")}</p>
+                <p>{maxAmoint.toLocaleString("ru-RU")}</p>
+              </div>
             </div>
-          ))} */}
-          <div>
-            <p>Your patronymic</p>
-            <input
-              placeholder="For Example Victorovich"
-              {...register("patronymic")}
-            />
           </div>
-          <div>
-            <p>Select term</p>
-            <select {...register("term", { required: true })}>
-              {term.map((item, key) => (
-                <option key={key} value={item.value}>
-                  {item.titel}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <p>Your email</p>
-            <input
-              type="email"
-              placeholder="test@gmail.com"
-              {...register("email", { required: true })}
-            />
-          </div>
-          <div>
-            <p>Your date of birth</p>
-            <input
-              type="date"
-              min={minDate}
-              placeholder="Select Date and Time"
-              {...register("birthdate", { required: true })}
-            />
-          </div>
-          <div>
-            <p>Your passport series</p>
-            <input
-              type="number"
-              min="0000"
-              max="9999"
-              placeholder="0000"
-              // minLength={4}
-              // maxLength={4}
-              {...register("passportSeries", { required: true })}
-            />
-          </div>
-          <div>
-            <p>Your passport number</p>
-            <input
-              type="number"
-              min="000000"
-              max="999999"
-              placeholder="000000"
-              // minLength={6}
-              // maxLength={6}
-              {...register("passportNumber", { required: true })}
-            />
+          <div className="prescoring__rightsection">
+            <h4>You have chosen the amount</h4>
+            <p className="prescoring__selectamount-p">
+              {amount.toLocaleString("ru-RU")} <b>&#8381;</b>
+            </p>
+            <hr></hr>
           </div>
         </div>
-        <div className="prescoring__information-btn">
-          <button className="defaultButton" type="submit">
-            Contiue
-          </button>
+        <div className="prescoring__bottomcontainer">
+          <h3>Contact Information</h3>
+          <div className="prescoring__information">
+            {contactInformation.map((item) =>
+              item.select === false ? (
+                <div key={item.id}>
+                  <div className="prescoring__information-title">
+                    <p>{item.title}</p>
+                    {item.required && <img src={required} alt="required"></img>}
+                  </div>
+                  <div className="prescoring__information-input">
+                    <label>
+                      <input
+                        type={item.type}
+                        id={item.register}
+                        placeholder={item.placeholder}
+                        {...register(`${item.register}`, {
+                          required: item.required,
+                          max: item.max,
+                          min: item.min,
+                          maxLength: item.maxLength,
+                          minLength: item.minLength,
+                          pattern: item.pattern,
+                        })}
+                      />
+                      { errors?.[item.register] ? (
+                        <img src={invalid} alt="invalid"></img>
+                      ) : (
+                        isSubmited && <img src={valid} alt="valid"></img>
+                      )}
+                    </label>
+                    {errors?.[item.register] && (
+                      <span role="alert">{item.invalid}</span>
+                    )}
+                  </div>
+                </div>
+              ) : (
+                <div key={item.id}>
+                  <div className="prescoring__information-title">
+                    <p>{item.title}</p>
+                    {item.required && <img src={required} alt="required"></img>}
+                  </div>
+                  <select
+                    {...register(`${item.register}`, {
+                      required: item.required,
+                    })}
+                  >
+                    {item.maplist?.map((element, key) => (
+                      <option key={key} value={element.value}>
+                        {element.titel}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )
+            )}
+          </div>
+          <div className="prescoring__information-btn">
+            <button className="defaultButton" type="submit">
+              Contiue
+            </button>
+          </div>
         </div>
       </form>
     </section>
