@@ -4,7 +4,7 @@ import subscribe from "../../assets/svg/Subscribe.svg";
 import { useState } from "react";
 import { postEmail } from "../../API/api";
 
-export default function Support() {
+function Support() {
   let [email, setEmail] = useState("");
 
   function handleSubmit() {
@@ -49,3 +49,5 @@ export default function Support() {
     </section>
   );
 }
+
+export { Support };

@@ -1,1 +1,1 @@
-export {default as InstructionGetCart} from "./InstructionGetCart";
+export { InstructionGetCart } from "./InstructionGetCart";

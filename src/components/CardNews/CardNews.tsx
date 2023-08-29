@@ -8,15 +8,8 @@ interface CardProps {
   description: string;
 }
 
-export default function CardNews({
-  url,
-  urlToImage,
-  title,
-  description,
-}: CardProps) {
-  const [imageUrl, setImageUrl] = useState<string>(
-    urlToImage
-  );
+function CardNews({ url, urlToImage, title, description }: CardProps) {
+  const [imageUrl, setImageUrl] = useState<string>(urlToImage);
   const handleImageError = () => {
     setImageUrl(defaultImage);
   };
@@ -36,3 +29,4 @@ export default function CardNews({
     </div>
   );
 }
+export { CardNews };

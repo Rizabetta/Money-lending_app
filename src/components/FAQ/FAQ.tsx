@@ -1,6 +1,6 @@
 import "./FAQ.scss";
 import { Accordion } from "../../components";
-export default function FAQ() {
+function FAQ() {
   const issueReceive = [
     {
       question: "How to get a card?",
@@ -75,3 +75,5 @@ export default function FAQ() {
     </section>
   );
 }
+
+export { FAQ };

@@ -185,8 +185,8 @@
     input[type=date]::-webkit-calendar-picker-indicator {
       display: none;
     }
-    
-    input:invalid {
+
+    .invalidinput {
       border: 2px solid #ff5631;
     }
   }

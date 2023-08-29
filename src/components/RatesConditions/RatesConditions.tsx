@@ -1,6 +1,6 @@
 import "./RatesConditions.scss";
 
-export default function RatesConditions() {
+function RatesConditions() {
   const ratesList = [
     { title: "Card currency", description: "Rubles, dollars, euro" },
     { title: "Interest free period", description: "0% up to 160 days" },
@@ -33,3 +33,5 @@ export default function RatesConditions() {
     </section>
   );
 }
+
+export { RatesConditions };

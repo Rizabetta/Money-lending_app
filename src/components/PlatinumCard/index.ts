@@ -1,1 +1,1 @@
-export {default as PlatinumCard} from "./PlatinumCard";
+export { PlatinumCard } from "./PlatinumCard";

@@ -8,7 +8,7 @@ import {
 } from "../../components";
 import "../../components/Main/main.scss";
 
-export default function Home() {
+function Home() {
   return (
     <main className="main">
       <CardDesign />
@@ -20,3 +20,5 @@ export default function Home() {
     </main>
   );
 }
+
+export { Home };

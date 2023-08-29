@@ -1,1 +1,1 @@
-export {default as CardDesign} from "./CardDesign";
+export { CardDesign } from "./CardDesign";

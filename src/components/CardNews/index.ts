@@ -1,1 +1,1 @@
-export {default as CardNews} from "./CardNews";
+export { CardNews } from "./CardNews";

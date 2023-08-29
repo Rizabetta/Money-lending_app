@@ -5,7 +5,7 @@ import clock from "../../assets/svg/Clock_duotone.svg";
 import bag from "../../assets/svg/Bag_duotone.svg";
 import creditCard from "../../assets/svg/CreditCard_duotone.svg";
 
-export default function AboutCard() {
+ function AboutCard() {
   const cardList = [
     {
       src: money,
@@ -49,3 +49,4 @@ export default function AboutCard() {
     </section>
   );
 }
+export {AboutCard};

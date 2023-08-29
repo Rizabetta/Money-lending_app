@@ -1,1 +1,1 @@
-export {default as RatesConditions} from "./RatesConditions";
+export { RatesConditions } from "./RatesConditions";

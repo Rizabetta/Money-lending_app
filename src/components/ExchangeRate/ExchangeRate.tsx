@@ -10,7 +10,7 @@ type TValue = {
   id: string;
 };
 
-export default function ExchangeRate() {
+function ExchangeRate() {
   const [value, setValue] = useState<TValue[] | null>(null);
   useEffect(() => {
     updateRate();
@@ -88,3 +88,5 @@ export default function ExchangeRate() {
     </section>
   );
 }
+
+export { ExchangeRate };

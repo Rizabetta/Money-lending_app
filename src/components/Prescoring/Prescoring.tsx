@@ -34,29 +34,52 @@ function Prescoring({ buttonRef }: any) {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit: SubmitHandler<any> = (data) => {
+
+  const onSubmit: SubmitHandler<any> = async (data, event) => {
+    setisSubmited(true);
+
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        amount: Number(data.amount),
+        term: Number(data.term),
+        firstName: data.firstName,
+        lastName: data.lastName,
+        patronymic: data.patronymic,
+        email: data.email,
+        birthdate: data.birthdate,
+        passportSeries: data.passportSeries,
+        passportNumber: data.passportNumber,
+      }),
+    };
+
+    const response = await fetch(
+      "http://localhost:8080/application",
+      requestOptions
+    );
+    const datares = await response.json();
+    console.log(datares.status);
+
+    console.log(requestOptions);
     
-    // setisSubmited(true);
-    console.log(data);
-    console.log("sub ",isSubmited);
   };
 
-  const submitHandler : SubmitHandler<any>  = (data: SubmitHandler<any>, event) => {
+  const onError: SubmitHandler<any> = (data, event) => {
     event?.preventDefault();
+
     setisSubmited(true);
-    onSubmit(data);
-  }
+  };
 
   let step = 1;
   let [amount, setAmount] = useState(15000);
   const minAmoint = 15000;
   const maxAmoint = 600000;
-
   let [isSubmited, setisSubmited] = useState(false);
-  console.log("no  ",isSubmited);
+
   return (
     <section className="prescoring" ref={buttonRef}>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={handleSubmit(onSubmit, onError)}>
         <div className="prescoring__topcontainer">
           <div className="prescoring__leftsection">
             <div className="prescoring__step">
@@ -115,6 +138,7 @@ function Prescoring({ buttonRef }: any) {
                   <div className="prescoring__information-input">
                     <label>
                       <input
+                        className={errors?.[item.register] && "invalidinput"}
                         type={item.type}
                         id={item.register}
                         placeholder={item.placeholder}
@@ -127,11 +151,12 @@ function Prescoring({ buttonRef }: any) {
                           pattern: item.pattern,
                         })}
                       />
-                      { errors?.[item.register] ? (
-                        <img src={invalid} alt="invalid"></img>
-                      ) : (
-                        isSubmited && <img src={valid} alt="valid"></img>
-                      )}
+                      {isSubmited &&
+                        (errors?.[item.register] ? (
+                          <img src={invalid} alt="invalid"></img>
+                        ) : (
+                          <img src={valid} alt="valid"></img>
+                        ))}
                     </label>
                     {errors?.[item.register] && (
                       <span role="alert">{item.invalid}</span>
@@ -170,4 +195,4 @@ function Prescoring({ buttonRef }: any) {
   );
 }
 
-export default Prescoring;
+export {Prescoring};

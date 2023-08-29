@@ -2,7 +2,7 @@ import imgCard from "../../assets/svg/PlatinumCard.svg";
 import "./PlatinumCard.scss";
 import { Tooltip } from "../../components";
 
-export default function PlatinumCard({ buttonRef }: any) {
+function PlatinumCard({ buttonRef }: any) {
   const platinumCardList = [
     {
       title: "Up to 160 days",
@@ -61,3 +61,5 @@ export default function PlatinumCard({ buttonRef }: any) {
     </section>
   );
 }
+
+export { PlatinumCard };

@@ -1,1 +1,1 @@
-export {default as Cashback} from "./Cashback";
+export { Cashback } from "./Cashback";

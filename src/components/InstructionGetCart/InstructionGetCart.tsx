@@ -1,6 +1,6 @@
 import "./InstructionGetCart.scss";
 
-export default function InstructionGetCart() {
+function InstructionGetCart() {
   const instructionGetCartList = [
     {
       id: 1,
@@ -36,3 +36,5 @@ export default function InstructionGetCart() {
     </section>
   );
 }
+
+export { InstructionGetCart };

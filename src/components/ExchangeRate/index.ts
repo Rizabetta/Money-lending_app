@@ -1,1 +1,1 @@
-export {default as ExchangeRate} from "./ExchangeRate";
+export { ExchangeRate } from "./ExchangeRate";

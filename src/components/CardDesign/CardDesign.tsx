@@ -11,7 +11,7 @@ const cardList = [
   { id: 4, src: card4 },
 ];
 
-export default function CardDesign() {
+function CardDesign() {
   return (
     <section className="cardDesign">
       <div>
@@ -30,3 +30,4 @@ export default function CardDesign() {
     </section>
   );
 }
+export { CardDesign };

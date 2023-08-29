@@ -1,6 +1,6 @@
-import './Tooltip.scss';
+import "./Tooltip.scss";
 
-export default function Tooltip(props: any) {
+function Tooltip(props: any) {
   return (
     <ul className="tooltip">
       <li>{props.title}</li>
@@ -9,3 +9,5 @@ export default function Tooltip(props: any) {
     </ul>
   );
 }
+
+export { Tooltip };

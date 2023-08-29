@@ -7,7 +7,7 @@ import {
 import "../../components/Main/main.scss";
 import { useRef } from "react";
 
-export default function Loan() {
+function Loan() {
   const buttonRef = useRef<null | HTMLDivElement>(null);
 
   return (
@@ -19,3 +19,5 @@ export default function Loan() {
     </main>
   );
 }
+
+export { Loan };

@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { fetchNews } from "../../API/api";
 import { getUpdateTime } from "../../utils/getUpdateTime";
-import CardNews from "../CardNews/CardNews";
+import { CardNews } from "../CardNews/CardNews";
 import { checkBtn } from "./buttons";
 import { leftBTN, rightBTN } from "./News.const";
 
@@ -12,7 +12,7 @@ interface CardProps {
   description: string;
 }
 
-export default function News() {
+function News() {
   let [arrnews, setArrNews] = useState<CardProps[] | null>(null);
   const divElement = useRef<HTMLDivElement>(null);
   const [trackWidth, settrackWidth] = useState<number | undefined>(undefined);
@@ -68,7 +68,7 @@ export default function News() {
       position += move;
       track.style.transform = `translateX(${position}px)`;
     }
-    checkBtn(position, limit,  btnLeft, btnRight);
+    checkBtn(position, limit, btnLeft, btnRight);
   }
 
   function carouselRightBtn() {
@@ -76,7 +76,7 @@ export default function News() {
       position -= move;
       track.style.transform = `translateX(${position}px)`;
     }
-    checkBtn(position, limit,  btnLeft, btnRight);
+    checkBtn(position, limit, btnLeft, btnRight);
   }
 
   const btnLeft = useRef<HTMLButtonElement>(null);
@@ -141,3 +141,5 @@ export default function News() {
     </section>
   );
 }
+
+export { News };

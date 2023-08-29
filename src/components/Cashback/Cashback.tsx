@@ -1,6 +1,6 @@
 import "./Cashback.scss";
 
-export default function Cashback() {
+function Cashback() {
   const cardList = [
     { id: 1, title: "For food delivery, cafes and restaurants", percent: "5%" },
     { id: 2, title: "In supermarkets with our subscription", percent: "5%" },
@@ -25,3 +25,4 @@ export default function Cashback() {
     </section>
   );
 }
+export { Cashback };
