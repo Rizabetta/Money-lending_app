@@ -1,4 +1,5 @@
 import defaultImage from "../../assets/png/news_3.png";
+import { useState } from "react";
 
 interface CardProps {
   url: string;
@@ -13,11 +14,19 @@ export default function CardNews({
   title,
   description,
 }: CardProps) {
+  const [imageUrl, setImageUrl] = useState<string>(
+    urlToImage
+  );
+  const handleImageError = () => {
+    setImageUrl(defaultImage);
+  };
+
   return (
     <div className="news__card">
       <a href={url ?? "# "}>
         <img
-          src={urlToImage ?? defaultImage}
+          src={imageUrl ?? defaultImage}
+          onError={handleImageError}
           className="card__image"
           alt="CardNews"
         ></img>
