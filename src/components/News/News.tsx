@@ -1,38 +1,9 @@
-import { useEffect, useState,useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { fetchNews } from "../../API/api";
 import { getUpdateTime } from "../../utils/getUpdateTime";
 import CardNews from "../CardNews/CardNews";
-
-const leftBTN = (
-  <svg
-    width="25"
-    height="26"
-    viewBox="0 0 25 26"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      className="leftSVG"
-      d="M25 17H9.84211V24.3914C9.84211 24.5845 9.59562 24.6655 9.48109 24.5101L1 13L9.48109 1.48994C9.59562 1.33452 9.84211 1.41552 9.84211 1.60858V9H25"
-      stroke="#222222"
-    />
-  </svg>
-);
-
-const rightBTN = (
-  <svg
-    width="25"
-    height="26"
-    viewBox="0 0 25 26"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M0 9H15.1579V1.60858C15.1579 1.41552 15.4044 1.33452 15.5189 1.48994L24 13L15.5189 24.5101C15.4044 24.6655 15.1579 24.5845 15.1579 24.3914V17H0"
-      stroke="white"
-    />
-  </svg>
-);
+import { checkBtn } from "./buttons";
+import { leftBTN, rightBTN } from "./News.const";
 
 interface CardProps {
   url: string;
@@ -43,21 +14,77 @@ interface CardProps {
 
 export default function News() {
   let [arrnews, setArrNews] = useState<CardProps[] | null>(null);
+  const divElement = useRef<HTMLDivElement>(null);
+  const [trackWidth, settrackWidth] = useState<number | undefined>(undefined);
+  let news = arrnews?.length ?? 20;
+  let visibleElements = 1;
+  let [position, setposition] = useState(0);
+  const track = document.querySelector(".news__track") as HTMLInputElement;
+  const gap = 80;
+  const cardWidth = 320;
+  const move = gap + cardWidth;
+  let limit = Number(news - visibleElements) * 400;
 
+  useEffect(() => {
+    checkBtn(position, limit, btnLeft, btnRight);
+    function handleResize() {
+      if (divElement.current) {
+        settrackWidth(divElement.current.offsetWidth);
+        getTrackWidth();
+      }
+    }
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    getTrackWidth();
 
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
+  function getTrackWidth() {
+    limit = Number(news - visibleElements) * 400;
+    const positionReset = () => {
+      track.style.transform = `translateX(0px)`;
+      setposition(0);
+      limit = Number(news - visibleElements) * 400;
+    };
+    if (trackWidth === 1300 || trackWidth === 1160) {
+      visibleElements = 3;
+      positionReset();
+    }
+    if (trackWidth === 770) {
+      visibleElements = 2;
+      positionReset();
+    }
+    if (trackWidth === 350) {
+      visibleElements = 1;
+      positionReset();
+    }
+  }
 
-  // const listRef = useRef<HTMLDivElement>();
-const cnElems = document.getElementsByClassName("news__track");
-console.log(cnElems);
+  function carouselLeftBtn() {
+    if (position !== 0) {
+      position += move;
+      track.style.transform = `translateX(${position}px)`;
+    }
+    checkBtn(position, limit,  btnLeft, btnRight);
+  }
 
+  function carouselRightBtn() {
+    if (position > -limit) {
+      position -= move;
+      track.style.transform = `translateX(${position}px)`;
+    }
+    checkBtn(position, limit,  btnLeft, btnRight);
+  }
 
-
-
+  const btnLeft = useRef<HTMLButtonElement>(null);
+  const btnRight = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const interval = setInterval(
-      () => console.log("aaaaaa"),
+      () => console.log("update"),
       getUpdateTime(1000, 60, 15)
     );
     renderCart();
@@ -81,7 +108,7 @@ console.log(cnElems);
       </p>
       <div className="news__wrapper">
         <div className="news__container">
-          <div className="news__track" >
+          <div className="news__track" ref={divElement}>
             {arrnews &&
               arrnews.map(({ url, urlToImage, title, description }, key) => (
                 <CardNews
@@ -96,8 +123,20 @@ console.log(cnElems);
         </div>
       </div>
       <div className="news__buttons">
-        <button className="news__input-left carouselBtn">{leftBTN}</button>
-        <button className="news__input-right carouselBtn">{rightBTN}</button>
+        <button
+          ref={btnLeft}
+          className="news__input-left carouselBtn"
+          onClick={carouselLeftBtn}
+        >
+          {leftBTN}
+        </button>
+        <button
+          ref={btnRight}
+          className="news__input-right carouselBtn"
+          onClick={carouselRightBtn}
+        >
+          {rightBTN}
+        </button>
       </div>
     </section>
   );
