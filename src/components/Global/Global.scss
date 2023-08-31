@@ -1,0 +1,25 @@
+.global {
+  img {
+    margin-top: 48px;
+  }
+
+  text-align: center;
+  font-family: Ubuntu-500;
+  margin-top: 48px;
+}
+
+@media (max-width: 1100px) {
+  .global {
+    img {
+      width: 500px;
+    }
+  }
+}
+
+@media (max-width: 515px) {
+  .global {
+    img {
+      width: 350px;
+    }
+  }
+}

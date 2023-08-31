@@ -1,4 +1,5 @@
 import hugeGlobal from "../../assets/svg/Huge_Global.svg";
+import "./Global.scss";
 
 function Global() {
   return (

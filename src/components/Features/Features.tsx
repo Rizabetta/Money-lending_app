@@ -1,5 +1,6 @@
 import checkMark from "../../assets/svg/Check_mark.svg";
 import illustration from "../../assets/svg/Illustration_2.svg";
+import "./Features.scss";
 const featuresList = [
   { id: 1, title: "Powerfull online protection." },
   { id: 2, title: "Cashback without borders." },
