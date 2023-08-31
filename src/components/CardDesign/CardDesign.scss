@@ -11,8 +11,9 @@
     margin-right: 160px;
   }
 
-  button {
+  a {
     margin-top: 36px;
+    display: inline-block;
   }
 
   &__container {
@@ -35,6 +36,14 @@
         }
     }
 
+}
+
+@media (max-width: 1240px) {
+  .cardDesign__container {
+    width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
 }
 
 @media (max-width: 515px) {

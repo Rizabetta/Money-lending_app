@@ -23,13 +23,13 @@ function InstructionGetCart() {
     <section className="instruction">
       <h3>How to get a card</h3>
       <div className="instruction__container">
-        {instructionGetCartList.map((item) => (
-          <div key={item.id}>
+        {instructionGetCartList.map(({ id, instruction }) => (
+          <div key={id}>
             <div className="instruction__step">
-              <span>{item.id}</span>
+              <span>{id}</span>
               <hr></hr>
             </div>
-            <p>{item.instruction}</p>
+            <p>{instruction}</p>
           </div>
         ))}
       </div>

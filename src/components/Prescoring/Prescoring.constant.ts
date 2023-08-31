@@ -5,7 +5,6 @@ const maxDate = `${current.getFullYear() - 18}-${
     : "0" + (current.getMonth() + 1)
 }-${current.getDate() >= 10 ? current.getDate() : "0" + current.getDate()}`;
 
-
 const contactInformation = [
   {
     id: 1,
@@ -104,5 +103,3 @@ const contactInformation = [
 ];
 
 export { contactInformation };
-
-

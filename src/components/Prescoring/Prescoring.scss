@@ -1,3 +1,4 @@
+@import "../../scss/mixins.scss";
 .prescoring {
   background-color: #ffffff;
   border-radius: 28px;
@@ -5,44 +6,22 @@
   padding: 32px;
   margin-top: 14px;
 
-  img {
-    // margin-left: -50px;
-  }
-
   .prescoring__information {
     span {
       display: block;
-      color: #FF5631;
-      font-size: 16px;
-      font-family: Ubuntu-500;
-    }
-
-    h3 {
-      margin-bottom: 24px;
-      font-size: 20px;
-      font-family: Ubuntu-700;
+      color: #ff5631;
+      @include family-size(Ubuntu-500, 16px);
     }
 
     input {
-      background-color: #f9f5e3;
-      border-radius: 6px;
-      border: 1px solid rgb(225, 222, 208);
-      padding: 13px 16px;
-      width: 287px;
-      margin-top: 8px;
+      @include form-inputselect(13px, 16px);
     }
 
     select {
-      background-color: #f9f5e3;
-      border-radius: 6px;
-      border: 1px solid rgb(225, 222, 208);
-      padding: 0 16px;
-      width: 287px;
-      margin-top: 8px;
+      @include form-inputselect(0, 16px);
       height: 46px;
       -webkit-appearance: none;
       appearance: none;
-      
     }
 
     select:not([multiple]) {
@@ -61,6 +40,7 @@
   &__topcontainer {
     display: flex;
   }
+
   &__leftsection {
     padding-right: 40px;
     border-right: 1px dashed #80808066;
@@ -68,16 +48,15 @@
   }
 
   &__step {
-    display: flex;
+    @include display-center(align-items);
     justify-content: space-between;
-    align-items: center;
+
     h3 {
-      font-size: 30px;
-      font-family: Ubuntu-700;
+      @include family-size(Ubuntu-700, 30px);
     }
+
     p {
-      font-size: 16px;
-      font-family: Ubuntu-500;
+      @include family-size(Ubuntu-500, 16px);
     }
   }
 
@@ -104,24 +83,21 @@
     padding: 24px;
     margin: 32px 0;
 
-    &-p {
-      margin: 20px 0 10px 0;
-    }
+    &-p,
     input[type="number"] {
       margin: 20px 0 10px 0;
     }
+
     p,
     input[type="number"] {
-      font-size: 16px;
-      font-family: Ubuntu-500;
+      @include family-size(Ubuntu-500, 16px);
     }
 
     &__maxmin {
       display: flex;
       justify-content: space-between;
-      font-size: 16px;
       color: #786d6d;
-      font-family: Ubuntu-500;
+      @include family-size(Ubuntu-500, 16px);
       padding-top: 8px;
     }
   }
@@ -135,14 +111,12 @@
         "Helvetica Neue", sans-serif;
     }
     h4 {
-      font-size: 20px;
-      font-family: Ubuntu-700;
+      @include family-size(Ubuntu-700, 20px);
       margin-bottom: 16px;
     }
 
     p {
-      font-size: 16px;
-      font-family: Ubuntu-500;
+      @include family-size(Ubuntu-500, 16px);
       outline: none;
       border-bottom: 1px solid #e2e8f0;
       padding-bottom: 10px;
@@ -165,9 +139,9 @@
         margin-left: 5px;
       }
     }
+
     p {
-      font-family: Ubuntu-500;
-      font-size: 16px;
+      @include family-size(Ubuntu-500, 16px);
     }
 
     &-btn {
@@ -179,10 +153,8 @@
       }
     }
     input[type="number"]::-webkit-outer-spin-button,
-    input[type="number"]::-webkit-inner-spin-button {
-      display: none;
-    }
-    input[type=date]::-webkit-calendar-picker-indicator {
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="date"]::-webkit-calendar-picker-indicator {
       display: none;
     }
 
