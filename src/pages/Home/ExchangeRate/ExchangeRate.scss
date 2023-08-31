@@ -1,0 +1,80 @@
+@import "../../../scss/mixins";
+
+.exchangeRate {
+  border-radius: 28px;
+  background: linear-gradient(#f4f4f4e5, #b2b2b2cc);
+  padding: 32px;
+  margin-top: 48px;
+  display: flex;
+  justify-content: space-between;
+
+  h3 {
+    @include family-size(Ubuntu-500, 30px);
+  }
+
+  img {
+    margin: 79px 0 0 160px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__value {
+    @include family-size(Ubuntu-700, 20px);
+    margin-right: 32px;
+  }
+
+  &__courses-a {
+    @include family-size(Ubuntu-700, 20px);
+    color: #ffffff;
+
+    &:hover {
+      color: #1d1929;
+      transition: all 0.2s ease;
+    }
+  }
+
+  &__time {
+    @include family-size(Ubuntu-500, 16px);
+  }
+}
+
+.exchangeRate__currency {
+  @include family-size(Ubuntu-700, 20px);
+  color: #808080;
+  margin-right: 20px;
+
+  &-p {
+    @include family-size(Ubuntu-500, 20px);
+    margin: 24px 0 32px 0;
+  }
+
+  &-table {
+    margin: 32px 0 51px 0;
+    display: flex;
+  }
+}
+
+@media (max-width: 900px) {
+  .exchangeRate {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+
+    ul {
+      flex-wrap: wrap;
+    }
+
+    &__container {
+      flex-direction: row;
+      align-items: end;
+      margin-bottom: 24px;
+    }
+
+    img {
+      margin: 0 20px 0 20px;
+      width: 50px;
+    }
+  }
+}

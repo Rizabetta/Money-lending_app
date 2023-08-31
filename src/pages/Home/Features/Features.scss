@@ -1,0 +1,62 @@
+@import "../../../scss/mixins.scss";
+
+.features {
+  @include display-center(align-items);
+  justify-content: space-between;
+  margin-top: 112px;
+
+  img {
+    margin-right: 74px;
+  }
+}
+
+.features__item {
+  h2 {
+    font-family: Rubik-500;
+    font-size: 35px;
+  }
+
+  img {
+    margin-right: 18px;
+  }
+
+  ul {
+    margin-top: 25px;
+  }
+
+  p {
+    margin-top: 20px;
+  }
+
+  p,
+  li {
+    font-family: Rubik-400;
+  }
+
+  li {
+    padding-bottom: 12px;
+    @include display-center(align-items);
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 920px) {
+  .features {
+    flex-wrap: wrap;
+    @include display-center(justify-content);
+
+    &__illustration {
+      margin-right: 0;
+    }
+
+    h2 {
+      margin-top: 48px;
+    }
+  }
+}
+
+@media (max-width: 588px) {
+  .features__illustration {
+    width: 350px;
+  }
+}

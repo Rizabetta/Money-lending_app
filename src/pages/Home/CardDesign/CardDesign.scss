@@ -1,0 +1,55 @@
+@import "../../../scss/mixins";
+@import "../../../scss/variables.scss";
+
+.cardDesign {
+  display: flex;
+  margin-top: 131px;
+
+  h1 {
+    font-family: Ubuntu-700;
+    font-size: 48px;
+    margin-right: 160px;
+  }
+
+  a {
+    margin-top: 36px;
+    display: inline-block;
+  }
+
+  &__container {
+    img {
+      margin: 8px;
+    }
+  }
+}
+
+@media (max-width: 1290px) {
+    .cardDesign {
+        flex-wrap: wrap;
+
+        h1 {
+            margin-right: 0;
+        }
+
+        &__container {
+            margin-top: 36px;
+        }
+    }
+
+}
+
+@media (max-width: 1240px) {
+  .cardDesign__container {
+    width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+@media (max-width: 515px) {
+  .cardDesign {
+    h1 {
+      font-size: 35px;
+    }
+  }
+}

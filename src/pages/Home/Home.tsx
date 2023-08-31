@@ -1,12 +1,11 @@
 import {
   CardDesign,
-  Features,
-  ExchangeRate,
-  Global,
-  News,
   Support,
-} from "../../components";
-import "../../components/Main/main.scss";
+  News,
+  Global,
+  ExchangeRate,
+  Features,
+} from "../Home";
 
 function Home() {
   return (

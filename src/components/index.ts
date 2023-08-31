@@ -1,21 +1,8 @@
 export {AboutCard} from './AboutCard';
-export {Accordion} from './Accordion';
-export {CardDesign} from './CardDesign';
 export {CardNews} from './CardNews';
 export {Cashback} from './Cashback';
-export {ExchangeRate} from './ExchangeRate';
 export {FAQ} from './FAQ';
-export {Features} from './Features';
-export {Footer} from './Footer';
-export {Global} from './Global';
-export {Header} from './Header';
-export {InstructionGetCart} from './InstructionGetCart';
-export {Loader} from './Loader';
-export {News} from './News';
-export {PlatinumCard} from './PlatinumCard';
-export {Prescoring} from './Prescoring';
 export {RatesConditions} from './RatesConditions';
 export {Routers} from './Routers';
-export {Support} from './Support';
-export {Tabs} from './Tabs';
-export {Tooltip} from './Tooltip';
+
+

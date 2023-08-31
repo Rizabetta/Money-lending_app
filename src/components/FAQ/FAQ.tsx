@@ -1,5 +1,5 @@
 import "./FAQ.scss";
-import { Accordion } from "../../components";
+import { Accordion } from "../../components/UI";
 function FAQ() {
   const issueReceive = [
     {

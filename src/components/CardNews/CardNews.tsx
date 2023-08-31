@@ -23,10 +23,11 @@ function CardNews({ url, urlToImage, title, description }: CardProps) {
           className="card__image"
           alt="CardNews"
         ></img>
-        <h4 className="card__h4">{title}</h4>
-        <p className="card__description">{description ?? title}</p>
+        <h4 className="card__h4">{title?? "Grayscale's SEC Victory Does Not Ensure Bitcoin Spot ETF Approval - CoinDesk"}</h4>
+        <p className="card__description">{description ?? title ?? "Grayscale's SEC Victory Does Not Ensure Bitcoin Spot ETF Approval - CoinDesk"}</p>
       </a>
     </div>
   );
 }
+
 export { CardNews };
