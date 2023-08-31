@@ -3,6 +3,8 @@ import card1 from "../../assets/svg/card_1.svg";
 import card2 from "../../assets/svg/card_2.svg";
 import card3 from "../../assets/svg/card_3.svg";
 import card4 from "../../assets/svg/card_4.svg";
+import { Link } from "react-router-dom";
+import { RouteNames } from "../Routers/Routers";
 
 const cardList = [
   { id: 1, src: card1 },
@@ -16,11 +18,9 @@ function CardDesign() {
     <section className="cardDesign">
       <div>
         <h1>Choose the design you like and apply for card right now</h1>
-        <form action="/loan">
-          <button className="defaultButton" type="submit">
-            Choose the card
-          </button>
-        </form>
+        <Link to={RouteNames.LOAN} className="defaultButton">
+          Choose the card
+        </Link>
       </div>
       <div className="cardDesign__container">
         {cardList.map((element) => (

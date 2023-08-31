@@ -30,13 +30,16 @@
             color: $nav-link;
         }
     }
+
+    &-activelink {
+        color: $nav-link;
+    }
 }
 
 #burger,
 [for=burger] {
     display: none;
 }
-
 
 @media screen and (max-width: 720px) {
     .container {

@@ -1,12 +1,17 @@
 import React from "react";
 import "./Header.scss";
+import { NavLink } from "react-router-dom";
+import { RouteNames } from "../Routers/Routers";
 
 const menuList = [
-  { id: 1, href: "/loan", title: "Credit card" },
-  { id: 2, href: "# ", title: "Product" },
-  { id: 3, href: "# ", title: "Account" },
-  { id: 4, href: "# ", title: "Resources" },
+  { id: 1, href: RouteNames.LOAN, title: "Credit card" },
+  { id: 2, href: RouteNames.NOT, title: "Product" },
+  { id: 3, href: RouteNames.NOT, title: "Account" },
+  { id: 4, href: RouteNames.NOT, title: "Resources" },
 ];
+
+const setActive = ({ isActive }: { isActive: boolean }) =>
+  isActive ? "menu__list-activelink" : "menu__list-link";
 
 function Header() {
   return (
@@ -21,9 +26,9 @@ function Header() {
           <ul className="menu__list">
             {menuList.map((item) => (
               <li key={item.id} className="menu__list-item">
-                <a href={item.href} className="menu__list-link">
+                <NavLink to={item.href} className={setActive}>
                   {item.title}
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>
