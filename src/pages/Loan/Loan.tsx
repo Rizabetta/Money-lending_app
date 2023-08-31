@@ -1,11 +1,6 @@
-import {
-  PlatinumCard,
-  Tabs,
-  InstructionGetCart,
-  Prescoring,
-} from "../../components";
-import "../../components/Main/main.scss";
+import { PlatinumCard, InstructionGetCart, Prescoring } from "../../components";
 import { useRef } from "react";
+import { Tabs } from "../../components/UI";
 
 function Loan() {
   const buttonRef = useRef<null | HTMLDivElement>(null);
@@ -20,4 +15,4 @@ function Loan() {
   );
 }
 
-export { Loan };
+export default Loan ;

@@ -1,1 +1,1 @@
-export { Loan } from "./Loan";
+export {LoanPageAsync as Loan } from "./Loan.async";
