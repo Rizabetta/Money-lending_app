@@ -32,18 +32,4 @@ function postEmail(email: string) {
   });
 }
 
-// function postPrescoring(data: any) {
-//   let response = fetch("http://localhost:8080/email", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json;charset=utf-8",
-//     },
-//     body: JSON.stringify({ email: email }),
-//   });
-
-//   response.then((data) => {
-//     sessionStorage.setItem("status", `${data.status}`);
-//   });
-// }
-
-export { fetchCurrency, fetchNews, postEmail };
+export const api_home = { fetchCurrency, fetchNews, postEmail };

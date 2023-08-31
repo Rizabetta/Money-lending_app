@@ -1,19 +1,14 @@
 import { useEffect, useState, useRef } from "react";
-import { fetchNews } from "../../API/api";
+import { api_home } from "../../API/home";
 import { getUpdateTime } from "../../utils/getUpdateTime";
 import { CardNews } from "../CardNews/CardNews";
 import { checkBtn } from "./buttons";
 import { leftBTN, rightBTN } from "./News.const";
-
-interface CardProps {
-  url: string;
-  urlToImage: string;
-  title: string;
-  description: string;
-}
+import {TCardProps} from "./News.type";
+import "./News.scss";
 
 function News() {
-  let [arrnews, setArrNews] = useState<CardProps[] | null>(null);
+  let [arrnews, setArrNews] = useState<TCardProps[] | null>(null);
   const divElement = useRef<HTMLDivElement>(null);
   const [trackWidth, settrackWidth] = useState<number | undefined>(undefined);
   let news = arrnews?.length ?? 20;
@@ -83,11 +78,11 @@ function News() {
   const btnRight = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
+    renderCart();
     const interval = setInterval(
-      () => console.log("update"),
+      () => renderCart(),
       getUpdateTime(1000, 60, 15)
     );
-    renderCart();
 
     return () => {
       clearInterval(interval);
@@ -95,7 +90,7 @@ function News() {
   }, []);
 
   async function renderCart() {
-    let news = await fetchNews();
+    let news = await api_home.fetchNews();
     setArrNews(news);
   }
 

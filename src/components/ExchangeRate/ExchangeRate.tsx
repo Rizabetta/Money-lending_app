@@ -2,7 +2,7 @@ import "./ExchangeRate.scss";
 import pantheon from "../../assets/svg/Pantheon.svg";
 import { getUpdateTime } from "../../utils/getUpdateTime";
 import { useEffect, useState } from "react";
-import { fetchCurrency } from "../../API/api";
+import { api_home } from "../../API/home";
 import { exchange, rateTable1, rateTable2 } from "./rateFromTo";
 
 type TValue = {
@@ -27,7 +27,7 @@ function ExchangeRate() {
   function updateRate() {
     const newValue: TValue[] = [];
     exchange.forEach((element) => {
-      fetchCurrency(element.from, element.to)
+      api_home.fetchCurrency(element.from, element.to)
         .then((data) => {
           const currentDate = Number(data);
           if (!Number.isNaN(currentDate)) {

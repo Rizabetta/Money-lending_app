@@ -5,28 +5,8 @@ import required from "../../assets/svg/Required.svg";
 import { contactInformation } from "./Prescoring.constant";
 import invalid from "../../assets/svg/Invalid.svg";
 import valid from "../../assets/svg/Valid.svg";
-// {
-//   "amount": 1000000,
-//   "term": 24,
-//   "firstName": "Ivan",
-//   "lastName": "Ivanov",
-//   "middleName": "Ivanonovich",
-//   "email": "iivanov@email.ru",
-//   "birthdate": "2023-08-20",
-//   "passportSeries": "1234",
-//   "passportNumber": "123456"
-// }
-type Inputs = {
-  amount: number;
-  term: number;
-  firstName: string;
-  lastName: string;
-  patronymic: string | null;
-  email: string;
-  birthdate: string | Date;
-  passportSeries: string;
-  passportNumber: string;
-};
+import { api_loan } from "../../API/loan";
+import { Tinputs } from "./Prescoring.type";
 
 function Prescoring({ buttonRef }: any) {
   const {
@@ -35,39 +15,13 @@ function Prescoring({ buttonRef }: any) {
     formState: { errors },
   } = useForm();
 
-  const onSubmit: SubmitHandler<any> = async (data, event) => {
+  const onSubmit: SubmitHandler<any> = async (data: Tinputs) => {
     setisSubmited(true);
-
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        amount: Number(data.amount),
-        term: Number(data.term),
-        firstName: data.firstName,
-        lastName: data.lastName,
-        patronymic: data.patronymic,
-        email: data.email,
-        birthdate: data.birthdate,
-        passportSeries: data.passportSeries,
-        passportNumber: data.passportNumber,
-      }),
-    };
-
-    const response = await fetch(
-      "http://localhost:8080/application",
-      requestOptions
-    );
-    const datares = await response.json();
-    console.log(datares.status);
-
-    console.log(requestOptions);
-    
+    api_loan.postPrescoring(data);
   };
 
-  const onError: SubmitHandler<any> = (data, event) => {
+  const onError: SubmitHandler<any> = (data: Tinputs, event) => {
     event?.preventDefault();
-
     setisSubmited(true);
   };
 
@@ -195,4 +149,4 @@ function Prescoring({ buttonRef }: any) {
   );
 }
 
-export {Prescoring};
+export { Prescoring };
