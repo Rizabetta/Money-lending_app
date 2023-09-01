@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { api_home } from "../../../API/home";
+import { api_home } from "../../../api/home";
 import { getUpdateTime } from "../../../utils/getUpdateTime";
 import { CardNews } from "../../../components/CardNews/CardNews";
 import { checkBtn } from "./buttons";

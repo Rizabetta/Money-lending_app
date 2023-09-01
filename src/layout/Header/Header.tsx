@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.scss";
 import { NavLink } from "react-router-dom";
-import { RouteNames } from "../../components/Routers/Routers";
+import { RouteNames } from "../../routers/routers";
 
 const menuList = [
   { id: 1, href: RouteNames.LOAN, title: "Credit card" },

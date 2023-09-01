@@ -2,7 +2,7 @@ import "./Support.scss";
 import emailimg from "../../../assets/svg/Email.svg";
 import subscribe from "../../../assets/svg/Subscribe.svg";
 import { useState } from "react";
-import { api_home } from "../../../API/home";
+import { api_home } from "../../../api/home";
 
 function Support() {
   let [email, setEmail] = useState("");

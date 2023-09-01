@@ -4,7 +4,7 @@ import card2 from "../../../assets/svg/card_2.svg";
 import card3 from "../../../assets/svg/card_3.svg";
 import card4 from "../../../assets/svg/card_4.svg";
 import { Link } from "react-router-dom";
-import { RouteNames } from "../../../components/Routers/Routers";
+import { RouteNames } from "../../../routers/routers";
 
 const cardList = [
   { id: 1, src: card1 },

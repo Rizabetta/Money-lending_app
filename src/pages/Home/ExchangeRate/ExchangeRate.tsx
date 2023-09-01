@@ -2,7 +2,7 @@ import "./ExchangeRate.scss";
 import pantheon from "../../../assets/svg/Pantheon.svg";
 import { getUpdateTime } from "../../../utils/getUpdateTime";
 import { useEffect, useState } from "react";
-import { api_home } from "../../../API/home";
+import { api_home } from "../../../api/home";
 import { exchange, rateTable1, rateTable2 } from "./rateFromTo";
 
 type TValue = {

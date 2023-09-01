@@ -5,7 +5,7 @@ import required from "../../../assets/svg/Required.svg";
 import { contactInformation } from "./Prescoring.constant";
 import invalid from "../../../assets/svg/Invalid.svg";
 import valid from "../../../assets/svg/Valid.svg";
-import { api_loan } from "../../../API/loan";
+import { api_loan } from "../../../api/loan";
 import { Tinputs } from "./Prescoring.type";
 
 function Prescoring({ buttonRef }: any) {
