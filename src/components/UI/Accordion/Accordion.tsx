@@ -1,6 +1,7 @@
 import expandUp from "../../../assets/svg/Expand_up.svg";
 import expandDown from "../../../assets/svg/Expand_down.svg";
 import { useState } from "react";
+import "./Accordion.scss";
 
 function Accordion(props: any) {
   const [selected, setSelected] = useState(null);

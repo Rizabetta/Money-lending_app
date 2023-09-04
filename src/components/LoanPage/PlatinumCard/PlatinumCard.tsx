@@ -1,6 +1,6 @@
 import imgCard from "../../../assets/svg/PlatinumCard.svg";
 import "./PlatinumCard.scss";
-import { Tooltip } from "../../../components/UI";
+import { Tooltip } from "../../UI";
 
 function PlatinumCard({ buttonRef }: any) {
   const platinumCardList = [

@@ -1,4 +1,4 @@
-import { PlatinumCard, InstructionGetCart, Prescoring } from "../Loan";
+import { PlatinumCard, InstructionGetCart, Prescoring } from "../../components/LoanPage";
 import { useRef } from "react";
 import { Tabs } from "../../components/UI";
 

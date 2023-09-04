@@ -5,7 +5,7 @@ import {
   Global,
   ExchangeRate,
   Features,
-} from "../Home";
+} from "../../components/HomePage";
 
 function Home() {
   return (

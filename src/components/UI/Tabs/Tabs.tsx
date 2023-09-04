@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Tabs.scss";
-import { AboutCard, RatesConditions, Cashback, FAQ } from "../../../components";
+import { AboutCard, RatesConditions, Cashback, FAQ } from "../../TabsPage";
 
 function Tabs() {
   const [toggleTab, setToggleTab] = useState(1);
