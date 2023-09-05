@@ -1,6 +1,6 @@
-import defaultImage from "../../assets/png/news_3.png";
+import defaultImage from "../../../../assets/png/news_3.png";
 import { useState } from "react";
-import { TCardProps } from "../../components/HomePage/News/News.type";
+import { TCardProps } from "../News.type";
 
 function CardNews({ url, urlToImage, title, description }: TCardProps) {
   const [imageUrl, setImageUrl] = useState<string>(urlToImage);

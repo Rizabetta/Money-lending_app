@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { api_home } from "../../../api/home";
 import { getUpdateTime } from "../../../utils/getUpdateTime";
-import { CardNews } from "../../../components/CardNews/CardNews";
+import { CardNews } from "./CardNews";
 import { checkBtn } from "./buttons";
 import { leftBTN, rightBTN } from "./News.const";
 import {TCardProps} from "./News.type";
