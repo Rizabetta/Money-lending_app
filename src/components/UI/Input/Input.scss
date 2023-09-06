@@ -1,0 +1,37 @@
+@import "../../../scss/mixins.scss";
+
+.input__information-title {
+  display: flex;
+
+  img {
+    margin-left: 5px;
+  }
+}
+
+.information-input {
+  margin-bottom: 16px;
+
+  input {
+    @include form-inputselect(13px, 16px);
+  }
+
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+
+  .invalidinput {
+    border: 2px solid #ff5631;
+  }
+
+  label {
+    position: relative;
+
+    img {
+      position: absolute;
+      right: 16px;
+      top: 10%;
+    }
+  }
+}

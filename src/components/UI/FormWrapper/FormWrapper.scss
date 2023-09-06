@@ -1,0 +1,45 @@
+@import "../../../scss/mixins.scss";
+
+.formwrapper {
+  // width: 1300px;
+  background-color: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 2px 4px rgb(196, 195, 204);
+  padding: 32px;
+  margin-top: 14px;
+
+  input:focus {
+    outline: 2px solid #5b35d5;
+  }
+
+  select {
+    @include form-inputselect(0, 16px);
+    height: 46px;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  select:not([multiple]) {
+    padding-right: 1.2em;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 1.25em) 1em;
+    background-size: 0.85em auto;
+    background-image: url("../../../assets/svg/Select.svg");
+  }
+
+  span {
+    display: block;
+    color: #ff5631;
+    @include family-size(Ubuntu-500, 16px);
+    margin-top: 4px;
+  }
+
+  h4 {
+    @include family-size(Ubuntu-700, 20px);
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    @include family-size(Ubuntu-700, 30px);
+  }
+}

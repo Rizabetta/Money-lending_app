@@ -1,0 +1,12 @@
+.select__information-title {
+  display: flex;
+
+  img {
+    margin-left: 5px;
+  }
+}
+.select__information-select {
+  .invalidselect {
+    border: 2px solid #ff5631;
+  }
+}
