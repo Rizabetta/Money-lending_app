@@ -36,7 +36,7 @@ export const additionalInformation = [
   },
   {
     id: 3,
-    titel: "Your number of dependents",
+    title: "Your number of dependents",
     register: "dependentAmount",
     required: true,
     select: true,

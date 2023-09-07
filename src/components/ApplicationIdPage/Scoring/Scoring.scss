@@ -1,0 +1,72 @@
+.scoring {
+  h4 {
+    margin: 32px 0;
+  }
+  &__topcontainer {
+    h3 {
+      margin-right: 80px;
+    }
+
+    p {
+      font-family: Ubuntu-500;
+    }
+
+    display: flex;
+    margin-bottom: 41px;
+    align-items: center;
+  }
+}
+
+.scoring__container {
+  gap: 16px;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+
+  select,
+  input {
+    width: 400px;
+  }
+}
+
+.scoring__container:nth-child(2) {
+  input {
+    width: 608px;
+  }
+}
+
+.scoring__submit {
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    width: 148px;
+    border-radius: 8px;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .scoring {
+    h4 {
+      text-align: center;
+    }
+    &__topcontainer {
+      justify-content: center;
+    }
+    input,
+    select {
+      width: 400px;
+    }
+  }
+  .scoring__container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .scoring__container:nth-child(2) {
+    input {
+      width: 400px;
+    }
+  }
+}
