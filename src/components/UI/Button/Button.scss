@@ -1,15 +1,23 @@
-.defaultButton {
-    background-color: #003CFF;
-    border-radius: 16px;
-    border: none;
-    font-family: Ubuntu-700;
-    font-size: 16px;
-    color: #FFFFFF;
-    padding: 16px;
-    cursor: pointer;
-    transition: all 0.2s ease;
+.defaultButton,
+.denyButton {
+  border-radius: 16px;
+  border: none;
+  font-family: Ubuntu-700;
+  font-size: 16px;
+  color: #ffffff;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 
-    &:hover {
-        background-color: #7796C0;
-    }
+  &:hover {
+    background-color: #7796c0;
+  }
+}
+
+.defaultButton {
+  background-color: #003cff;
+}
+
+.denyButton {
+  background-color: #d93737cc;
 }

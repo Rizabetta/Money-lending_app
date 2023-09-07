@@ -9,6 +9,17 @@
   align-items: center;
   justify-content: center;
 
+  &__button {
+    display: flex;
+    justify-content: end;
+
+    button {
+      margin-left: 40px;
+      width: 96px;
+      border-radius: 8px;
+    }
+  }
+
   &__container {
     width: 448px;
     height: 174px;
