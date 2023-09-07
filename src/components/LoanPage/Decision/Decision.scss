@@ -1,0 +1,23 @@
+.decision {
+  border-radius: 10px;
+  border: 1px solid #5b35d5;
+  padding: 24px 10px 34px 10px;
+  margin-top: 47px;
+  text-align: center;
+
+  h3 {
+    font-size: 30px;
+    font-family: Ubuntu-700;
+    margin-bottom: 32px;
+  }
+
+  p {
+    font-family: Ubuntu-500;
+  }
+}
+
+@media (max-width:850px) {
+    .decision h3 {
+        font-size: 16px;
+    }
+}
