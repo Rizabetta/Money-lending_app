@@ -2,7 +2,11 @@ import imgCard from "../../../assets/svg/PlatinumCard.svg";
 import "./PlatinumCard.scss";
 import { Tooltip } from "../../UI";
 
-function PlatinumCard({ buttonRef }: any) {
+type TPlatinumCard = {
+  buttonRef : React.MutableRefObject<HTMLDivElement | null>,
+}
+
+function PlatinumCard({ buttonRef }: TPlatinumCard) {
   const platinumCardList = [
     {
       title: "Up to 160 days",
