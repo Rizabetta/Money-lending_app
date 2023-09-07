@@ -11,12 +11,16 @@
 
   &__button {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 
-    button {
+    button, a {
       margin-left: 40px;
-      width: 96px;
+      padding: 11px 28px;
+      height: 40px;
       border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 
