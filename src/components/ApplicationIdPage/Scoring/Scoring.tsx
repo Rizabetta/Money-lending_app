@@ -6,8 +6,28 @@ import {
 } from "./Scoring.constant";
 import { Input, Select } from "../../UI";
 import "./Scoring.scss";
+import { api_applicationId } from "../../../api/applicationId";
+import { useParams } from "react-router-dom";
 
-function Scoring() {
+export type TScoring = {
+  gender: string;
+  maritalStatus: string;
+  dependentAmount: number;
+  passportIssueDate: string;
+  passportIssueBranch: string;
+  employment: {
+    employmentStatus: string;
+    employerINN: string;
+    salary: number;
+    position: string;
+    workExperienceTotal: number;
+    workExperienceCurrent: number;
+  };
+  account: string;
+};
+
+function Scoring({ setStatusScoring }: any) {
+  const { id } = useParams();
   const {
     register,
     handleSubmit,
@@ -15,7 +35,9 @@ function Scoring() {
   } = useForm();
   const onSubmit: SubmitHandler<any> = async (data: any) => {
     setisSubmited(true);
-    console.log(data);
+    data.id = id;
+    const responce = api_applicationId.putScoring(data);
+    setStatusScoring((await responce).status);
   };
 
   const onError: SubmitHandler<any> = (data: any, event) => {

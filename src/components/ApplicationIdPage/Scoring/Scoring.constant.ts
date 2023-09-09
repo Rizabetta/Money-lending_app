@@ -142,7 +142,7 @@ export const employmentInformation = [
     invalid: "Enter your work experience total",
     max: "99",
     min: "0",
-    minLength: 2,
+    minLength: 1,
     maxLength: 2,
   },
   {
@@ -156,7 +156,7 @@ export const employmentInformation = [
     invalid: "Enter your work experience current",
     max: "99",
     min: "0",
-    minLength: 2,
+    minLength: 1,
     maxLength: 2,
   },
 ];
