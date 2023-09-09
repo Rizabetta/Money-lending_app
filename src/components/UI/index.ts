@@ -1,4 +1,9 @@
-export {Accordion} from './Accordion';
-export {Loader} from './Loader';
-export {Tooltip} from './Tooltip';
-export {Tabs} from './Tabs';
+export { Accordion } from "./Accordion";
+export { FormWrapper } from "./FormWrapper";
+export { Loader } from "./Loader";
+export { ModalWrapper } from "./ModalWrapper";
+export { Tooltip } from "./Tooltip";
+export { Table } from "./Table";
+export { Tabs } from "./Tabs";
+export { Input } from "./Input";
+export { Select } from "./Select";

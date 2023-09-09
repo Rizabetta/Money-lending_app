@@ -1,8 +1,22 @@
 .Offer {
-    margin-top: 47px;
-    display: flex;
-    text-align: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    justify-content: center;
+  margin-top: 47px;
+  display: flex;
+  text-align: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+
+@media (max-width: 1300px) {
+  .Offer {
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+}
+
+@media (max-width: 920px) {
+    .Offer {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  }

@@ -1,18 +1,44 @@
-import { TOfferCardProps } from "../Offer";
-import offerimg from "../../../../assets/png/OfferImg.png";
+ import offerimg from "../../../../assets/png/OfferImg.png";
 import invalid from "../../../../assets/svg/Invalid.svg";
 import valid from "../../../../assets/svg/Valid.svg";
 import "./OfferCard.scss";
+import { api_loan } from "../../../../api/loan";
 
-function OfferCard({ rate, insurance, salary }: TOfferCardProps) {
+function OfferCard({
+  amount,
+  id,
+  term,
+  rate,
+  insurance,
+  salary,
+  setIsOfferActive,
+  setIsDecisionActive,
+}: any) {
+  const handleClick = async () => {
+    const responce = api_loan.postOffer({
+      amount,
+      id,
+      term,
+      rate,
+      insurance,
+      salary,
+    });
+    const status = (await responce).status;
+    status === 200 && setIsOfferActive(false);
+    status === 200 && setIsDecisionActive(true);
+    console.log(status);
+  };
   return (
     <div className="offer__card">
       <img className="offer__card-img" src={offerimg} alt="offer"></img>
-      <p>Requested amount: 200 000 ₽</p>
-      <p>Total amount: 200 000 ₽</p>
-      <p>For 24 months</p>
-      <p>Monthly payment: 9 697 ₽</p>
-      <p>Your rate: {rate}</p>
+      <p>Requested amount: {amount.toLocaleString("ru-RU")} ₽</p>
+      <p>Total amount: {amount.toLocaleString("ru-RU")} ₽</p>
+      <p>For {term} months</p>
+      <p>
+        Monthly payment:{" "}
+        {(amount / term + (amount / 100) * rate).toLocaleString("ru-RU")}₽
+      </p>
+      <p>Your rate: {rate} %</p>
       <div className="offer__status">
         <p>Insurance included </p>
         {insurance ? (
@@ -29,7 +55,9 @@ function OfferCard({ rate, insurance, salary }: TOfferCardProps) {
           <img src={invalid} alt="invalid"></img>
         )}
       </div>
-      <button className="defaultButton">Select</button>
+      <button className="defaultButton" onClick={handleClick}>
+        Select
+      </button>
     </div>
   );
 }

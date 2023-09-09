@@ -1,42 +1,5 @@
 @import "../../../scss/mixins.scss";
 .prescoring {
-  background-color: #ffffff;
-  border-radius: 28px;
-  box-shadow: 0 2px 4px rgb(196, 195, 204);
-  padding: 32px;
-  margin-top: 14px;
-
-  .prescoring__information {
-    span {
-      display: block;
-      color: #ff5631;
-      @include family-size(Ubuntu-500, 16px);
-    }
-
-    input {
-      @include form-inputselect(13px, 16px);
-    }
-
-    select {
-      @include form-inputselect(0, 16px);
-      height: 46px;
-      -webkit-appearance: none;
-      appearance: none;
-    }
-
-    select:not([multiple]) {
-      padding-right: 1.2em;
-      background-repeat: no-repeat;
-      background-position: calc(100% - 1.25em) 1em;
-      background-size: 0.85em auto;
-      background-image: url("../../../assets/svg/Select.svg");
-    }
-
-    &-input {
-      margin-bottom: 16px;
-    }
-  }
-
   &__topcontainer {
     display: flex;
   }
@@ -50,10 +13,6 @@
   &__step {
     @include display-center(align-items);
     justify-content: space-between;
-
-    h3 {
-      @include family-size(Ubuntu-700, 30px);
-    }
 
     p {
       @include family-size(Ubuntu-500, 16px);
@@ -88,7 +47,6 @@
       margin: 20px 0 10px 0;
     }
 
-    p,
     input[type="number"] {
       @include family-size(Ubuntu-500, 16px);
     }
@@ -110,10 +68,6 @@
         "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
         "Helvetica Neue", sans-serif;
     }
-    h4 {
-      @include family-size(Ubuntu-700, 20px);
-      margin-bottom: 16px;
-    }
 
     p {
       @include family-size(Ubuntu-500, 16px);
@@ -124,67 +78,39 @@
     }
   }
   .prescoring__bottomcontainer {
-    h3 {
+    h4 {
       margin-bottom: 24px;
     }
   }
+
   .prescoring__information {
     gap: 16px;
     display: flex;
     flex-wrap: wrap;
-    &-title {
-      display: flex;
 
-      img {
-        margin-left: 5px;
-      }
-    }
-
-    p {
-      @include family-size(Ubuntu-500, 16px);
+    select, input {
+      width: 287px;
     }
 
     &-btn {
       display: flex;
       justify-content: flex-end;
+
       button {
         width: 148px;
         border-radius: 8px;
       }
     }
-    input[type="number"]::-webkit-outer-spin-button,
-    input[type="number"]::-webkit-inner-spin-button,
-    input[type="date"]::-webkit-calendar-picker-indicator {
-      display: none;
-    }
-
-    .invalidinput {
-      border: 2px solid #ff5631;
-    }
-  }
-
-  input:focus {
-    outline: 2px solid #5b35d5;
   }
 
   input[type="range"]:focus {
     outline: none;
   }
-
-  label {
-    position: relative;
-
-    img {
-      position: absolute;
-      right: 16px;
-      top: 10%;
-    }
-  }
 }
 
 @media (max-width: 970px) {
   .prescoring__bottomcontainer {
-    h3 {
+    h4 {
       text-align: center;
     }
   }

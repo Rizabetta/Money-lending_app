@@ -1,14 +1,26 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import "./Prescoring.scss";
-import { useState } from "react";
-import required from "../../../assets/svg/Required.svg";
+import React, { useState } from "react";
 import { contactInformation } from "./Prescoring.constant";
-import invalid from "../../../assets/svg/Invalid.svg";
-import valid from "../../../assets/svg/Valid.svg";
 import { api_loan } from "../../../api/loan";
 import { Tinputs } from "./Prescoring.type";
+import { Input, Select } from "../../UI";
 
-function Prescoring({ buttonRef }: any) {
+type TPrescoring = {
+  buttonRef: React.MutableRefObject<HTMLDivElement | null>;
+  setIsOfferActive: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsPrescoringActive: React.Dispatch<React.SetStateAction<boolean>>;
+  amount:number;
+  setAmount: React.Dispatch<React.SetStateAction<number>>;
+};
+
+function Prescoring({
+  amount,
+  setAmount,
+  buttonRef,
+  setIsOfferActive,
+  setIsPrescoringActive,
+}: TPrescoring) {
   const {
     register,
     handleSubmit,
@@ -17,7 +29,11 @@ function Prescoring({ buttonRef }: any) {
 
   const onSubmit: SubmitHandler<any> = async (data: Tinputs) => {
     setisSubmited(true);
-    api_loan.postPrescoring(data);
+    const responce = api_loan.postPrescoring(data);
+    const status = (await responce).status;
+    status === 200 && setIsOfferActive(true);
+    status === 200 && setIsPrescoringActive(false);
+    console.log((await responce).status);
   };
 
   const onError: SubmitHandler<any> = (data: Tinputs, event) => {
@@ -26,7 +42,7 @@ function Prescoring({ buttonRef }: any) {
   };
 
   let step = 1;
-  let [amount, setAmount] = useState(15000);
+
   const minAmoint = 15000;
   const maxAmoint = 600000;
   let [isSubmited, setisSubmited] = useState(false);
@@ -80,60 +96,26 @@ function Prescoring({ buttonRef }: any) {
           </div>
         </div>
         <div className="prescoring__bottomcontainer">
-          <h3>Contact Information</h3>
+          <h4>Contact Information</h4>
           <div className="prescoring__information">
             {contactInformation.map((item) =>
               item.select === false ? (
                 <div key={item.id}>
-                  <div className="prescoring__information-title">
-                    <p>{item.title}</p>
-                    {item.required && <img src={required} alt="required"></img>}
-                  </div>
-                  <div className="prescoring__information-input">
-                    <label>
-                      <input
-                        className={errors?.[item.register] && "invalidinput"}
-                        type={item.type}
-                        id={item.register}
-                        placeholder={item.placeholder}
-                        {...register(`${item.register}`, {
-                          required: item.required,
-                          max: item.max,
-                          min: item.min,
-                          maxLength: item.maxLength,
-                          minLength: item.minLength,
-                          pattern: item.pattern,
-                        })}
-                      />
-                      {isSubmited &&
-                        (errors?.[item.register] ? (
-                          <img src={invalid} alt="invalid"></img>
-                        ) : (
-                          <img src={valid} alt="valid"></img>
-                        ))}
-                    </label>
-                    {errors?.[item.register] && (
-                      <span role="alert">{item.invalid}</span>
-                    )}
-                  </div>
+                  <Input
+                    item={item}
+                    errors={errors}
+                    isSubmited={isSubmited}
+                    register={register}
+                  />
                 </div>
               ) : (
                 <div key={item.id}>
-                  <div className="prescoring__information-title">
-                    <p>{item.title}</p>
-                    {item.required && <img src={required} alt="required"></img>}
-                  </div>
-                  <select
-                    {...register(`${item.register}`, {
-                      required: item.required,
-                    })}
-                  >
-                    {item.maplist?.map((element, key) => (
-                      <option key={key} value={element.value}>
-                        {element.titel}
-                      </option>
-                    ))}
-                  </select>
+                  <Select
+                    item={item}
+                    errors={errors}
+                    isSubmited={isSubmited}
+                    register={register}
+                  />
                 </div>
               )
             )}
