@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import "./FormWrapper.scss";
 
-interface IChildrenProps {
+export interface IChildrenProps {
   children: ReactNode;
 }
 
