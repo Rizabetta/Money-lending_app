@@ -17,8 +17,20 @@ function CardNews({ url, urlToImage, title, description }: TCardProps) {
           className="card__image"
           alt="CardNews"
         ></img>
-        <h4 className="card__h4">{title?? "Grayscale's SEC Victory Does Not Ensure Bitcoin Spot ETF Approval - CoinDesk"}</h4>
-        <p className="card__description">{description ?? title ?? "Grayscale's SEC Victory Does Not Ensure Bitcoin Spot ETF Approval - CoinDesk"}</p>
+        <h4
+          className="card__h4"
+          dangerouslySetInnerHTML={
+            { __html: title } ??
+            "Grayscale's SEC Victory Does Not Ensure Bitcoin Spot ETF Approval - CoinDesk"
+          }
+        />
+        <p
+          className="card__description"
+          dangerouslySetInnerHTML={
+            { __html: description } ?? { __html: title } ??
+            "Grayscale's SEC Victory Does Not Ensure Bitcoin Spot ETF Approval - CoinDesk"
+          }
+        />
       </a>
     </div>
   );
