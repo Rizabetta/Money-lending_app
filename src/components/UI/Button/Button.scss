@@ -1,5 +1,6 @@
 .defaultButton,
-.denyButton {
+.denyButton,
+.disabledButton {
   border-radius: 16px;
   border: none;
   font-family: Ubuntu-700;
@@ -20,4 +21,8 @@
 
 .denyButton {
   background-color: #d93737cc;
+}
+
+.disabledButton {
+  background-color: #7796c0;
 }
