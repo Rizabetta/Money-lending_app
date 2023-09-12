@@ -1,44 +1,39 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./PinCode.scss";
 
 function PinCode() {
   const [pin, setPin] = useState<string[]>(["", "", "", ""]);
   const [isActive, setisActive] = useState([false, false, false, false]);
-  const [isValid, setisValid] = useState([true]);
+  const [isValid, setisValid] = useState(true);
 
-  const handleKeyUp = (
-    e: any,
-    index: number
-  ) => {
-    const { value } = e.currentTarget;
+  const handleChange = (e: any, index: number) => {
+    const { value } = e.target;
     const newPin = [...pin];
-
-    newPin[index] = value ?? "";
-    console.log(value);
-    
+    newPin[index] = value;
+    const shouldFocusNextInput = value && value !== 0;
     setPin(newPin);
     if (index < 3) {
       setisActive((isActive) => ({ ...isActive, [index + 1]: true }));
-      const nextInput = document.getElementById(`pin${index + 1}`);
-      console.log(value);
-      
-      if (value) {nextInput?.focus()};
     } else {
       pin[index] = e.currentTarget.value;
+      // pin.map((e)=> e==="" && setisValid(false))
       console.log(pin);
+    }
+    if (shouldFocusNextInput) {
+      const nextInput = document.getElementById(`pin${index + 1}`);
+      nextInput?.focus();
     }
   };
 
   const handleBefore = (e: any) => {
-    console.log(!(/^[0-9]$/.test(e.data) || e.data === ""), " e.data ");
-    console.log(e.data === "", " e.data ");
-    if (!(/^[0-9]$/.test(e.data) || !e.data)) {
+    const isOnlyNumbers = /^[0-9]$/.test(e.data);
+    const isCanBeChanged =
+      isOnlyNumbers && e.target.value.length !== 1 && e.data;
+  
+    if (!isCanBeChanged) {
       e.preventDefault();
-    } else {
-      console.log(e.data);
     }
   };
-
   return (
     <div className="pincode">
       <h3>Please enter confirmation code</h3>
@@ -55,7 +50,7 @@ function PinCode() {
                   e.target.value === "" &&
                   setisActive((isActive) => ({ ...isActive, [index]: false }))
                 }
-                onChange={(e) => handleKeyUp(e, index)}
+                onChange={(e) => handleChange(e, index)}
                 onBeforeInput={handleBefore}
               />
             ) : (

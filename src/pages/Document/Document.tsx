@@ -3,10 +3,10 @@ import { FormWrapper, ModalWrapper, Table } from "../../components/UI";
 import "../../components/UI/Button/Button.scss";
 import { RouteNames } from "../../routers/routes";
 import { Link } from "react-router-dom";
+import { PaymentSchedule } from "../../components/DocumentPage";
 
 function Document() {
-  const [checked, setChecked] = useState(false);
-  const handleClick = () => setChecked(!checked);
+  const [isChecked, setChecked] = useState(false);
   async function getDevices() {
     const settings = {
       method: "GET",
@@ -24,7 +24,6 @@ function Document() {
       // data.map((element:any)=>(console.log(element)
       // ))
       console.log(data);
-      
     } catch (e) {
       return e;
     }
@@ -33,35 +32,15 @@ function Document() {
 
   const [modalActive, setModalActive] = useState(false);
   const [denylActive, setDenyActive] = useState(false);
+
   return (
     <main className="main">
       <FormWrapper>
-        <div>
-          <h2>Payment Schedule</h2>
-          <p>Step 3 of 5</p>
-        </div>
-        <Table />
-        <div>
-          <button className="denyButton" onClick={() => setModalActive(true)}>
-            Deny
-          </button>
-          <div>
-            <input
-              type="checkbox"
-              onClick={handleClick}
-              id="approval"
-              name="approval"
-              checked={checked}
-            />
-            <label htmlFor="approval">I agree with the payment schedule</label>
-            <button
-              disabled={!checked}
-              className={checked ? "defaultButton" : "disabledButton"}
-            >
-              Send
-            </button>
-          </div>
-        </div>
+        <PaymentSchedule
+          setModalActive={setModalActive}
+          setChecked={setChecked}
+          isChecked={isChecked}
+        />
       </FormWrapper>
       {modalActive && (
         <ModalWrapper denylActive={denylActive} setActive={setModalActive}>
