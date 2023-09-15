@@ -8,3 +8,4 @@ export { Table } from "./Table";
 export { Tabs } from "./Tabs";
 export { Input } from "./Input";
 export { Select } from "./Select";
+export { StepTitle } from "./StepTitle";
