@@ -4,4 +4,3 @@ export { ApplicationId } from "./ApplicationId";
 export { Code } from "./Code";
 export { Document } from "./Document";
 export { NotFound } from "./404";
-export { Sign } from "./Sign";
