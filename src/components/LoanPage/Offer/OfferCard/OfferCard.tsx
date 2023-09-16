@@ -1,47 +1,31 @@
- import offerimg from "../../../../assets/png/OfferImg.png";
+import offerimg from "../../../../assets/png/OfferImg.png";
 import invalid from "../../../../assets/svg/Invalid.svg";
 import valid from "../../../../assets/svg/Valid.svg";
 import "./OfferCard.scss";
 import { api_loan } from "../../../../api/loan";
+import { TResponceOffers } from "../../Prescoring/Prescoring";
 
-function OfferCard({
-  amount,
-  id,
-  term,
-  rate,
-  insurance,
-  salary,
-  setIsOfferActive,
-  setIsDecisionActive,
-}: any) {
+function OfferCard({ offer, store }: any) {
   const handleClick = async () => {
-    const responce = api_loan.postOffer({
-      amount,
-      id,
-      term,
-      rate,
-      insurance,
-      salary,
-    });
-    const status = (await responce).status;
-    status === 200 && setIsOfferActive(false);
-    status === 200 && setIsDecisionActive(true);
-    console.log(status);
+    // const responce = api_loan.postOffer({
+    //   offer,
+    // });
+    const status = (await api_loan.postOffer({ offer })).ok;
+    status && store.dispatch({ type: "OFFERS" });
+    status && store.dispatch({ type: "PRESCORING" });
   };
+
   return (
     <div className="offer__card">
       <img className="offer__card-img" src={offerimg} alt="offer"></img>
-      <p>Requested amount: {amount.toLocaleString("ru-RU")} ₽</p>
-      <p>Total amount: {amount.toLocaleString("ru-RU")} ₽</p>
-      <p>For {term} months</p>
-      <p>
-        Monthly payment:{" "}
-        {(amount / term + (amount / 100) * rate).toLocaleString("ru-RU")}₽
-      </p>
-      <p>Your rate: {rate} %</p>
+      <p>Requested amount: {offer.requestedAmount.toLocaleString("ru")} ₽</p>
+      <p>Total amount: {offer.totalAmount.toLocaleString("ru")} ₽</p>
+      <p>For {offer.term} months</p>
+      <p>Monthly payment: {offer.monthlyPayment}₽</p>
+      <p>Your rate: {offer.rate} %</p>
       <div className="offer__status">
         <p>Insurance included </p>
-        {insurance ? (
+        {offer.isInsuranceEnabled ? (
           <img src={valid} alt="valid"></img>
         ) : (
           <img src={invalid} alt="invalid"></img>
@@ -49,7 +33,7 @@ function OfferCard({
       </div>
       <div className="offer__status">
         <p>Salary client </p>
-        {salary ? (
+        {offer.isSalaryClient ? (
           <img src={valid} alt="valid"></img>
         ) : (
           <img src={invalid} alt="invalid"></img>

@@ -1,5 +1,6 @@
 import { OfferCard } from "./OfferCard";
 import "./Offer.scss";
+import { TResponceOffers } from "../Prescoring/Prescoring";
 
 export type TOfferCardProps = {
   id: number;
@@ -13,33 +14,23 @@ export type TOfferCardProps = {
 };
 
 type TOfferProps = {
-  amount: number;
+  store: any
+  offers: TResponceOffers[];
   setIsDecisionActive: React.Dispatch<React.SetStateAction<boolean>>;
   setIsOfferActive: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-function Offer({ amount, setIsDecisionActive, setIsOfferActive }: TOfferProps) {
-  const offerList = [
-    { id: 1, term: 24, rate: 15, insurance: false, salary: false },
-    { id: 2, term: 24, rate: 11, insurance: true, salary: false },
-    { id: 3, term: 24, rate: 14, insurance: false, salary: true },
-    { id: 4, term: 24, rate: 10, insurance: true, salary: true },
-  ];
+const savedObject  = localStorage.getItem("offers");
+let offersList: TResponceOffers[];
+if (savedObject) {
+  offersList = JSON.parse(savedObject);
+} 
 
+function Offer({ store, offers, setIsDecisionActive, setIsOfferActive }: TOfferProps) {
   return (
     <section className="Offer">
-      {offerList.map((offer) => (
-        <OfferCard
-          setIsDecisionActive={setIsDecisionActive}
-          setIsOfferActive={setIsOfferActive}
-          amount={amount}
-          id={offer.id}
-          term={offer.term}
-          key={offer.id}
-          rate={offer.rate}
-          insurance={offer.insurance}
-          salary={offer.salary}
-        ></OfferCard>
+      {offersList?.map((offer, index) => (
+        <OfferCard key={index} offer={offer} store={store}></OfferCard>
       ))}
     </section>
   );

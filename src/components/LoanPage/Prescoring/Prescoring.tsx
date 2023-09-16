@@ -6,18 +6,33 @@ import { api_loan } from "../../../api/loan";
 import { Tinputs } from "./Prescoring.type";
 import { Input, Select } from "../../UI";
 
+export type TResponceOffers = {
+  applicationId: number;
+  isInsuranceEnabled: boolean;
+  isSalaryClient: boolean;
+  monthlyPayment: number;
+  rate: number;
+  requestedAmount: number;
+  term: number;
+  totalAmount: number;
+};
+
 type TPrescoring = {
-  buttonRef: React.MutableRefObject<HTMLDivElement | null>;
+  state: any;
+  store: any;
+  setOffers: any;
   setIsOfferActive: React.Dispatch<React.SetStateAction<boolean>>;
   setIsPrescoringActive: React.Dispatch<React.SetStateAction<boolean>>;
-  amount:number;
+  amount: number;
   setAmount: React.Dispatch<React.SetStateAction<number>>;
 };
 
 function Prescoring({
+  state,
+  store,
+  setOffers,
   amount,
   setAmount,
-  buttonRef,
   setIsOfferActive,
   setIsPrescoringActive,
 }: TPrescoring) {
@@ -29,11 +44,14 @@ function Prescoring({
 
   const onSubmit: SubmitHandler<any> = async (data: Tinputs) => {
     setisSubmited(true);
-    const responce = api_loan.postPrescoring(data);
-    const status = (await responce).status;
-    status === 200 && setIsOfferActive(true);
-    status === 200 && setIsPrescoringActive(false);
-    console.log((await responce).status);
+    const responce = (await api_loan.postPrescoring(data)).json();
+    const status = (await api_loan.postPrescoring(data)).ok;
+    status && store.dispatch({ type: "PRESCORING" });
+    console.log((await api_loan.postPrescoring(data)).ok);
+    responce.then((res: TResponceOffers[]) => {
+      setOffers(res);
+      localStorage.setItem("offers", JSON.stringify(res));
+    });
   };
 
   const onError: SubmitHandler<any> = (data: Tinputs, event) => {
@@ -42,13 +60,12 @@ function Prescoring({
   };
 
   let step = 1;
-
   const minAmoint = 15000;
   const maxAmoint = 600000;
   let [isSubmited, setisSubmited] = useState(false);
 
   return (
-    <section className="prescoring" ref={buttonRef}>
+    <section className="prescoring">
       <form onSubmit={handleSubmit(onSubmit, onError)}>
         <div className="prescoring__topcontainer">
           <div className="prescoring__leftsection">

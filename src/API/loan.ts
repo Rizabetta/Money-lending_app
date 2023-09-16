@@ -22,25 +22,20 @@ async function postPrescoring(data: any) {
 }
 
 async function postOffer({
-  amount,
-  id,
-  term,
-  rate,
-  insurance,
-  salary,
+  offer
 }: any) {
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      applicationId: id,
-      requestedAmount: amount,
-      totalAmount: amount,
-      term: term,
-      monthlyPayment: amount / term + (amount / 100) * rate,
-      rate: rate,
-      isInsuranceEnabled: insurance,
-      isSalaryClient: salary,
+      applicationId: offer.applicationId,
+      requestedAmount: offer.requestedAmount,
+      totalAmount: offer.totalAmount,
+      term: offer.term,
+      monthlyPayment: offer.monthlyPayment,
+      rate: offer.rate,
+      isInsuranceEnabled: offer.isInsuranceEnabled,
+      isSalaryClient: offer.isSalaryClient,
     }),
   };
 
