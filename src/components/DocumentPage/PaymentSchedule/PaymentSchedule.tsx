@@ -3,11 +3,12 @@ import "./PaymentSchedule.scss";
 
 function PaymentSchedule({ setModalActive, setChecked, isChecked }: any) {
   const handleClick = () => setChecked(!isChecked);
+  const step = 3;
   return (
     <>
       <div className="paymentSchedule_header">
         <h2>Payment Schedule</h2>
-        <p>Step 3 of 5</p>
+        <p>Step {step} of 5</p>
       </div>
       <Table />
       <div className="paymentSchedule_footer">

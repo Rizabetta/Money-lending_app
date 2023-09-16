@@ -1,8 +1,14 @@
 import { useState } from "react";
 import "./PinCode.scss";
 
-function PinCode() {
-  const [pin, setPin] = useState<string[]>(["", "", "", ""]);
+type TPinCodeProps = {
+  numberOfСells: number;
+};
+
+function PinCode({ numberOfСells }: TPinCodeProps) {
+  const [pin, setPin] = useState<string[]>(
+    Array.from({ length: numberOfСells }, () => "")
+  );
   const [isActive, setisActive] = useState([false, false, false, false]);
   const [isValid, setisValid] = useState(true);
 
@@ -12,7 +18,7 @@ function PinCode() {
     newPin[index] = value;
     const shouldFocusNextInput = value && value !== 0;
     setPin(newPin);
-    if (index < 3) {
+    if (index < pin.length - 1) {
       setisActive((isActive) => ({ ...isActive, [index + 1]: true }));
     } else {
       pin[index] = e.currentTarget.value;
@@ -29,7 +35,7 @@ function PinCode() {
     const isOnlyNumbers = /^[0-9]$/.test(e.data);
     const isCanBeChanged =
       isOnlyNumbers && e.target.value.length !== 1 && e.data;
-  
+
     if (!isCanBeChanged) {
       e.preventDefault();
     }

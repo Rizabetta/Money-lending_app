@@ -1,16 +1,12 @@
 import { Link } from "react-router-dom";
-import { PinCode } from "../../components/CodePage";
-import { MessageWrapper } from "../../components/UI";
-import { RouteNames } from "../../routers/routes";
-import surpriseImg from "../../assets/png/OfferImg.png";
+import { MessageWrapper, PinCode } from "../../../components/UI";
+import { RouteNames } from "../../../routers/routes";
+import surpriseImg from "../../../assets/png/OfferImg.png";
 
 function Code() {
   return (
     <main className="main">
-      <PinCode />
-      <br></br>
-      <br></br>
-      <br></br>
+      <PinCode numberOfСells={4} />
       <MessageWrapper>
         <img alt="surpriseImg" src={surpriseImg}></img>
         <h3>Congratulations! You have completed your new credit card.</h3>
