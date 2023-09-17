@@ -1,19 +1,10 @@
-.paymentSchedule_header {
-    display: flex;
-    align-items: center;
-    
-    p{
-        margin-left: 120px;
-    }
-}
-
 .paymentSchedule_footer {
-    display: flex;
-    justify-content: space-between;
-    
-    button {
-        width: 96px;
-        border-radius: 8px;
-        padding: 11px 23px;
-    }
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    width: 96px;
+    border-radius: 8px;
+    padding: 11px 23px;
+  }
 }

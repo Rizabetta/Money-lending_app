@@ -31,16 +31,21 @@
     }
   }
 }
+@media (max-width: 970px) {
+  .signingDocuments__checkbox {
+    justify-content: flex-start;
+    margin-top: 30px;
+  }
+}
 
-@media (max-width:590px) {
-    .signingDocuments__checkbox {
-        margin-top: 30px;
-        button {
-            padding: 11px 30px;
-            border-radius: 8px;
-          }
-          label {
-            margin: 0 20px 0 16px;
-          }
+@media (max-width: 590px) {
+  .signingDocuments__checkbox {
+    button {
+      padding: 11px 30px;
+      border-radius: 8px;
     }
+    label {
+      margin: 0 20px 0 16px;
+    }
+  }
 }
