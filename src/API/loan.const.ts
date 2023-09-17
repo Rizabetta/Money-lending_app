@@ -1,4 +1,7 @@
-const path = "http://localhost:8080/application";
+export enum PathNames {
+  APPLICATION = "http://localhost:8080/application",
+  ADMIN = "http://localhost:8080/admin",
+}
 
 const requestOptions = (method: string, data: any) => {
   return {
@@ -35,5 +38,24 @@ const offerData = (offer: any) => {
   };
 };
 
-export const apiFormData = { prescoringData, offerData };
-export const apiOptions = { path, requestOptions };
+const scoringData = (data: any) => {
+  return {
+    gender: data.gender,
+    maritalStatus: data.maritalStatus,
+    dependentAmount: Number(data.dependentAmount),
+    passportIssueDate: data.passportIssueDate,
+    passportIssueBranch: data.passportIssueBranch,
+    employment: {
+      employmentStatus: data.employmentStatus,
+      employerINN: data.employerINN,
+      salary: Number(data.salary),
+      position: data.position,
+      workExperienceTotal: Number(data.workExperienceTotal),
+      workExperienceCurrent: Number(data.workExperienceCurrent),
+    },
+    account: "11223344556677889900",
+  };
+};
+
+export const apiFormData = { prescoringData, offerData, scoringData };
+export const apiOptions = {  requestOptions };
