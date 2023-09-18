@@ -1,7 +1,8 @@
+import { Tinputs } from "../components/LoanPage/Prescoring/Prescoring.type";
 import { TScoring } from "../components/LoanStepPages/Scoring/Scoring";
 import { PathNames, apiFormData, apiOptions } from "./loan.const";
 
-async function postPrescoring(data: any) {
+async function sendPrescoring(data: Tinputs) {
   const options = apiOptions.requestOptions(
     "POST",
     apiFormData.prescoringData(data)
@@ -10,7 +11,7 @@ async function postPrescoring(data: any) {
   return responce;
 }
 
-async function postOffer({ offer }: any) {
+async function sendOffer({ offer }: any) {
   const options = apiOptions.requestOptions(
     "POST",
     apiFormData.offerData(offer)
@@ -20,7 +21,7 @@ async function postOffer({ offer }: any) {
 }
 
 const applicationId = localStorage.getItem("applicationId");
-async function putScoring(data: TScoring) {
+async function sendScoring(data: TScoring) {
   const options = apiOptions.requestOptions(
     "PUT",
     apiFormData.scoringData(data)
@@ -44,4 +45,4 @@ async function getDevices() {
   }
 }
 
-export const api_loan = { postPrescoring, postOffer, putScoring, getDevices };
+export const api_loan = { sendPrescoring, sendOffer, sendScoring, getDevices };

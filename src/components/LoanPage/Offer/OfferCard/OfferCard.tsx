@@ -5,9 +5,14 @@ import "./OfferCard.scss";
 import { api_loan } from "../../../../api/loan";
 import { TResponceOffers } from "../../Prescoring/Prescoring";
 
-function OfferCard({ offer, store }: any) {
+type TOfferCardProps = {
+  offer:TResponceOffers,
+  store: any,
+}
+
+function OfferCard({ offer, store }: TOfferCardProps) {
   const handleClick = async () => {
-    const status = (await api_loan.postOffer({ offer })).ok;
+    const status = (await api_loan.sendOffer({ offer })).ok;
     console.log(offer);
     console.log(offer.applicationId);
     localStorage.setItem("applicationId", JSON.stringify(offer.applicationId));

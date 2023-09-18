@@ -11,6 +11,11 @@ import { FormWrapper } from "../../components/UI/FormWrapper/FormWrapper";
 import { TResponceOffers } from "../../components/LoanPage/Prescoring/Prescoring";
 import { createStore } from "redux";
 
+export type TState = {
+  statusOkPrescoring: boolean;
+  statusOkOffers: boolean;
+};
+
 function Loan() {
   const buttonRef = useRef<null | HTMLDivElement>(null);
   const [isPrescoringActive, setIsPrescoringActive] = useState(true);
@@ -18,11 +23,6 @@ function Loan() {
   const [isDecisionActive, setIsDecisionActive] = useState(false);
   let [amount, setAmount] = useState(15000);
   const [offers, setOffers] = useState<TResponceOffers[]>([]);
-
-  type TState = {
-    statusOkPrescoring: boolean;
-    statusOkOffers: boolean;
-  };
 
   const initialState: TState = {
     statusOkPrescoring: false,
@@ -73,7 +73,6 @@ function Loan() {
         {!state?.statusOkOffers && (
           <Offer
             store={store}
-            offers={offers}
             setIsDecisionActive={setIsDecisionActive}
             setIsOfferActive={setIsOfferActive}
           />

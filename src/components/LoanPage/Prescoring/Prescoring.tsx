@@ -5,6 +5,7 @@ import { contactInformation } from "./Prescoring.constant";
 import { api_loan } from "../../../api/loan";
 import { Tinputs } from "./Prescoring.type";
 import { Input, Select } from "../../UI";
+import { TState } from "../../../pages/Loan/Loan";
 
 export type TResponceOffers = {
   applicationId: number;
@@ -18,9 +19,9 @@ export type TResponceOffers = {
 };
 
 type TPrescoring = {
-  state: any;
+  state: TState | undefined;
   store: any;
-  setOffers: any;
+  setOffers: React.Dispatch<React.SetStateAction<TResponceOffers[]>>;
   setIsOfferActive: React.Dispatch<React.SetStateAction<boolean>>;
   setIsPrescoringActive: React.Dispatch<React.SetStateAction<boolean>>;
   amount: number;
@@ -44,12 +45,13 @@ function Prescoring({
 
   const onSubmit: SubmitHandler<any> = async (data: Tinputs) => {
     setisSubmited(true);
-    const responce = (await api_loan.postPrescoring(data)).json();
-    const status = (await api_loan.postPrescoring(data)).ok;
+    const responce = (await api_loan.sendPrescoring(data)).json();
+    const status = (await api_loan.sendPrescoring(data)).ok;
     status && store.dispatch({ type: "PRESCORING" });
-    console.log((await api_loan.postPrescoring(data)).ok);
+    console.log(status);
     responce.then((res: TResponceOffers[]) => {
       setOffers(res);
+      console.log(res);
       localStorage.setItem("offers", JSON.stringify(res));
     });
   };
