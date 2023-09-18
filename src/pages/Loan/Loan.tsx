@@ -4,7 +4,7 @@ import {
   Prescoring,
   Decision,
 } from "../../components/LoanPage";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Tabs } from "../../components/UI";
 import { Offer } from "../../components/LoanPage/Offer/Offer";
 import { FormWrapper } from "../../components/UI/FormWrapper/FormWrapper";

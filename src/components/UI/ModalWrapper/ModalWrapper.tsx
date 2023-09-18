@@ -8,14 +8,15 @@ type TModal = {
   denylActive: boolean;
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
   children: ReactNode;
+  title: string;
 };
 
-function ModalWrapper({ denylActive, setActive, children }: TModal) {
+function ModalWrapper({ denylActive, setActive, children, title }: TModal) {
   return (
     <div className="modal">
       <div className="modal__container">
         <div className="modal__topcontainer">
-          <h3>Deny application</h3>
+          <h3>{title}</h3>
           <Link to={denylActive ? RouteNames.HOME : "# "}>
             <img
               src={close}

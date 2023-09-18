@@ -1,4 +1,4 @@
-import { TScoring } from "../components/ApplicationIdPage/Scoring/Scoring";
+import { TScoring } from "../components/LoanStepPages/Scoring/Scoring";
 import { PathNames, apiFormData, apiOptions } from "./loan.const";
 
 async function postPrescoring(data: any) {

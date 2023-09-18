@@ -1,49 +1,30 @@
 import { useState } from "react";
-import { FormWrapper, ModalWrapper, Table } from "../../components/UI";
-import "../../components/UI/Button/Button.scss";
-import { RouteNames } from "../../routers/routes";
+import { FormWrapper, ModalWrapper } from "../../../components/UI";
+import { RouteNames } from "../../../routers/routes";
 import { Link } from "react-router-dom";
-import { PaymentSchedule } from "../../components/DocumentPage";
+import { PaymentScheduleTable } from "../../../components/LoanStepPages";
 
-function Document() {
+function PaymentSchedule() {
   const [isChecked, setChecked] = useState(false);
-  async function getDevices() {
-    const settings = {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    };
-    try {
-      const fetchResponse = await fetch(
-        `http://localhost:8080/admin/application`,
-        settings
-      );
-      const data = await fetchResponse.json();
-      // data.map((element:any)=>(console.log(element)
-      // ))
-      console.log(data);
-    } catch (e) {
-      return e;
-    }
-  }
-  getDevices();
-
   const [modalActive, setModalActive] = useState(false);
   const [denylActive, setDenyActive] = useState(false);
+  const title = "Deny application";
 
   return (
     <main className="main">
       <FormWrapper>
-        <PaymentSchedule
+        <PaymentScheduleTable
           setModalActive={setModalActive}
           setChecked={setChecked}
           isChecked={isChecked}
         />
       </FormWrapper>
       {modalActive && (
-        <ModalWrapper denylActive={denylActive} setActive={setModalActive}>
+        <ModalWrapper
+          title={title}
+          denylActive={denylActive}
+          setActive={setModalActive}
+        >
           {denylActive ? (
             <>
               <p>Your application has been deny!</p>
@@ -84,4 +65,4 @@ function Document() {
   );
 }
 
-export { Document };
+export { PaymentSchedule };

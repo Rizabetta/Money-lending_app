@@ -1,5 +1,5 @@
+import { Scoring } from "../../../components/LoanStepPages";
 import { FormWrapper, MessageWrapper } from "../../../components/UI";
-import { Scoring } from "../../../components/ApplicationIdPage";
 import { useState } from "react";
 
 function ContinuationApplication() {

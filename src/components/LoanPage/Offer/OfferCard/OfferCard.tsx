@@ -7,10 +7,10 @@ import { TResponceOffers } from "../../Prescoring/Prescoring";
 
 function OfferCard({ offer, store }: any) {
   const handleClick = async () => {
-    // const responce = api_loan.postOffer({
-    //   offer,
-    // });
     const status = (await api_loan.postOffer({ offer })).ok;
+    console.log(offer);
+    console.log(offer.applicationId);
+    localStorage.setItem("applicationId", JSON.stringify(offer.applicationId));
     status && store.dispatch({ type: "OFFERS" });
     status && store.dispatch({ type: "PRESCORING" });
   };

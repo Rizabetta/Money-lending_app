@@ -1,4 +1,10 @@
-import { Home, Loan, ApplicationId, Document, Sign, Code } from "../pages";
+import { Home, Loan, NotFound } from "../pages";
+import {
+  SigningDocuments,
+  ContinuationApplication,
+  PaymentSchedule,
+  LoanPinCode,
+} from "../pages/LoanStepPages";
 
 export enum RouteNames {
   NOT = "*",
@@ -6,12 +12,26 @@ export enum RouteNames {
   LOAN = "/loan",
 }
 
+const applicationId = localStorage.getItem("applicationId");
+
 export const routes = [
   { path: RouteNames.HOME, element: <Home /> },
   { path: RouteNames.LOAN, element: <Loan /> },
-  { path: RouteNames.NOT, element: "" },
-  { path: RouteNames.LOAN + "/:id", element: <ApplicationId /> },
-  { path: RouteNames.LOAN + "/:id/document", element: <Document /> },
-  { path: RouteNames.LOAN + "/:id/document/sign", element: <Sign /> },
-  { path: RouteNames.LOAN + "/:id/code", element: <Code /> },
+  {
+    path: RouteNames.LOAN + `/${applicationId}`,
+    element: <ContinuationApplication />,
+  },
+  {
+    path: RouteNames.LOAN + `/${applicationId}/document`,
+    element: <PaymentSchedule />,
+  },
+  {
+    path: RouteNames.LOAN + `/${applicationId}/document/sign`,
+    element: <SigningDocuments />,
+  },
+  {
+    path: RouteNames.LOAN + `/${applicationId}/code`,
+    element: <LoanPinCode />,
+  },
+  { path: RouteNames.NOT, element: <NotFound /> },
 ];
