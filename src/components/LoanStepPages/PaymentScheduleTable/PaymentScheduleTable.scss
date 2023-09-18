@@ -43,3 +43,33 @@
     padding: 11px 23px;
   }
 }
+
+.paymentSchedule__agreement {
+  display: flex;
+  align-items: center;
+  
+  button {
+    margin-left: 40px;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  input {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    margin-right: 14px;
+  }
+  .checkbox__input {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .checkbox__input:checked {
+    border: none;
+    background: url("../../../assets/svg/Checkbox_checked.svg") no-repeat;
+  }
+}

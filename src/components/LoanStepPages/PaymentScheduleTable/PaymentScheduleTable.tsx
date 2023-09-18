@@ -45,15 +45,15 @@ function PaymentScheduleTable({ setModalActive, setChecked, isChecked }: any) {
         <button className="denyButton" onClick={() => setModalActive(true)}>
           Deny
         </button>
-        <div>
-          <input
+        <div className="paymentSchedule__agreement">
+          <input className="checkbox__input"
             type="checkbox"
             onClick={handleClick}
             id="approval"
             name="approval"
-            checked={isChecked}
+            defaultChecked={isChecked}
           />
-          <label htmlFor="approval">I agree with the payment schedule</label>
+          <label className="checkbox__label" htmlFor="approval">I agree with the payment schedule</label>
           <button
             disabled={!isChecked}
             className={isChecked ? "defaultButton" : "disabledButton"}
