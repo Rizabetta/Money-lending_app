@@ -1,0 +1,45 @@
+.paymentSchedule {
+  thead {
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  table {
+    margin: 76px 0 43px 0;
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    cursor: pointer;
+    font-size: 12px;
+    font-family: Ubuntu-500;
+    padding: 14px 0;
+    text-align: left;
+  }
+
+  th {
+    color: #4a5568;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  td {
+    color: #1a202c;
+  }
+  .table__title-div {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.paymentSchedule_footer {
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    width: 96px;
+    border-radius: 8px;
+    padding: 11px 23px;
+  }
+}

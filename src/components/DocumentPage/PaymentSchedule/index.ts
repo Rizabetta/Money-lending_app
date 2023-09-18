@@ -1,1 +1,0 @@
-export { PaymentSchedule } from "./PaymentSchedule";

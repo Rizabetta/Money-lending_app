@@ -1,1 +1,0 @@
-export { Scoring } from "./Scoring";

@@ -4,10 +4,9 @@ import {
   additionalInformation,
   employmentInformation,
 } from "./Scoring.constant";
-import { Input, Select } from "../../UI";
+import { Input, Select, StepTitle } from "../../UI";
 import "./Scoring.scss";
-import { api_applicationId } from "../../../api/applicationId";
-import { useParams } from "react-router-dom";
+import { api_loan } from "../../../api/loan";
 
 export type TScoring = {
   gender: string;
@@ -27,7 +26,6 @@ export type TScoring = {
 };
 
 function Scoring({ setStatusScoring }: any) {
-  const { id } = useParams();
   const {
     register,
     handleSubmit,
@@ -35,8 +33,8 @@ function Scoring({ setStatusScoring }: any) {
   } = useForm();
   const onSubmit: SubmitHandler<any> = async (data: any) => {
     setisSubmited(true);
-    data.id = id;
-    const responce = api_applicationId.putScoring(data);
+    const responce = api_loan.putScoring(data);
+    responce.then((e) => console.log(e));
     setStatusScoring((await responce).status);
   };
 
@@ -45,16 +43,16 @@ function Scoring({ setStatusScoring }: any) {
     setisSubmited(true);
   };
 
-  let step = 2;
   let [isSubmited, setisSubmited] = useState(false);
-
+  const titleProps = {
+    title: "Continuation of the application",
+    currentStep: 2,
+    totalSteps: 5,
+  };
   return (
     <section className="scoring">
       <form onSubmit={handleSubmit(onSubmit, onError)}>
-        <div className="scoring__topcontainer">
-          <h3>Continuation of the application</h3>
-          <p>Step {step} of 5</p>
-        </div>
+        <StepTitle titleProps={titleProps} />
         <div className="scoring__container">
           {additionalInformation.map((item) =>
             item.select === false ? (
