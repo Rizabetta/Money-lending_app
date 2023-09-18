@@ -3,7 +3,7 @@ import { MessageWrapper, PinCode } from "../../../components/UI";
 import { RouteNames } from "../../../routers/routes";
 import surpriseImg from "../../../assets/png/OfferImg.png";
 
-function Code() {
+function LoanPinCode() {
   return (
     <main className="main">
       <PinCode numberOfСells={4} />
@@ -19,4 +19,4 @@ function Code() {
   );
 }
 
-export { Code };
+export { LoanPinCode };

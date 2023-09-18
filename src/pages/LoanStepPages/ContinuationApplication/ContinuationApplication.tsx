@@ -1,8 +1,8 @@
-import { FormWrapper, MessageWrapper } from "../../components/UI";
-import { Scoring } from "../../components/ApplicationIdPage";
+import { FormWrapper, MessageWrapper } from "../../../components/UI";
+import { Scoring } from "../../../components/ApplicationIdPage";
 import { useState } from "react";
 
-function ApplicationId() {
+function ContinuationApplication() {
   const [statusScoring, setStatusScoring] = useState(500);
   return (
     <main className="main">
@@ -20,4 +20,4 @@ function ApplicationId() {
   );
 }
 
-export { ApplicationId };
+export { ContinuationApplication };
