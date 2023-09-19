@@ -53,8 +53,15 @@ function Loan() {
   useEffect(() => {
     setIsPrescoringActive(!state?.statusOkPrescoring);
     setIsOfferActive(!state?.statusOkOffers);
-    setIsDecisionActive(Boolean(state?.statusOkOffers));
-  }, []);
+    setIsDecisionActive(!!state?.statusOkOffers);
+  }, [
+    amount,
+    offers,
+    state?.statusOkOffers,
+    state?.statusOkPrescoring,
+    setAmount,
+    store,
+  ]);
   return (
     <main className="main">
       <PlatinumCard buttonRef={buttonRef} />
@@ -72,7 +79,9 @@ function Loan() {
             />
           </FormWrapper>
         )}
-        {isOfferActive && <Offer store={store} />}
+        {isOfferActive && (
+          <Offer setIsDecisionActive={setIsDecisionActive} store={store} />
+        )}
         {isDecisionActive && <Decision />}
       </div>
     </main>

@@ -6,11 +6,12 @@ import { api_loan } from "../../../../api/loan";
 import { TResponceOffers } from "../../Prescoring/Prescoring";
 
 type TOfferCardProps = {
-  offer:TResponceOffers,
-  store: any,
-}
+  offer: TResponceOffers;
+  store: any;
+  setIsDecisionActive: (e: boolean) => void;
+};
 
-function OfferCard({ offer, store }: TOfferCardProps) {
+function OfferCard({ offer, store, setIsDecisionActive }: TOfferCardProps) {
   const handleClick = async () => {
     const status = (await api_loan.sendOffer({ offer })).ok;
     console.log(offer);
@@ -18,6 +19,7 @@ function OfferCard({ offer, store }: TOfferCardProps) {
     localStorage.setItem("applicationId", JSON.stringify(offer.applicationId));
     status && store.dispatch({ type: "OFFERS" });
     status && store.dispatch({ type: "PRESCORING" });
+    setIsDecisionActive(!!status);
   };
 
   return (
