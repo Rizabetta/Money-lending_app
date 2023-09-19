@@ -4,7 +4,7 @@ import {
   Prescoring,
   Decision,
 } from "../../components/LoanPage";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Tabs } from "../../components/UI";
 import { Offer } from "../../components/LoanPage/Offer/Offer";
 import { FormWrapper } from "../../components/UI/FormWrapper/FormWrapper";
@@ -41,7 +41,6 @@ function Loan() {
         return state;
     }
   };
-
   const store = createStore(reducer);
   store.subscribe(() => {
     const state = store.getState();
@@ -51,13 +50,18 @@ function Loan() {
   let state: TState | undefined = undefined;
   savedState && (state = JSON.parse(savedState));
 
+  useEffect(() => {
+    setIsPrescoringActive(!state?.statusOkPrescoring);
+    setIsOfferActive(!state?.statusOkOffers);
+    setIsDecisionActive(Boolean(state?.statusOkOffers));
+  }, []);
   return (
     <main className="main">
       <PlatinumCard buttonRef={buttonRef} />
       <Tabs />
       <InstructionGetCart />
       <div ref={buttonRef}>
-        {!state?.statusOkPrescoring && (
+        {isPrescoringActive && (
           <FormWrapper>
             <Prescoring
               state={state}
@@ -65,19 +69,11 @@ function Loan() {
               setOffers={setOffers}
               amount={amount}
               setAmount={setAmount}
-              setIsPrescoringActive={setIsPrescoringActive}
-              setIsOfferActive={setIsOfferActive}
             />
           </FormWrapper>
         )}
-        {!state?.statusOkOffers && (
-          <Offer
-            store={store}
-            setIsDecisionActive={setIsDecisionActive}
-            setIsOfferActive={setIsOfferActive}
-          />
-        )}
-        {state && state.statusOkOffers && <Decision />}
+        {isOfferActive && <Offer store={store} />}
+        {isDecisionActive && <Decision />}
       </div>
     </main>
   );

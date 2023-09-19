@@ -11,7 +11,6 @@
 
   th,
   td {
-    cursor: pointer;
     font-size: 12px;
     font-family: Ubuntu-500;
     padding: 14px 0;
@@ -27,7 +26,9 @@
   td {
     color: #1a202c;
   }
+
   .table__title-div {
+    cursor: pointer;
     display: flex;
     align-items: center;
   }
@@ -47,7 +48,7 @@
 .paymentSchedule__agreement {
   display: flex;
   align-items: center;
-  
+
   button {
     margin-left: 40px;
   }

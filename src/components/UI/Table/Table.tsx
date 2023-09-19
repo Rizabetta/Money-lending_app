@@ -1,28 +1,37 @@
-import "./Table.scss";
 import dropUp from "../../../assets/svg/Arrow_drop_up.svg";
+import { TTableRows } from "../../LoanStepPages/PaymentScheduleTable/PaymentScheduleTable";
 
-const tableColumns = [
-  "NUMBER",
-  "DATE",
-  "TOTAL PAYMENT",
-  "INTEREST PAYMENT",
-  "DEBT PAYMENT",
-  "REMAINING DEBT",
-];
+export type TTable = {
+  rows: TTableRows | null;
+  columns: string[];
+};
 
-function Table() {
+function Table({ rows, columns }: TTable) {
   return (
     <div className="table__container">
-      <ul className="table__container-table">
-        {tableColumns.map((element, key) => (
-          <div key={key} className="table__container-row">
-            <div className="table__container-drop cursor-pointer">
-              <li>{element}</li>
-              <img src={dropUp} alt="drop" />
-            </div>
-          </div>
-        ))}
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            {columns.map((column, index) => (
+              <th key={index}>
+                <div className="table__title-div">
+                  {column}
+                  <img src={dropUp} alt="dropUp" />
+                </div>
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows?.map((row) => (
+            <tr key={row.number}>
+              {Object.values(row).map((value, index) => (
+                <td key={index}>{value}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

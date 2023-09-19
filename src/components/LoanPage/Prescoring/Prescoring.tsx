@@ -22,8 +22,6 @@ type TPrescoring = {
   state: TState | undefined;
   store: any;
   setOffers: React.Dispatch<React.SetStateAction<TResponceOffers[]>>;
-  setIsOfferActive: React.Dispatch<React.SetStateAction<boolean>>;
-  setIsPrescoringActive: React.Dispatch<React.SetStateAction<boolean>>;
   amount: number;
   setAmount: React.Dispatch<React.SetStateAction<number>>;
 };
@@ -34,8 +32,6 @@ function Prescoring({
   setOffers,
   amount,
   setAmount,
-  setIsOfferActive,
-  setIsPrescoringActive,
 }: TPrescoring) {
   const {
     register,

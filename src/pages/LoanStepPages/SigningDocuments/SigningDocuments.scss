@@ -19,7 +19,18 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-
+    input {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 1px solid #ccc;
+      border-radius: 2px;
+    }
+    input:checked {
+      border: none;
+      background: url("../../../assets/svg/Checkbox_checked.svg") no-repeat;
+    }
     button {
       padding: 11px 60px;
       border-radius: 8px;

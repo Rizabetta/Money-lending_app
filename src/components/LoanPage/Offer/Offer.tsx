@@ -4,8 +4,6 @@ import { TResponceOffers } from "../Prescoring/Prescoring";
 
 type TOfferProps = {
   store: any;
-  setIsDecisionActive: React.Dispatch<React.SetStateAction<boolean>>;
-  setIsOfferActive: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const savedObject = localStorage.getItem("offers");
@@ -14,7 +12,7 @@ if (savedObject) {
   offersList = JSON.parse(savedObject);
 }
 
-function Offer({ store, setIsDecisionActive, setIsOfferActive }: TOfferProps) {
+function Offer({ store }: TOfferProps) {
   return (
     <section className="Offer">
       {offersList?.map((offer, index) => (
