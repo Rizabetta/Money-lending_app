@@ -1,9 +1,11 @@
 import { OfferCard } from "./OfferCard";
 import "./Offer.scss";
 import { TResponceOffers } from "../Prescoring/Prescoring";
+import { Action, Store } from "redux";
+import { TState } from "../../../pages/Loan/Loan";
 
 type TOfferProps = {
-  store: any;
+  store: Store<TState, Action>;
   setIsDecisionActive:(e:boolean)=>void;
 };
 

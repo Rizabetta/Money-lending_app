@@ -1,3 +1,4 @@
+import { TResponceOffers } from "../components/LoanPage/Prescoring/Prescoring";
 import { Tinputs } from "../components/LoanPage/Prescoring/Prescoring.type";
 import { TScoring } from "../components/LoanStepPages/Scoring/Scoring";
 import { PathNames, apiFormData, apiOptions } from "./loan.const";
@@ -11,7 +12,7 @@ async function sendPrescoring(data: Tinputs) {
   return responce;
 }
 
-async function sendOffer({ offer }: any) {
+async function sendOffer(offer: TResponceOffers) {
   const options = apiOptions.requestOptions(
     "POST",
     apiFormData.offerData(offer)

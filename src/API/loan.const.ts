@@ -1,3 +1,5 @@
+import { TResponceOffers } from "../components/LoanPage/Prescoring/Prescoring";
+
 export enum PathNames {
   APPLICATION = "http://localhost:8080/application",
   ADMIN = "http://localhost:8080/admin",
@@ -25,7 +27,7 @@ const prescoringData = (data: any) => {
   };
 };
 
-const offerData = (offer: any) => {
+const offerData = (offer: TResponceOffers) => {
   return {
     applicationId: offer.applicationId,
     requestedAmount: offer.requestedAmount,

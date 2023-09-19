@@ -6,6 +6,7 @@ import { api_loan } from "../../../api/loan";
 import { Tinputs } from "./Prescoring.type";
 import { Input, Select } from "../../UI";
 import { TState } from "../../../pages/Loan/Loan";
+import { Action, Store } from "redux";
 
 export type TResponceOffers = {
   applicationId: number;
@@ -19,15 +20,13 @@ export type TResponceOffers = {
 };
 
 type TPrescoring = {
-  state: TState | undefined;
-  store: any;
+  store: Store<TState, Action>;
   setOffers: React.Dispatch<React.SetStateAction<TResponceOffers[]>>;
   amount: number;
   setAmount: React.Dispatch<React.SetStateAction<number>>;
 };
 
 function Prescoring({
-  state,
   store,
   setOffers,
   amount,
@@ -137,7 +136,7 @@ function Prescoring({
           </div>
           <div className="prescoring__information-btn">
             <button className="defaultButton" type="submit">
-              Contiue
+              Continue
             </button>
           </div>
         </div>

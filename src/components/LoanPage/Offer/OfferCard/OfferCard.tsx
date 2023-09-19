@@ -4,16 +4,18 @@ import valid from "../../../../assets/svg/Valid.svg";
 import "./OfferCard.scss";
 import { api_loan } from "../../../../api/loan";
 import { TResponceOffers } from "../../Prescoring/Prescoring";
+import { Action, Store } from "redux";
+import { TState } from "../../../../pages/Loan/Loan";
 
 type TOfferCardProps = {
   offer: TResponceOffers;
-  store: any;
+  store: Store<TState, Action>;
   setIsDecisionActive: (e: boolean) => void;
 };
 
 function OfferCard({ offer, store, setIsDecisionActive }: TOfferCardProps) {
   const handleClick = async () => {
-    const status = (await api_loan.sendOffer({ offer })).ok;
+    const status = (await api_loan.sendOffer(offer)).ok;
     console.log(offer);
     console.log(offer.applicationId);
     localStorage.setItem("applicationId", JSON.stringify(offer.applicationId));

@@ -71,7 +71,6 @@ function Loan() {
         {isPrescoringActive && (
           <FormWrapper>
             <Prescoring
-              state={state}
               store={store}
               setOffers={setOffers}
               amount={amount}
