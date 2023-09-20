@@ -1,11 +1,11 @@
 import offerimg from "../../../../assets/png/OfferImg.png";
 import invalid from "../../../../assets/svg/Invalid.svg";
 import valid from "../../../../assets/svg/Valid.svg";
-import "./OfferCard.scss";
 import { api_loan } from "../../../../api/loan";
-import { TResponceOffers } from "../../Prescoring/Prescoring";
 import { Action, Store } from "redux";
 import { TState } from "../../../../pages/Loan/Loan";
+import { TResponceOffers } from "../../Prescoring/Prescoring.type";
+import "./OfferCard.scss";
 
 type TOfferCardProps = {
   offer: TResponceOffers;

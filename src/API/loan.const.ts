@@ -1,4 +1,4 @@
-import { TResponceOffers } from "../components/LoanPage/Prescoring/Prescoring";
+import { TResponceOffers } from "../components/LoanPage/Prescoring/Prescoring.type";
 
 export enum PathNames {
   APPLICATION = "http://localhost:8080/application",
@@ -60,4 +60,4 @@ const scoringData = (data: any) => {
 };
 
 export const apiFormData = { prescoringData, offerData, scoringData };
-export const apiOptions = {  requestOptions };
+export const apiOptions = { requestOptions };

@@ -1,5 +1,4 @@
-import { TResponceOffers } from "../components/LoanPage/Prescoring/Prescoring";
-import { Tinputs } from "../components/LoanPage/Prescoring/Prescoring.type";
+import { TResponceOffers, Tinputs } from "../components/LoanPage/Prescoring/Prescoring.type";
 import { TScoring } from "../components/LoanStepPages/Scoring/Scoring";
 import { PathNames, apiFormData, apiOptions } from "./loan.const";
 
@@ -36,9 +35,12 @@ async function sendScoring(data: TScoring) {
 
 async function getDevices() {
   try {
-    const fetchResponse = await fetch(`${PathNames.ADMIN}/application/120`, {
-      method: "GET",
-    });
+    const fetchResponse = await fetch(
+      `${PathNames.ADMIN}/application/${applicationId}`,
+      {
+        method: "GET",
+      }
+    );
     const data = await fetchResponse.json();
     return data.credit.paymentSchedule;
   } catch (e) {

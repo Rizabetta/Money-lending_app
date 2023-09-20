@@ -1,37 +1,12 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import "./Prescoring.scss";
-import React, { useState } from "react";
+import { useState } from "react";
 import { contactInformation } from "./Prescoring.constant";
 import { api_loan } from "../../../api/loan";
-import { Tinputs } from "./Prescoring.type";
+import { TPrescoring, TResponceOffers, Tinputs } from "./Prescoring.type";
 import { Input, Select } from "../../UI";
-import { TState } from "../../../pages/Loan/Loan";
-import { Action, Store } from "redux";
+import "./Prescoring.scss";
 
-export type TResponceOffers = {
-  applicationId: number;
-  isInsuranceEnabled: boolean;
-  isSalaryClient: boolean;
-  monthlyPayment: number;
-  rate: number;
-  requestedAmount: number;
-  term: number;
-  totalAmount: number;
-};
-
-type TPrescoring = {
-  store: Store<TState, Action>;
-  setOffers: React.Dispatch<React.SetStateAction<TResponceOffers[]>>;
-  amount: number;
-  setAmount: React.Dispatch<React.SetStateAction<number>>;
-};
-
-function Prescoring({
-  store,
-  setOffers,
-  amount,
-  setAmount,
-}: TPrescoring) {
+function Prescoring({ store, setOffers, amount, setAmount }: TPrescoring) {
   const {
     register,
     handleSubmit,
@@ -43,10 +18,8 @@ function Prescoring({
     const responce = (await api_loan.sendPrescoring(data)).json();
     const status = (await api_loan.sendPrescoring(data)).ok;
     status && store.dispatch({ type: "PRESCORING" });
-    console.log(status);
     responce.then((res: TResponceOffers[]) => {
       setOffers(res);
-      console.log(res);
       localStorage.setItem("offers", JSON.stringify(res));
     });
   };

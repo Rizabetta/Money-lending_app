@@ -1,8 +1,8 @@
 import { OfferCard } from "./OfferCard";
 import "./Offer.scss";
-import { TResponceOffers } from "../Prescoring/Prescoring";
 import { Action, Store } from "redux";
 import { TState } from "../../../pages/Loan/Loan";
+import { TResponceOffers } from "../Prescoring/Prescoring.type";
 
 type TOfferProps = {
   store: Store<TState, Action>;

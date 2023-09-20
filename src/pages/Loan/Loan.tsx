@@ -8,8 +8,8 @@ import { useEffect, useRef, useState } from "react";
 import { Tabs } from "../../components/UI";
 import { Offer } from "../../components/LoanPage/Offer/Offer";
 import { FormWrapper } from "../../components/UI/FormWrapper/FormWrapper";
-import { TResponceOffers } from "../../components/LoanPage/Prescoring/Prescoring";
 import { createStore } from "redux";
+import { TResponceOffers } from "../../components/LoanPage/Prescoring/Prescoring.type";
 
 export type TState = {
   statusOkPrescoring: boolean;
