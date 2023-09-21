@@ -1,19 +1,22 @@
 .content {
   display: none;
-  
 }
 
-.tabs__block {
-  display: flex;
-  color: #7B7454;
-  font-size: 16px;
-  font-family: Ubuntu-500;
-  gap: 32px;
-  border-bottom: 2px solid rgb(222,221,230);
-}
+.tabs {
+  cursor: pointer;
 
-.tabs__content {
-  flex-grow: 1;
+  &__block {
+    display: flex;
+    color: #7b7454;
+    font-size: 16px;
+    font-family: Ubuntu-500;
+    gap: 32px;
+    border-bottom: 2px solid rgb(222, 221, 230);
+  }
+
+  &__content {
+    flex-grow: 1;
+  }
 }
 
 .active-content {
@@ -22,6 +25,5 @@
 
 .active-tabs {
   padding-bottom: 11px;
-  border-bottom: 2px solid #7B7454;
+  border-bottom: 2px solid #7b7454;
 }
-
