@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import "./ModalWrapper.scss";
+import "./Modal.scss";
 import close from "../../../assets/svg/Close_square.svg";
 import { Link } from "react-router-dom";
 import { RouteNames } from "../../../routers/routes";
@@ -11,7 +11,7 @@ type TModal = {
   title: string;
 };
 
-function ModalWrapper({ denylActive, setActive, children, title }: TModal) {
+function Modal({ denylActive, setActive, children, title }: TModal) {
   return (
     <div className="modal">
       <div className="modal__container">
@@ -33,4 +33,4 @@ function ModalWrapper({ denylActive, setActive, children, title }: TModal) {
   );
 }
 
-export { ModalWrapper };
+export { Modal };
