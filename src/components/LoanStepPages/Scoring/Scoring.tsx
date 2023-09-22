@@ -49,55 +49,50 @@ function Scoring({ setStatusScoring }: any) {
     currentStep: 2,
     totalSteps: 5,
   };
+
+  const returnInputFunc = (item: any): JSX.Element => {
+    return (
+      <div key={item.id}>
+        <Input
+          item={item}
+          errors={errors}
+          isSubmited={isSubmited}
+          register={register}
+        />
+      </div>
+    );
+  };
+
+  const returnSelectFunc = (item: any): JSX.Element => {
+    return (
+      <div key={item.id}>
+        <Select
+          item={item}
+          errors={errors}
+          isSubmited={isSubmited}
+          register={register}
+        />
+      </div>
+    );
+  };
+
   return (
     <section className="scoring">
       <form onSubmit={handleSubmit(onSubmit, onError)}>
         <StepTitle titleProps={titleProps} />
         <div className="scoring__container">
           {additionalInformation.map((item) =>
-            item.select === false ? (
-              <div key={item.id}>
-                <Input
-                  item={item}
-                  errors={errors}
-                  isSubmited={isSubmited}
-                  register={register}
-                />
-              </div>
-            ) : (
-              <div key={item.id}>
-                <Select
-                  item={item}
-                  errors={errors}
-                  isSubmited={isSubmited}
-                  register={register}
-                />
-              </div>
-            )
+            item.select === false
+              ? returnInputFunc(item)
+              : returnSelectFunc(item)
           )}
         </div>
         <h4>Employment</h4>
         <div className="scoring__container">
           {employmentInformation.map((item) =>
-            item.select === false ? (
-              <div key={item.id}>
-                <Input
-                  item={item}
-                  errors={errors}
-                  isSubmited={isSubmited}
-                  register={register}
-                />
-              </div>
-            ) : (
-              <div key={item.id}>
-                <Select
-                  item={item}
-                  errors={errors}
-                  isSubmited={isSubmited}
-                  register={register}
-                />
-              </div>
-            )
+            item.select === false
+              ? returnInputFunc(item)
+              : returnSelectFunc(item)
           )}
         </div>
         <div className="scoring__submit">
