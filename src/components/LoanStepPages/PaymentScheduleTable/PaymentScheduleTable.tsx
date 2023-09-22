@@ -29,12 +29,12 @@ function PaymentScheduleTable({ setModalActive, setChecked, isChecked }: any) {
   }, []);
 
   const tableColumns = [
-    "NUMBER",
-    "DATE",
-    "TOTAL PAYMENT",
-    "INTEREST PAYMENT",
-    "DEBT PAYMENT",
-    "REMAINING DEBT",
+    { id: 1, title: "NUMBER" },
+    { id: 2, title: "DATE" },
+    { id: 3, title: "TOTAL PAYMENT" },
+    { id: 4, title: "INTEREST PAYMENT" },
+    { id: 5, title: "DEBT PAYMENT" },
+    { id: 6, title: "REMAINING DEBT" },
   ];
 
   return (
@@ -46,14 +46,17 @@ function PaymentScheduleTable({ setModalActive, setChecked, isChecked }: any) {
           Deny
         </button>
         <div className="paymentSchedule__agreement">
-          <input className="checkbox__input"
+          <input
+            className="checkbox__input"
             type="checkbox"
             onClick={handleClick}
             id="approval"
             name="approval"
             defaultChecked={isChecked}
           />
-          <label className="checkbox__label" htmlFor="approval">I agree with the payment schedule</label>
+          <label className="checkbox__label" htmlFor="approval">
+            I agree with the payment schedule
+          </label>
           <button
             disabled={!isChecked}
             className={isChecked ? "defaultButton" : "disabledButton"}
