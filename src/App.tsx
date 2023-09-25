@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { BrowserRouter } from "react-router-dom";
+import { Routers } from "./routers";
 import { Footer, Header } from "./layout";
-import { Routers } from "./components";
 import { Loader } from "./components/UI";
 import "./scss/normalize.css";
 import "./scss/index.scss";
