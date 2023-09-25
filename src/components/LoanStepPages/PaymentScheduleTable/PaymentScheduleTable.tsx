@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { api_loan } from "../../../api/loan";
 import { StepTitle, Table } from "../../UI";
+import { TableRow } from "../../UI/Table/Table";
 import "./PaymentScheduleTable.scss";
 
 export type TTableRows = {
@@ -44,12 +45,28 @@ function PaymentScheduleTable({
   }, []);
 
   const tableColumns = [
-    { id: 1, title: "NUMBER" },
-    { id: 2, title: "DATE" },
-    { id: 3, title: "TOTAL PAYMENT" },
-    { id: 4, title: "INTEREST PAYMENT" },
-    { id: 5, title: "DEBT PAYMENT" },
-    { id: 6, title: "REMAINING DEBT" },
+    { id: 1, title: "NUMBER", columnName: "number" as keyof TableRow },
+    { id: 2, title: "DATE", columnName: "date" as keyof TableRow },
+    {
+      id: 3,
+      title: "TOTAL PAYMENT",
+      columnName: "totalPayment" as keyof TableRow,
+    },
+    {
+      id: 4,
+      title: "INTEREST PAYMENT",
+      columnName: "interestPayment" as keyof TableRow,
+    },
+    {
+      id: 5,
+      title: "DEBT PAYMENT",
+      columnName: "debtPayment" as keyof TableRow,
+    },
+    {
+      id: 6,
+      title: "REMAINING DEBT",
+      columnName: "remainingDebt" as keyof TableRow,
+    },
   ];
 
   return (
@@ -57,7 +74,13 @@ function PaymentScheduleTable({
       <StepTitle titleProps={titleProps} />
       <Table rows={tableRow} columns={tableColumns} />
       <div className="paymentSchedule_footer">
-        <button className="denyButton" onClick={() => setModalActive(true)}>
+        <button
+          className="denyButton"
+          onClick={() => {
+            setModalActive(true);
+            localStorage.clear();
+          }}
+        >
           Deny
         </button>
         <div className="paymentSchedule__agreement">

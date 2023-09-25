@@ -2,13 +2,19 @@ import { useState } from "react";
 import { nanoid } from "nanoid";
 import dropUp from "../../../assets/svg/Arrow_drop_up.svg";
 import dropDown from "../../../assets/svg/dropDown.svg";
-import { TTableRows } from "../../LoanStepPages/PaymentScheduleTable/PaymentScheduleTable";
+
+export interface TableRow {
+  [key: string]: number | string;
+}
+
+export type TTableRows = TableRow[];
 
 export type TTable = {
   rows: TTableRows | null;
   columns: {
     id: number;
     title: string;
+    columnName: keyof TableRow;
   }[];
 };
 
@@ -16,15 +22,27 @@ function Table({ rows, columns }: TTable) {
   const [sortDirection, setSortDirection] = useState(
     Array.from({ length: columns.length }, () => "asc")
   );
-  console.log(JSON.stringify(rows));
+  let sortedArray = rows;
 
-  const handleSort = (index: number) => {
+  const handleSort = (id: number, name: keyof TableRow) => {
     setSortDirection((prevSortDirection) => {
-      const newSortDirection = { ...prevSortDirection };
-      newSortDirection[index] =
-        prevSortDirection[index] === "asc" ? "desc" : "asc";
+      const newSortDirection = [...prevSortDirection];
+      newSortDirection[id] = prevSortDirection[id] === "asc" ? "desc" : "asc";
       return newSortDirection;
     });
+
+    sortedArray =
+      rows?.sort((a, b) => {
+        const valueA = a[name];
+        const valueB = b[name];
+        if (valueA < valueB) {
+          return -1;
+        }
+        if (valueA > valueB) {
+          return 1;
+        }
+        return 0;
+      }) || null;
   };
 
   return (
@@ -36,7 +54,7 @@ function Table({ rows, columns }: TTable) {
               <th key={column.id}>
                 <div
                   className="table__title-div"
-                  onClick={() => handleSort(column.id)}
+                  onClick={() => handleSort(column.id, column.columnName)}
                 >
                   {column.title}
                   <img
@@ -52,7 +70,7 @@ function Table({ rows, columns }: TTable) {
           </tr>
         </thead>
         <tbody>
-          {rows?.map((row) => (
+          {sortedArray?.map((row) => (
             <tr key={nanoid()}>
               {Object.values(row).map((value) => (
                 <td key={nanoid()}>{value}</td>
