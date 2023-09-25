@@ -1,4 +1,4 @@
-import { MessageWrapper, StepTitle } from "../../../components/UI";
+import { Message, StepTitle } from "../../../components/UI";
 import pdf from "../../../assets/pdf/creditCardOffer.pdf";
 import { Link } from "react-router-dom";
 import pdfImg from "../../../assets/svg/pdfImg.svg";
@@ -12,6 +12,11 @@ const titleProps = {
 };
 
 function SigningDocuments() {
+  const data = {
+    title: "Documents have been successfully signed and sent for approval",
+    subtitle:
+      "Within 10 minutes you will be sent a PIN code to your email for confirmation",
+  };
   const [isChecked, setChecked] = useState(false);
   const handleClick = () => setChecked(!isChecked);
   return (
@@ -49,13 +54,7 @@ function SigningDocuments() {
             Send
           </button>
         </div>
-        <MessageWrapper>
-          <h3>Documents have been successfully signed and sent for approval</h3>
-          <p>
-            Within 10 minutes you will be sent a PIN code to your email for
-            confirmation
-          </p>
-        </MessageWrapper>
+        <Message {...data} />
       </section>
     </main>
   );

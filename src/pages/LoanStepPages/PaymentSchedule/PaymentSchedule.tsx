@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FormWrapper, ModalWrapper } from "../../../components/UI";
+import { FormWrapper, Message, Modal } from "../../../components/UI";
 import { RouteNames } from "../../../routers/routes";
 import { Link } from "react-router-dom";
 import { PaymentScheduleTable } from "../../../components/LoanStepPages";
@@ -8,19 +8,30 @@ function PaymentSchedule() {
   const [isChecked, setChecked] = useState(false);
   const [modalActive, setModalActive] = useState(false);
   const [denylActive, setDenyActive] = useState(false);
+  const [messageActive, setMessageActive] = useState(false);
   const title = "Deny application";
+
+  const data = {
+    title: "Documents are formed",
+    subtitle: "Documents for signing will be sent to your email",
+  };
 
   return (
     <main className="main">
-      <FormWrapper>
-        <PaymentScheduleTable
-          setModalActive={setModalActive}
-          setChecked={setChecked}
-          isChecked={isChecked}
-        />
-      </FormWrapper>
+      {messageActive ? (
+        <Message {...data} />
+      ) : (
+        <FormWrapper>
+          <PaymentScheduleTable
+            setMessageActive={setMessageActive}
+            setModalActive={setModalActive}
+            setChecked={setChecked}
+            isChecked={isChecked}
+          />
+        </FormWrapper>
+      )}
       {modalActive && (
-        <ModalWrapper
+        <Modal
           title={title}
           denylActive={denylActive}
           setActive={setModalActive}
@@ -59,7 +70,7 @@ function PaymentSchedule() {
               </div>
             </>
           )}
-        </ModalWrapper>
+        </Modal>
       )}
     </main>
   );
