@@ -4,9 +4,10 @@ import { contactInformation } from "./Prescoring.constant";
 import { api_loan } from "../../../api/loan";
 import { TPrescoring, TResponceOffers, Tinputs } from "./Prescoring.type";
 import { Input, Select } from "../../UI";
+import store from "../../../storage/storage";
 import "./Prescoring.scss";
 
-function Prescoring({ store, setOffers, amount, setAmount }: TPrescoring) {
+function Prescoring({ setOffers, amount, setAmount }: TPrescoring) {
   const {
     register,
     handleSubmit,

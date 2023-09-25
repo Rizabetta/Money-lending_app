@@ -1,6 +1,3 @@
-import { TState } from "../../../pages/Loan/Loan";
-import { Action, Store } from "redux";
-
 export type Tinputs = {
   amount: number;
   term: number;
@@ -25,7 +22,6 @@ export type TResponceOffers = {
 };
 
 export type TPrescoring = {
-  store: Store<TState, Action>;
   setOffers: React.Dispatch<React.SetStateAction<TResponceOffers[]>>;
   amount: number;
   setAmount: React.Dispatch<React.SetStateAction<number>>;
