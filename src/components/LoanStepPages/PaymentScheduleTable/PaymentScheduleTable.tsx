@@ -12,8 +12,23 @@ export type TTableRows = {
   remainingDebt: number;
 }[];
 
-function PaymentScheduleTable({ setModalActive, setChecked, isChecked }: any) {
+type TTableProps = {
+  setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
+  setChecked: React.Dispatch<React.SetStateAction<boolean>>;
+  isChecked: boolean;
+  setMessageActive: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+function PaymentScheduleTable({
+  setModalActive,
+  setChecked,
+  isChecked,
+  setMessageActive,
+}: TTableProps) {
   const handleClick = () => setChecked(!isChecked);
+  const handleSendClick = async () => {
+    setMessageActive((await api_loan.createDocuments()).ok);
+  };
 
   const titleProps = {
     title: "Payment Schedule",
@@ -60,6 +75,7 @@ function PaymentScheduleTable({ setModalActive, setChecked, isChecked }: any) {
           <button
             disabled={!isChecked}
             className={isChecked ? "defaultButton" : "disabledButton"}
+            onClick={handleSendClick}
           >
             Send
           </button>

@@ -3,6 +3,7 @@ import { TResponceOffers } from "../components/LoanPage/Prescoring/Prescoring.ty
 export enum PathNames {
   APPLICATION = "http://localhost:8080/application",
   ADMIN = "http://localhost:8080/admin",
+  DOCUMENT = "http://localhost:8080/document",
 }
 
 const requestOptions = (method: string, data: any) => {

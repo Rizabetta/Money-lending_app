@@ -1,17 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./PinCode.scss";
+import { api_loan } from "../../../api/loan";
 
 type TPinCodeProps = {
   numberOfСells: number;
+  setMessageActive: any;
 };
 
-function PinCode({ numberOfСells }: TPinCodeProps) {
+function PinCode({ numberOfСells, setMessageActive }: TPinCodeProps) {
+  const [pinReq, setPinReq] = useState("9600");
   const [pin, setPin] = useState<string[]>(
     Array.from({ length: numberOfСells }, () => "")
   );
   const [isActive, setisActive] = useState([false, false, false, false]);
   const [isValid, setisValid] = useState(true);
-
   const handleChange = (e: any, index: number) => {
     const { value } = e.target;
     const newPin = [...pin];
@@ -21,15 +23,28 @@ function PinCode({ numberOfСells }: TPinCodeProps) {
     if (index < pin.length - 1) {
       setisActive((isActive) => ({ ...isActive, [index + 1]: true }));
     } else {
-      pin[index] = e.currentTarget.value;
-      // pin.map((e)=> e==="" && setisValid(false))
-      console.log(pin);
+      newPin[index] = e.currentTarget.value;
+      setPin(newPin);
     }
     if (shouldFocusNextInput) {
       const nextInput = document.getElementById(`pin${index + 1}`);
       nextInput?.focus();
     }
   };
+
+  useEffect(() => {
+    if (pin[pin.length - 1] !== "") {
+      if (pin.includes("")) {
+        setisValid(false);
+      } else {
+        setisValid(true);
+        setPinReq(pin.join(""));
+        api_loan
+          .sendSESCode(Number(pinReq))
+          .then((e) => setMessageActive(e.ok));
+      }
+    }
+  }, [pin, pinReq, setMessageActive]);
 
   const handleBefore = (e: any) => {
     const isOnlyNumbers = /^[0-9]$/.test(e.data);

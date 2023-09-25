@@ -1,4 +1,7 @@
-import { TResponceOffers, Tinputs } from "../components/LoanPage/Prescoring/Prescoring.type";
+import {
+  TResponceOffers,
+  Tinputs,
+} from "../components/LoanPage/Prescoring/Prescoring.type";
 import { TScoring } from "../components/LoanStepPages/Scoring/Scoring";
 import { PathNames, apiFormData, apiOptions } from "./loan.const";
 
@@ -48,4 +51,41 @@ async function getDevices() {
   }
 }
 
-export const api_loan = { sendPrescoring, sendOffer, sendScoring, getDevices };
+async function createDocuments() {
+  const options = apiOptions.requestOptions("POST", {
+    applicationId: applicationId,
+  });
+  const responce = await fetch(
+    `${PathNames.DOCUMENT}/${applicationId}`,
+    options
+  );
+  return responce;
+}
+
+async function signDocuments() {
+  const options = apiOptions.requestOptions("POST", {});
+  const responce = await fetch(
+    `${PathNames.DOCUMENT}/${applicationId}/sign`,
+    options
+  );
+  return responce;
+}
+
+async function sendSESCode(pinCode: number) {
+  const options = apiOptions.requestOptions("POST", `${pinCode}`);
+  const responce = await fetch(
+    `${PathNames.DOCUMENT}/${applicationId}/sign/code`,
+    options
+  );
+  return responce;
+}
+
+export const api_loan = {
+  sendPrescoring,
+  sendOffer,
+  sendScoring,
+  getDevices,
+  createDocuments,
+  signDocuments,
+  sendSESCode,
+};
