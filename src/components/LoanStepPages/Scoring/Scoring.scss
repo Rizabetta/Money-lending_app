@@ -56,3 +56,14 @@
     }
   }
 }
+
+@media (max-width: 508px) {
+  .scoring__container,
+  .scoring__container:nth-child(2) {
+    flex-direction: inherit;
+    input,
+    select {
+      width: 300px;
+    }
+  }
+}

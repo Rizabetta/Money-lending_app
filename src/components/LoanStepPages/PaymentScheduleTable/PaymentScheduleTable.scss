@@ -23,7 +23,7 @@
     vertical-align: middle;
 
     .desc {
-     padding: 9px 7px;
+      padding: 9px 7px;
     }
   }
 
@@ -50,6 +50,10 @@
 }
 
 .paymentSchedule__agreement {
+  &-input {
+    display: flex;
+    align-items: center;
+  }
   display: flex;
   align-items: center;
 
@@ -65,7 +69,7 @@
     cursor: pointer;
     font-size: 16px;
     font-family: Ubuntu-500;
-    color: #1A202C;
+    color: #1a202c;
   }
 
   input {
@@ -86,3 +90,63 @@
     background: url("../../../assets/svg/Checkbox_checked.svg") no-repeat;
   }
 }
+
+@media (max-width: 768px) {
+  .paymentSchedule {
+    td {
+      padding-right: 30px;
+    }
+  }
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .paymentSchedule_footer {
+    display: block;
+    .paymentSchedule__agreement {
+      margin-top: 20px;
+    }
+  }
+}
+
+@media (max-width: 530px) {
+  .paymentSchedule__agreement {
+    display: block;
+    button {
+      margin: 20px 0 0 0;
+    }
+  }
+}
+// @media (max-width: 768px) {
+//   .paymentSchedule {
+//     table {
+//       display: block;
+//       width: 100%;
+//     }
+//     thead,
+//     tbody,
+//     thead th {
+//       display: block;
+//       padding: 10px 0;
+//     }
+
+//     thead {
+//       float: left;
+//     }
+//     tbody {
+//       overflow-x: auto;
+//     }
+
+//     tbody tr {
+//       display: table-cell;
+//       border-right: 1px solid black;
+//     }
+
+//     td {
+//       padding-right: 10px 30px;
+//       display: block;
+//     }
+//   }
+// }

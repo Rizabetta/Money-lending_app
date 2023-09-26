@@ -1,8 +1,9 @@
 export { Accordion } from "./Accordion";
+export { Button } from "./Button";
 export { FormWrapper } from "./FormWrapper";
 export { Loader } from "./Loader";
-export { MessageWrapper } from "./MessageWrapper";
-export { ModalWrapper } from "./ModalWrapper";
+export { Message } from "./Message";
+export { Modal } from "./Modal";
 export { PinCode } from "./PinCode";
 export { Tooltip } from "./Tooltip";
 export { Table } from "./Table";

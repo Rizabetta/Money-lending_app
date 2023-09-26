@@ -84,17 +84,20 @@ function PaymentScheduleTable({
           Deny
         </button>
         <div className="paymentSchedule__agreement">
-          <input
-            className="checkbox__input"
-            type="checkbox"
-            onClick={handleClick}
-            id="approval"
-            name="approval"
-            defaultChecked={isChecked}
-          />
-          <label className="checkbox__label" htmlFor="approval">
-            I agree with the payment schedule
-          </label>
+          <div className="paymentSchedule__agreement-input">
+            <input
+              className="checkbox__input"
+              type="checkbox"
+              onClick={handleClick}
+              id="approval"
+              name="approval"
+              defaultChecked={isChecked}
+            />
+            <label className="checkbox__label" htmlFor="approval">
+              I agree with the payment schedule
+            </label>
+          </div>
+
           <button
             disabled={!isChecked}
             className={isChecked ? "defaultButton" : "disabledButton"}

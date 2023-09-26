@@ -34,7 +34,6 @@ function Scoring({ setStatusScoring }: any) {
   const onSubmit: SubmitHandler<any> = async (data: any) => {
     setisSubmited(true);
     const responce = api_loan.sendScoring(data);
-    responce.then((e) => console.log(e));
     setStatusScoring((await responce).status);
   };
 

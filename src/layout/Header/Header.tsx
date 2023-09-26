@@ -2,6 +2,7 @@ import React from "react";
 import "./Header.scss";
 import { NavLink } from "react-router-dom";
 import { RouteNames } from "../../routers/routes";
+import { Button } from "../../components/UI";
 
 const menuList = [
   { id: 1, href: RouteNames.LOAN, title: "Credit card" },
@@ -14,6 +15,11 @@ const setActive = ({ isActive }: { isActive: boolean }) =>
   isActive ? "menu__list-activelink" : "menu__list-link";
 
 function Header() {
+  const prop = {
+    className: "defaultButton",
+    title: "Online Bank",
+  };
+
   return (
     <header className="header">
       <div className="header__container">
@@ -33,7 +39,7 @@ function Header() {
             ))}
           </ul>
         </nav>
-        <button className="defaultButton">Online Bank</button>
+        <Button {...prop} />
       </div>
     </header>
   );
