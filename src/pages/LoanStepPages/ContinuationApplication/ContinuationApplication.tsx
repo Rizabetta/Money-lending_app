@@ -1,6 +1,6 @@
-import { Scoring } from "../../../components/LoanStepPages";
 import { FormWrapper, Message } from "../../../components/UI";
 import { useState } from "react";
+import { Scoring } from "./Scoring";
 
 function ContinuationApplication() {
   const [statusScoring, setStatusScoring] = useState(500);

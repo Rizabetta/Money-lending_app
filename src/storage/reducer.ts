@@ -3,7 +3,7 @@ export type TState = {
   statusOkOffers: boolean;
 };
 
-type Action = { type: "PRESCORING" } | { type: "OFFERS" };
+type Action = { type: "PRESCORING" } | { type: "OFFERS" } | { type: "CLEAR" };
 
 const initialState: TState = {
   statusOkPrescoring: false,
@@ -16,6 +16,8 @@ const reducer = (state: TState = initialState, action: Action) => {
       return { ...state, statusOkPrescoring: true };
     case "OFFERS":
       return { ...state, statusOkOffers: true };
+    case "CLEAR":
+      return { ...state, statusOkPrescoring: false, statusOkOffers: false };
     default:
       return state;
   }

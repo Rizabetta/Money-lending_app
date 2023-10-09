@@ -2,7 +2,7 @@ import {
   TResponceOffers,
   Tinputs,
 } from "../components/LoanPage/Prescoring/Prescoring.type";
-import { TScoring } from "../components/LoanStepPages/Scoring/Scoring";
+import { TScoring } from "../pages/LoanStepPages/ContinuationApplication/Scoring/Scoring";
 import { PathNames, apiFormData, apiOptions } from "./loan.const";
 
 async function sendPrescoring(data: Tinputs) {

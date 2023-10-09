@@ -4,9 +4,9 @@ import {
   additionalInformation,
   employmentInformation,
 } from "./Scoring.constant";
-import { Input, Select, StepTitle } from "../../UI";
+import { Input, Select, StepTitle } from "../../../../components/UI";
 import "./Scoring.scss";
-import { api_loan } from "../../../api/loan";
+import { api_loan } from "../../../../api/loan";
 
 export type TScoring = {
   gender: string;

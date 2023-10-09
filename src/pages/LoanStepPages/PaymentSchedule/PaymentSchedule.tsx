@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FormWrapper, Message, Modal } from "../../../components/UI";
 import { RouteNames } from "../../../routers/routes";
 import { Link } from "react-router-dom";
-import { PaymentScheduleTable } from "../../../components/LoanStepPages";
+import { PaymentScheduleTable } from "./PaymentScheduleTable";
 
 function PaymentSchedule() {
   const [isChecked, setChecked] = useState(false);

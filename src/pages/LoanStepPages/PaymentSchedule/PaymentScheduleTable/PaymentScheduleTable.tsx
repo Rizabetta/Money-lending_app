@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { api_loan } from "../../../api/loan";
-import { StepTitle, Table } from "../../UI";
-import { TableRow } from "../../UI/Table/Table";
+import { api_loan } from "../../../../api/loan";
+import { StepTitle, Table } from "../../../../components/UI";
+import { TableRow } from "../../../../components/UI/Table/Table";
 import "./PaymentScheduleTable.scss";
 
 export type TTableRows = {

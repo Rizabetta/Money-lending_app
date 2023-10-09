@@ -41,7 +41,11 @@ function Support() {
         </div>
         {sessionStorage.getItem("status") !== "200" && (
           <button type="submit" className="support__search-form__button">
-            <img src={subscribe} alt="Subscribe" />
+            <img
+              src={subscribe}
+              alt="Subscribe"
+              aria-label="Subscribe newsletter"
+            />
             Subscribe
           </button>
         )}
