@@ -32,10 +32,6 @@
 @mixin notActiveBtn() {
   background-color: #fff;
   border: 1px solid #003cff;
-
-  svg path {
-    stroke: #121111;
-  }
 }
 
 @mixin form-inputselect($vertical, $horizontal) {

@@ -62,22 +62,16 @@
   border-radius: 50px;
   margin-top: 48px;
   margin-left: 20px;
+  color: black;
   @include notActiveBtn();
-
+  &:disabled:hover {
+    color: black;
+    background-color: white;
+    cursor: not-allowed;
+  }
   &:hover {
     background-color: #003cff;
-
-    svg path {
-      stroke: white;
-    }
-  }
-}
-
-.disabled {
-  cursor: not-allowed;
-
-  &:hover {
-    @include notActiveBtn();
+    color: white;
   }
 }
 
